@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+(function(){
+if(''){
+if (prompt('请输入文章密码') !== ''){
+alert('密码错误！');
+history.back();
+}
+}
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+<meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="问题   iOS 中 View 的事件到底是怎么传递和响应的？ 为什么 父View 关闭了事件响应时，子View 就无法响应事件？ 底层原理？ 如何扩大 Button 的点击范围 ？ 如何让 父View 和 子View 同时响应同一事件？默认情况下只会响应 子View 的事件回调。 为什么 子View 关闭了事件，但其 父View 开启事件的情况下，点击 子View 时，父View 可以正常响应事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈 iOS 事件的传递和响应过程">
+<meta property="og:url" content="https://liangdahong.com/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/index.html">
+<meta property="og:site_name" content="梁大红的技术Blog">
+<meta property="og:description" content="问题   iOS 中 View 的事件到底是怎么传递和响应的？ 为什么 父View 关闭了事件响应时，子View 就无法响应事件？ 底层原理？ 如何扩大 Button 的点击范围 ？ 如何让 父View 和 子View 同时响应同一事件？默认情况下只会响应 子View 的事件回调。 为什么 子View 关闭了事件，但其 父View 开启事件的情况下，点击 子View 时，父View 可以正常响应事">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zhoon.github.io/img/artical/ios_event/iosevent_3.png">
+<meta property="og:image" content="https://zhoon.github.io/img/artical/ios_event/iosevent_4.png">
+<meta property="og:image" content="https://zhoon.github.io/img/artical/ios_event/iosevent_5.png">
+<meta property="og:image" content="https://zhoon.github.io/img/artical/ios_event/iosevent_2.png">
+<meta property="og:updated_time" content="2018-08-07T09:12:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈 iOS 事件的传递和响应过程">
+<meta name="twitter:description" content="问题   iOS 中 View 的事件到底是怎么传递和响应的？ 为什么 父View 关闭了事件响应时，子View 就无法响应事件？ 底层原理？ 如何扩大 Button 的点击范围 ？ 如何让 父View 和 子View 同时响应同一事件？默认情况下只会响应 子View 的事件回调。 为什么 子View 关闭了事件，但其 父View 开启事件的情况下，点击 子View 时，父View 可以正常响应事">
+<meta name="twitter:image" content="https://zhoon.github.io/img/artical/ios_event/iosevent_3.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+var NexT = window.NexT || {};
+var CONFIG = {
+root: '/',
+scheme: 'Pisces',
+version: '5.1.4',
+sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+fancybox: true,
+tabs: true,
+motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+duoshuo: {
+userId: '0',
+author: '博主'
+},
+algolia: {
+applicationID: '',
+apiKey: '',
+indexName: '',
+hits: {"per_page":10},
+labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+}
+};
+</script>
+
+
+
+<link rel="canonical" href="https://liangdahong.com/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/"/>
+
+
+
+
+
+
+  <title>浅谈 iOS 事件的传递和响应过程 | 梁大红的技术Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cfc3472238e91bbaf9532f7d54b9ff7c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/liangdahong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁大红的技术Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-objective-c">
+          <a href="/categories/Objective-C" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            Objective-C
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-swift">
+          <a href="/categories/Swift" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Swift
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/Web" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁大红">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁大红的技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈 iOS 事件的传递和响应过程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T11:16:11+08:00">
+                2018-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
+</blockquote>
+<ul>
+<li><code>iOS</code> 中 <code>View</code> 的事件到底是怎么<code>传递</code>和<code>响应</code>的？</li>
+<li>为什么 <code>父View</code> 关闭了事件响应时，<code>子View</code> 就无法响应事件？ 底层原理？</li>
+<li>如何扩大 <code>Button</code> 的点击范围 ？</li>
+<li>如何让 <code>父View</code> 和 <code>子View</code> 同时响应同一事件？默认情况下只会响应 <code>子View</code> 的事件回调。</li>
+<li>为什么 <code>子View</code> 关闭了事件，但其 <code>父View</code> 开启事件的情况下，点击 <code>子View</code> 时，<code>父View</code> 可以正常响应事件？</li>
+<li>为什么 子View 是 UIView时，如果没有添加手势，点击子 View时，会由其父View来响应，而 子View 是 UIControl 时，子View 没有添加手势，一样不会由 父View 来响应</li>
+<li>…</li>
+</ul>
+<a id="more"></a>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><blockquote>
+<p><code>iOS</code> 的事件可以分为三种</p>
+</blockquote>
+<ul>
+<li><code>Touch Events(触摸事件)</code></li>
+<li><code>Motion Events(运动事件，比如重力感应和摇一摇等)</code></li>
+<li><code>Remote Events(远程事件，比如用耳机上得按键来控制手机)</code></li>
+</ul>
+<blockquote>
+<p>下面主要讲解 <code>Touch Events(触摸事件)</code> <code>Touch Events</code>事件的整个过程可以分为 <code>传递</code>和<code>响应</code> 2 个阶段，</p>
+<ul>
+<li>传递： 是当我们触摸屏幕时，为我们找出最适合的 <code>View</code>，</li>
+<li>响应： 当我们找出最适合的 <code>View</code> 后，此时只是找到了最合适的 <code>View</code>，但未必 此 <code>View</code> 可以响应此事件，所以需要继续找出能响应此事件的 <code>View</code>。</li>
+</ul>
+</blockquote>
+<h3 id="传递过程"><a href="#传递过程" class="headerlink" title="传递过程"></a>传递过程</h3><blockquote>
+<p>每当手指接触屏幕，操作系统会把事件传递给当前的 <code>App</code>， 在 <code>UIApplication</code>接收到手指的事件之后，就会去调用`UIWindow的hitTest:withEvent:，看看当前点击的点是不是在window内，如果是则继续依次调用其 subView的hitTest:withEvent:方法，直到找到最后需要的view。调用结束并且hit-test view确定之后，便可以确定最合适的 View。</p>
+</blockquote>
+<ul>
+<li>引用几张图来说明</li>
+</ul>
+<p><img src="https://zhoon.github.io/img/artical/ios_event/iosevent_3.png" alt=""></p>
+<p><img src="https://zhoon.github.io/img/artical/ios_event/iosevent_4.png" alt=""></p>
+<p><img src="https://zhoon.github.io/img/artical/ios_event/iosevent_5.png" alt=""></p>
+<ul>
+<li>图片表示的内容可用下面的话描述<a href="https://zhoon.github.io/ios/2015/04/12/ios-event.html" target="_blank" rel="noopener">来自这里</a></li>
+</ul>
+<blockquote>
+<p>递归是向界面的根节点UIWindow发送hitTest:withEvent:消息开始的，从这个消息返回的是一个UIView，也就是手指当前位置最前面的那个 hittest view。 当向UIWindow发送hitTest:withEvent:消息时，hitTest:withEvent:里面所做的事，就是判断当前的点击位置是否在window里面，如果在则遍历window的subview然后依次对subview发送hitTest:withEvent:消息(注意这里给subview发送消息是根据当前subview的index顺序，index越大就越先被访问)。如果当前的point没有在view上面，那么这个view的subview也就不会被遍历了。当事件遍历到了view B.1，发现point在view B.1里面，并且view B.1没有subview，那么他就是我们要找的hittest view了，找到之后就会一路返回直到根节点，而view B之后的view A也不会被遍历了。</p>
+</blockquote>
+<ul>
+<li>下面是 <code>- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event</code> 方法的内部实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event</span><br><span class="line">&#123;</span><br><span class="line">    if (self.hidden || !self.userInteractionEnabled || self.alpha &lt; 0.01 || ![self pointInside:point withEvent:event] || ![self _isAnimatedUserInteractionEnabled]) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (UIView *subview in [self.subviews reverseObjectEnumerator]) &#123;</span><br><span class="line">            UIView *hitView = [subview hitTest:[subview convertPoint:point fromView:self] withEvent:event];</span><br><span class="line">            if (hitView) &#123;</span><br><span class="line">                return hitView;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return self;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/BigZaphod/Chameleon/blob/master/UIKit/Classes/UIView.m" target="_blank" rel="noopener">上面的代码来自这里</a></p>
+</blockquote>
+<h3 id="响应过程"><a href="#响应过程" class="headerlink" title="响应过程"></a>响应过程</h3><ul>
+<li>个人对响应过程的理解如下： </li>
+</ul>
+<blockquote>
+<p>当我们知道最合适的 View 后，事件会 由上向下【子view -&gt; 父view，控制器view -&gt; 控制器】来找出合适响应事件的 View，来响应相关的事件。如果当前的 View 有添加手势，那么直接响应相应的事件，不会继续向下寻找了，如果没有手势事件，那么会看其是否实现了如下的方法：</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>如果有实现那么就由此 View 响应，如果没有实现，那么就会传递给他的下一个响应者【子view -&gt; 父view，控制器view -&gt; 控制器】， 这里我们可以做一个简单的验证，在默认情况下 UIView 是不响应事件的，UIControl 就算没有添加手势一样的会由他来响应， 这里可以使用 runtime查看 UIView 和 UIControl 的方法列表， 或 查看 <a href="https://github.com/BigZaphod/Chameleon/blob/master/UIKit/Classes/UIView.m" target="_blank" rel="noopener">UIKit 源码</a> 可知， UIView 没有实现如上的 <code>touchesBegan</code>方法，而 <code>UIControl</code> 是实现了如上的相关方法，所以验证了刚才的 UIView 不响应，和 UIControl 的响应。一旦找到最合适响应的View就结束, 在执行响应的绑定的事件，如果没有就抛弃此事件。</p>
+<p>我的验证</p>
+<ul>
+<li>首先处理添加了手势时，其便可以处理事件。</li>
+<li>我们创建一个view A 在 A 中添加一个 view B, 如果我们给 A 加了手势，B没有加手势，</li>
+<li>我们在点击 B 时，会响应 A 的事件，非常正常的情况，那么它是怎么判断 B 是否可以处理的呢？</li>
+<li>我们现在给 B 加一个手势，那么同样的操作时会触发 B 的手势，现在我们 给 B 增加一个方法，</li>
+</ul>
+<pre><code class="c">@implementation BMSonView
+- (NSArray&lt;UIGestureRecognizer *&gt; *)gestureRecognizers {
+    NSLog(@<span class="string">"%@"</span>, self);
+    <span class="keyword">return</span> @[];
+}
+</code></pre>
+<blockquote>
+<p>手势返回 @[]，此时点击 B 只会触发 A 的事件，由此可以说明在判断 view 是否可以处理事件实现是判断  gestureRecognizers  即是否添加了手势，上面提到了还有判断如下的方法是否实现了,默认情况下 UIView 是没有实现如下的方法的，使用在没有添加手势时他不响应事件。</p>
+</blockquote>
+<pre><code class="c">- (<span class="keyword">void</span>)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (<span class="keyword">void</span>)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+- (<span class="keyword">void</span>)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+- (<span class="keyword">void</span>)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
+</code></pre>
+<p>如果我们手动实现了如上的方法时，就算没有给  B 添加手势，点击 B 时， 事件不会响应 A 的方法，会到上面的方法中。从 UIControl 的源码便可清除看到。</p>
+<p>所以个人理解：</p>
+<ul>
+<li>事件在传递时和上面的 hit 方法有关，一层层向上传递，【窗口—&gt; view】由其相应的 view 中具体的实现来确定谁才是是最合适响应的view</li>
+<li>在响应时，又上向下找出第一个能处理的view来处理事件，[view —&gt; 窗口]，在寻找刚过程中 会判断是否增加了手势 和是否实现了如上的 触摸方法。</li>
+<li>至于 UIControl Button 的特殊事件相应，个人认为是在其m文件中实现了上面的4个方法，在这4个方法中做了相关的处理，这里可以从 UIControl 代码中在知道一些内容。</li>
+<li>所以如果想自己实现 UIControl Button ，首先要想办法处理好上面的4个方法。</li>
+</ul>
+<ul>
+<li>图如下<br><img src="https://zhoon.github.io/img/artical/ios_event/iosevent_2.png" alt=""></li>
+</ul>
+<h2 id="问题解答"><a href="#问题解答" class="headerlink" title="问题解答"></a>问题解答</h2><ul>
+<li><p>iOS 中 View 的事件到底是怎么传递和响应的？</p>
+<blockquote>
+<p>如上所描。</p>
+</blockquote>
+</li>
+<li><p>为什么 父View 关闭了事件响应时，子View 就无法响应事件？</p>
+<blockquote>
+<p>因为在事件传递的时，先到父view，当父view无法响应事，直接就跳过了遍历其子view，故只要父类关闭了事件，子 view 就已经没有机会响应事件了。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>如何扩大 Button 的点击范围？</p>
+<blockquote>
+<p>扩大点击范围，无非就是想本来没有点击 btn 但想让 btn 响应事件，那么可以在 hitTest 方法中做适当的操作，当满足xxx条件时，强行返回 btn 来达到最佳点击范围的效果，相关的实现可以自行 Google ，有一些较优雅而简洁的方式。</p>
+</blockquote>
+</li>
+<li><p>如何让 父View 和 子View 同时响应同一事件？</p>
+<blockquote>
+<p>父View 和 子View同时响应同一事件，默认当点击子view时，如果ziview可以处理事件，那么其他父view 是不会响应的，但是在 父view 传到 子view 时我们在 hitTest 方法中是清楚知道的，使用可以在这里做相关的操作便实现了子view 和父view 同时响应事件的效果。</p>
+</blockquote>
+</li>
+<li><p>为什么子View 关闭了事件，但其 父View 开启事件的情况下，点击 子View 时，父View 可以响应事件？</p>
+<blockquote>
+<p>子view关闭了事件，事件的传递是 父view 到子view，在 父view时，父view可以响应，那么会继续访问其 子view是否可以响应，如果此时子view不可以响应，那么他会直接返回 父view，所以 子View 关闭了事件 父View  正常执行事件是必然的。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>为什么 子View 是 UIView时，如果没有添加手势，点击子 View时，会由其父View来响应，而 子View 是 UIControl 时，子View 没有添加手势，一样不会由 父View 来响应</p>
+<blockquote>
+<p>这个问题可以见上面的寻找可以响应的 view 来解决，UIControl 实现了如上的 4 大方法，而 UIView 没有实现。</p>
+</blockquote>
+</li>
+<li><p>这里其实还有许多内容待挖掘，比如：scrollview 的事件响应等。</p>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://smnh.me/hit-testing-in-ios/" target="_blank" rel="noopener">http://smnh.me/hit-testing-in-ios/</a></li>
+<li><a href="https://zhoon.github.io/ios/2015/04/12/ios-event.html" target="_blank" rel="noopener">https://zhoon.github.io/ios/2015/04/12/ios-event.html</a></li>
+<li><a href="http://southpeak.github.io/blog/2015/03/07/uiresponder/" target="_blank" rel="noopener">http://southpeak.github.io/blog/2015/03/07/uiresponder/</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/index.html#//apple_ref/doc/uid/TP40006922" target="_blank" rel="noopener">https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIScrollView_Class/index.html#//apple_ref/doc/uid/TP40006922</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/event_delivery_responder_chain/event_delivery_responder_chain.html" target="_blank" rel="noopener">https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/event_delivery_responder_chain/event_delivery_responder_chain.html</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/GestureRecognizer_basics/GestureRecognizer_basics.html#//apple_ref/doc/uid/TP40009541-CH2-SW2" target="_blank" rel="noopener">https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/GestureRecognizer_basics/GestureRecognizer_basics.html#//apple_ref/doc/uid/TP40009541-CH2-SW2</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/GestureRecognizer_basics/GestureRecognizer_basics.html#//apple_ref/doc/uid/TP40009541-CH2-SW2" target="_blank" rel="noopener">https://developer.apple.com/library/ios/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/GestureRecognizer_basics/GestureRecognizer_basics.html#//apple_ref/doc/uid/TP40009541-CH2-SW2</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+
+<div>
+
+<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">- END -</div>
+
+</div>
+
+
+</div>
+
+<div>
+
+
+
+<img align="center" src="http://pcqky5c26.bkt.clouddn.com/wxgzh.jpg" width="25%" style="border-radius:5px; box-shadow: 5px 5px 5px #999999"></img>
+<div align="center" style="color: #aaaaaa">⌾</div>
+<div align="center">关注微信公众号，发现更多精彩</div>
+
+<div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
+
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<!-- JS库 sweetalert 可修改路径 -->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<p><span>文章作者:</span><a href="/" title="访问 梁大红 的个人博客">梁大红</a></p>
+<p><span>特别声明:</span><a href="https://liangdahong.com/about/" title="A">若无特殊声明均为原创，转载请注明，侵权请联系</a></p>
+<p><span>版权声明:</span><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a></p>
+
+</div>
+
+<script>
+var clipboard = new Clipboard('.fa-clipboard');
+$(".fa-clipboard").click(function(){
+clipboard.on('success', function(){
+swal({
+title: "",
+text: '拷贝成功!',
+icon: "success",
+showConfirmButton: true
+});
+});
+});
+</script>
+
+
+
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/23/转载/转-优化-iOS-程序性能的-24-个方法/" rel="next" title="转 - 优化 iOS 程序性能的 24 个方法">
+                <i class="fa fa-chevron-left"></i> 转 - 优化 iOS 程序性能的 24 个方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/13/2018/CSS-入门之一/" rel="prev" title="CSS 入门之一">
+                CSS 入门之一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="梁大红" />
+            
+              <p class="site-author-name" itemprop="name">梁大红</p>
+              <p class="site-description motion-element" itemprop="description">千里之行始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangdahong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/liangdahong" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/liangdahong" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/dahong.liang" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ios@liangdahong.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.com" title="Mattt" target="_blank">Mattt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.ibireme.com" title="ibireme" target="_blank">ibireme</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="onevcat" target="_blank">onevcat</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.cnbang.net/archives" title="bang" target="_blank">bang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sunnyxx.com" title="sunnyxx" target="_blank">sunnyxx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://stormzhang.com/" title="stormzhang" target="_blank">stormzhang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jinxiansen.com/" title="晋先森" target="_blank">晋先森</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haodachuang.cn/" title="乡长" target="_blank">乡长</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传递过程"><span class="nav-number">2.1.</span> <span class="nav-text">传递过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应过程"><span class="nav-number">2.2.</span> <span class="nav-text">响应过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解答"><span class="nav-number">3.</span> <span class="nav-text">问题解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+<span class="author" itemprop="copyrightHolder">梁大红</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://liangdahong.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://liangdahong.com/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/';
+          this.page.identifier = '2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/';
+          this.page.title = '浅谈 iOS 事件的传递和响应过程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://liangdahong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
