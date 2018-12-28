@@ -87,19 +87,19 @@ history.back();
 
 
 
-<meta name="description" content="在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。">
+<meta name="description" content="Objective-C 下所有的方法调用都可以理解为，消息。一个对象接收到消息后，处理流程如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS第三方库背后的原理和简单使用">
-<meta property="og:url" content="https://liangdahong.com/2017/11/27/2017/iOS第三方库背后的原理和简单使用/index.html">
+<meta property="og:title" content="iOS 运行时之消息转发机制">
+<meta property="og:url" content="https://liangdahong.com/2018/12/28/2018/iOS-运行时之消息转发机制/index.html">
 <meta property="og:site_name" content="梁大红的技术Blog">
-<meta property="og:description" content="在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。">
+<meta property="og:description" content="Objective-C 下所有的方法调用都可以理解为，消息。一个对象接收到消息后，处理流程如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg">
-<meta property="og:updated_time" content="2018-08-07T09:11:12.000Z">
+<meta property="og:image" content="http://www.enkichen.com/uploads/forwardflow.png">
+<meta property="og:updated_time" content="2018-12-28T03:37:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS第三方库背后的原理和简单使用">
-<meta name="twitter:description" content="在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。">
-<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg">
+<meta name="twitter:title" content="iOS 运行时之消息转发机制">
+<meta name="twitter:description" content="Objective-C 下所有的方法调用都可以理解为，消息。一个对象接收到消息后，处理流程如下：">
+<meta name="twitter:image" content="http://www.enkichen.com/uploads/forwardflow.png">
 
 
 
@@ -129,14 +129,14 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
 
 
-<link rel="canonical" href="https://liangdahong.com/2017/11/27/2017/iOS第三方库背后的原理和简单使用/"/>
+<link rel="canonical" href="https://liangdahong.com/2018/12/28/2018/iOS-运行时之消息转发机制/"/>
 
 
 
 
 
 
-  <title>iOS第三方库背后的原理和简单使用 | 梁大红的技术Blog</title>
+  <title>iOS 运行时之消息转发机制 | 梁大红的技术Blog</title>
   
 
 
@@ -349,7 +349,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2017/11/27/2017/iOS第三方库背后的原理和简单使用/">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2018/12/28/2018/iOS-运行时之消息转发机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁大红">
@@ -366,7 +366,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS第三方库背后的原理和简单使用</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 运行时之消息转发机制</h1>
         
 
         <div class="post-meta">
@@ -378,8 +378,8 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T21:48:03+08:00">
-                2017-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T10:00:53+08:00">
+                2018-12-28
               </time>
             
 
@@ -389,28 +389,6 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -419,9 +397,9 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/27/2017/iOS第三方库背后的原理和简单使用/#comments" itemprop="discussionUrl">
+                <a href="/2018/12/28/2018/iOS-运行时之消息转发机制/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/27/2017/iOS第三方库背后的原理和简单使用/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/12/28/2018/iOS-运行时之消息转发机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,57 +427,75 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
       
 
       
-        <p><img src="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg" alt="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg"></p>
-<blockquote>
-<p>在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。</p>
+        <blockquote>
+<p>Objective-C 下所有的方法调用都可以理解为，消息。一个对象接收到消息后，处理流程如下：</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="MJExtension"><a href="#MJExtension" class="headerlink" title="MJExtension"></a>MJExtension</h1><blockquote>
-<p><a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a></p>
-</blockquote>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="json-gt-Model"><a href="#json-gt-Model" class="headerlink" title="json -&gt; Model"></a>json -&gt; Model</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// json -&gt; Model </span></span><br><span class="line">+ (instancetype)mj_objectWithKeyValues:(id)keyValues;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json -&gt; Model 数组</span></span><br><span class="line">+ (NSMutableArray *)mj_objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray;</span><br></pre></td></tr></table></figure>
-<h3 id="Model-gt-json"><a href="#Model-gt-json" class="headerlink" title="Model -&gt; json"></a>Model -&gt; json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  转换为JSON Data</span><br><span class="line"> */</span><br><span class="line">- (NSData *)mj_JSONData;</span><br><span class="line">/**</span><br><span class="line"> *  转换为字典或者数组</span><br><span class="line"> */</span><br><span class="line">- (id)mj_JSONObject;</span><br><span class="line">/**</span><br><span class="line"> *  转换为JSON 字符串</span><br><span class="line"> */</span><br><span class="line">- (NSString *)mj_JSONString;</span><br></pre></td></tr></table></figure>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*数组中需要转换的模型*/</span></span><br><span class="line">+ (NSDictionary *)mj_objectClassInArray&#123;</span><br><span class="line">    <span class="keyword">return</span> @&#123;</span><br><span class="line">             @<span class="string">"array1"</span>: BMImageInfoModel.class,</span><br><span class="line">             &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*key 重命名 服务器key : 模型属性key */</span></span><br><span class="line">+ (NSDictionary *)mj_replacedKeyFromPropertyName &#123;</span><br><span class="line">    <span class="keyword">return</span> @&#123;</span><br><span class="line">             @<span class="string">"description"</span>: @<span class="string">"desc"</span>,</span><br><span class="line">             @<span class="string">"id"</span>: @<span class="string">"ID"</span>,</span><br><span class="line">             &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*json -&gt; Model 完成时*/</span></span><br><span class="line">- (<span class="keyword">void</span>)mj_keyValuesDidFinishConvertingToObject &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*Model -&gt; json 完成时*/</span></span><br><span class="line">- (<span class="keyword">void</span>)mj_objectDidFinishConvertingToKeyValues &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
-<li><p>我们知道 json-&gt;Model时，其实就是在dict中取对应的值然后设置到Model中，  <code>obj.name = dict[@&quot;name&quot;];</code>   我们知道Model中的属性一般是非常多的，而且一个项目中Model也是非常多，而且Model中的属性随时可能变动，像上面的赋值代码就会成千上万，而且非常不好维护，那么我们有没有快捷的方法解决好这些问题呢？<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>就是为我们解决了这些问题的一个库而且可以扩展许多功能。不管你有多少属性只需要<code>mj_objectWithKeyValues</code>这样一行代码完美搞定。</p>
-</li>
-<li><p>在上面的分析中我们肯定要想办法动态的获取Model中的属性，同时去dict中取相应的值设置给Model相应的属性，其实<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>的核心功能就是解决这个问题，<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>使用Runtime动态地的获取模型的属性，然后动态的在dict中取相应的值设置给Model，当然其中做了特别多的优化和扩展。</p>
-</li>
-<li><p>动态获取模型的属性</p>
-</li>
-</ol>
+<ul>
+<li>通过 NSObject 的 isa 指针找到对应的 Class</li>
+<li>在方法缓存中查找 SEL</li>
+<li>在 Class 的方法列表中找到对应的 SEL</li>
+<li>如果没有继续往父类中找</li>
+</ul>
 <blockquote>
-<p>NSObject+MJKeyValue.m 文件 87 行的如下代码</p>
+<p>在常规的操作中，如果我们调用一个没有实现的方法时，一直找到 root class  时都没找到方法实现时，崩溃。</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[clazz mj_enumerateProperties:^(MJProperty *property, BOOL *stop)...</span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用KVC赋值</li>
-</ol>
+<hr>
 <blockquote>
-<p>NSObject+MJKeyValue.m 文件 189 行的如下代码</p>
+<p>那么在没有查到实现的方法时系统是否做了其他的操作呢？或者我们有什么办法来防止程序崩溃吗 ？这就是本文的主题 <code>消息转发机制</code>.</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.赋值</span></span><br><span class="line">[property setValue:value forObject:self];</span><br></pre></td></tr></table></figure>
-<p>此方法内部如下（NSObject+MJKeyValue.m 文件78行）：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  设置成员变量的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)setValue:(id)value forObject:(id)object</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (self.type.KVCDisabled || value == nil) <span class="keyword">return</span>;</span><br><span class="line">    [object setValue:value forKey:self.name];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <blockquote>
-<p>基本功能的代码基本就是上面的代码段，当然有大量的优化和扩展防错等功能未展开。</p>
+<p>如下的流程图清晰的描述了具体过程。</p>
 </blockquote>
-<ol>
-<li>支持模型的继承属性，比如：Model的父类有一个name属性，那么在转换时会支持name属性的获取</li>
-<li>对一些特殊类型做了特殊处理，比如：BOOL类型等</li>
-<li>支持模型嵌套模型转换</li>
-<li>支持模型嵌套数组转换，如果数组中的对象是模型需实现相应协议</li>
-<li>支持指定属性名称支持转换和指定属性名称不支持转换</li>
-<li>只对属性有效</li>
-<li>支持readonly属性</li>
-<li>对Model的属性做了缓存大幅度增加性能</li>
-<li>添加一些扩展方法，Model-&gt;jsonData, Model-&gt;json, Model-&gt;dict</li>
-<li>json(NSData dict，NSString)-&gt;模型 </li>
-<li>json(NSData arr，NSString)-&gt;模型数组 </li>
-<li>获取到模型的属性列表时做缓存</li>
-<li>内部使用KVC赋值</li>
-</ol>
-<h1 id="YYModel"><a href="#YYModel" class="headerlink" title="YYModel"></a>YYModel</h1><h1 id="YYCache"><a href="#YYCache" class="headerlink" title="YYCache"></a>YYCache</h1><h1 id="UITableView-FDTemplateLayoutCell"><a href="#UITableView-FDTemplateLayoutCell" class="headerlink" title="UITableView-FDTemplateLayoutCell"></a>UITableView-FDTemplateLayoutCell</h1>
+<p><img src="http://www.enkichen.com/uploads/forwardflow.png" alt=""></p>
+<ul>
+<li>总结为 3 个阶段可以补救。</li>
+</ul>
+<h2 id="第-1-个阶段-动态方法解析"><a href="#第-1-个阶段-动态方法解析" class="headerlink" title="第 1 个阶段 - 动态方法解析"></a>第 1 个阶段 - 动态方法解析</h2><blockquote>
+<p>在动态方法解析阶段，在该阶段中，我们可以动态的为类添加一个方法，从而让动态添加的方法来处理之前未能处理的消息，具体是在下面的方法中动态添加方法同上返回 YES，那么系统就会重给对象发送刚才的消息来执行执行。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line"> 	// 动态添加方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Demo1 如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line"></span><br><span class="line">void test1test1(id self, SEL _cmd) &#123;</span><br><span class="line">    NSLog(@&quot;test1test1 %@ %@&quot;, NSStringFromSelector(_cmd) ,self);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@interface BMPerson : NSObject</span><br><span class="line">- (void)test1;</span><br><span class="line">@end</span><br><span class="line">@implementation BMPerson</span><br><span class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, NSStringFromSelector(sel));</span><br><span class="line">    class_addMethod(BMPerson.class, NSSelectorFromString(@&quot;test1&quot;), (IMP) test1test1, NULL);</span><br><span class="line">    return YES;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    BMPerson *peron = BMPerson.new;</span><br><span class="line">    [peron test1];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第-2-个阶段-转发"><a href="#第-2-个阶段-转发" class="headerlink" title="第 2 个阶段 - 转发"></a>第 2 个阶段 - 转发</h2><blockquote>
+<p>在这个阶段系统是要求我们给他返回一个可以正常响应次消息的对象，系统就会把刚才的消息转发给开发者返回的对象，让新的对象去消息响应的消息。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector &#123;</span><br><span class="line"> 	// 然后可以响应消息的对象</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Demo2 如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface BMGood : NSObject</span><br><span class="line">@end</span><br><span class="line">@implementation BMGood</span><br><span class="line">- (void)test1 &#123;</span><br><span class="line">    NSLog(@&quot;BMGood test1&quot;);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@interface BMPerson : NSObject</span><br><span class="line">- (void)test1;</span><br><span class="line">@end</span><br><span class="line">@implementation BMPerson</span><br><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector &#123;</span><br><span class="line">    return BMGood.new;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    BMPerson *peron = BMPerson.new;</span><br><span class="line">    [peron test1];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第-3-个阶段-自由派发"><a href="#第-3-个阶段-自由派发" class="headerlink" title="第 3 个阶段 - 自由派发"></a>第 3 个阶段 - 自由派发</h2><blockquote>
+<p>在这个阶段是最后一次机会，也是最强大的一步，因为在这里我们可以任意的转发给其他对象，而且可以转发给多个其他对象，从而我们可以为 Objective-C 实现 <code>多重继承</code> 功能，如某一种动物继承了🐱和🐶，在这里就可以转发给🐱和🐶，同时拥有抓老鼠和看家的功能。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector &#123;</span><br><span class="line">	// 返回 NSMethodSignature 对象</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Demo3 如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Foundation/Foundation.h&gt;</span><br><span class="line"></span><br><span class="line">@interface BMGood : NSObject</span><br><span class="line">@end</span><br><span class="line">@implementation BMGood</span><br><span class="line">- (void)test1BMGood &#123;</span><br><span class="line">    NSLog(@&quot;BMGood test1BMGood&quot;);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@interface BMPerson : NSObject</span><br><span class="line">- (void)test1;</span><br><span class="line">@end</span><br><span class="line">@implementation BMPerson</span><br><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, NSStringFromSelector(aSelector));</span><br><span class="line">    SEL selector = @selector(test1BMGood);</span><br><span class="line">    // 创建NSMethodSignature</span><br><span class="line">    BMGood *target =  BMGood.new;</span><br><span class="line">    NSMethodSignature *signature = [target methodSignatureForSelector:selector];</span><br><span class="line">    // 创建NSInvocation</span><br><span class="line">    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];</span><br><span class="line">    // 设置target</span><br><span class="line">    invocation.target = target;</span><br><span class="line">    // 设置SEL</span><br><span class="line">    invocation.selector = selector;</span><br><span class="line">    // 开始调用</span><br><span class="line">    [invocation invoke];</span><br><span class="line">    return signature;</span><br><span class="line">&#125;</span><br><span class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, anInvocation);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    BMPerson *peron = BMPerson.new;</span><br><span class="line">    [peron test1];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="崩溃阶段"><a href="#崩溃阶段" class="headerlink" title="崩溃阶段"></a>崩溃阶段</h2><blockquote>
+<p>如果在上面的 3 步都没挽救，那么系统会调用 <code>doesNotRecognizeSelector</code> 方法来输出响应的日志信息.</p>
+</blockquote>
+<h2 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h2><blockquote>
+<p>由上面的简单分析，使用我们在调用没有实现的方法到崩溃经过了 </p>
+</blockquote>
+<ul>
+<li><code>方法查找</code> </li>
+<li><code>动态方法解析</code> </li>
+<li><code>转发</code> </li>
+<li><code>自由派发</code> </li>
+<li><code>崩溃</code> </li>
+</ul>
+<blockquote>
+<p>5 个过程，我们可以在 2 3 4 中拦截这个崩溃的产生。</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/liangdahong/resolve-Demo" target="_blank" rel="noopener">完整DEMO</a></li>
+</ul>
+
       
     </div>
     
@@ -574,8 +570,8 @@ showConfirmButton: true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/30/2017/iOS开发之GCD详解/" rel="next" title="iOS开发之GCD详解">
-                <i class="fa fa-chevron-left"></i> iOS开发之GCD详解
+              <a href="/2018/10/19/2018/JSPatch简单分析1/" rel="next" title="JSPatch简单分析1">
+                <i class="fa fa-chevron-left"></i> JSPatch简单分析1
               </a>
             
           </div>
@@ -583,10 +579,6 @@ showConfirmButton: true
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/28/2017/iOS事件传递和响应过程/" rel="prev" title="iOS事件传递和响应过程">
-                iOS事件传递和响应过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -812,7 +804,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MJExtension"><span class="nav-number">1.</span> <span class="nav-text">MJExtension</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.1.</span> <span class="nav-text">基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#json-gt-Model"><span class="nav-number">1.1.1.</span> <span class="nav-text">json -&gt; Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-gt-json"><span class="nav-number">1.1.2.</span> <span class="nav-text">Model -&gt; json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YYModel"><span class="nav-number">2.</span> <span class="nav-text">YYModel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YYCache"><span class="nav-number">3.</span> <span class="nav-text">YYCache</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UITableView-FDTemplateLayoutCell"><span class="nav-number">4.</span> <span class="nav-text">UITableView-FDTemplateLayoutCell</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第-1-个阶段-动态方法解析"><span class="nav-number">1.</span> <span class="nav-text">第 1 个阶段 - 动态方法解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-2-个阶段-转发"><span class="nav-number">2.</span> <span class="nav-text">第 2 个阶段 - 转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-3-个阶段-自由派发"><span class="nav-number">3.</span> <span class="nav-text">第 3 个阶段 - 自由派发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#崩溃阶段"><span class="nav-number">4.</span> <span class="nav-text">崩溃阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单总结"><span class="nav-number">5.</span> <span class="nav-text">简单总结</span></a></li></ol></div>
             
 
           </div>
@@ -971,9 +963,9 @@ showConfirmButton: true
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://liangdahong.com/2017/11/27/2017/iOS第三方库背后的原理和简单使用/';
-          this.page.identifier = '2017/11/27/2017/iOS第三方库背后的原理和简单使用/';
-          this.page.title = 'iOS第三方库背后的原理和简单使用';
+          this.page.url = 'https://liangdahong.com/2018/12/28/2018/iOS-运行时之消息转发机制/';
+          this.page.identifier = '2018/12/28/2018/iOS-运行时之消息转发机制/';
+          this.page.title = 'iOS 运行时之消息转发机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://liangdahong.disqus.com/embed.js';
