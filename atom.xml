@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liangdahong.com/"/>
-  <updated>2019-02-14T09:15:46.000Z</updated>
+  <updated>2019-02-26T09:23:22.000Z</updated>
   <id>https://liangdahong.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试题001</title>
+    <link href="https://liangdahong.com/2019/02/26/2019/%E9%9D%A2%E8%AF%95%E9%A2%98001/"/>
+    <id>https://liangdahong.com/2019/02/26/2019/面试题001/</id>
+    <published>2019-02-26T08:18:26.000Z</published>
+    <updated>2019-02-26T09:23:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>写一个标准宏 MIN/MAX</li></ul><blockquote><p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>OC如何实现多继承 具体怎么做</li></ul><blockquote><p>可以使用 OC 的消息转发机制，消息转发有 3 个过程 <a href="https://liangdahong.com/2018/12/28/2018/iOS-%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B9%8B%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/">参考</a>。<code>动态方法解析</code> -&gt; <code>转发</code> -&gt; <code>自由派发</code>。可以在 <code>第 2 步</code> 和 <code>第 3 步</code>来让相关的方法转发给其他对象，从而实现多继承类似的功能。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;写一个标准宏 MIN/MAX&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;利用 &lt;code&gt;__typeof__&lt;/code&gt; 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#define kMIN(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &amp;lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#define kMAX(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &amp;gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>2018</title>
@@ -441,32 +465,6 @@
     
       <category term="iOS" scheme="https://liangdahong.com/categories/iOS/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之GCD详解</title>
-    <link href="https://liangdahong.com/2017/10/30/2017/iOS%E5%BC%80%E5%8F%91%E4%B9%8BGCD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://liangdahong.com/2017/10/30/2017/iOS开发之GCD详解/</id>
-    <published>2017-10-30T14:30:06.000Z</published>
-    <updated>2018-08-07T09:11:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="队列-dispatch-queue-t"><a href="#队列-dispatch-queue-t" class="headerlink" title="队列 dispatch_queue_t"></a>队列 dispatch_queue_t</h1><h2 id="并行队列"><a href="#并行队列" class="headerlink" title="并行队列"></a>并行队列</h2><blockquote><p>其任务是随机顺序执行，完全由系统处理。</p></blockquote><ul><li>全局并行队列<a id="more"></a></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure><ul><li>自定义创建并行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure><h2 id="串行队列"><a href="#串行队列" class="headerlink" title="串行队列"></a>串行队列</h2><blockquote><p>其任务是按照先后顺序执行</p></blockquote><ul><li>全局串行队列 (主线程队列)</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_main_queue();</span><br></pre></td></tr></table></figure><ul><li>自定义创建串行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure><blockquote><p>队列可以理解为对任务的管理，对任务使用 <code>串行(先后顺序执行)</code>还是<code>并行（随机执行，由系统确定）</code>处理。</p></blockquote><h1 id="异步执行-amp-同步执行"><a href="#异步执行-amp-同步执行" class="headerlink" title="异步执行&amp;同步执行"></a>异步执行&amp;同步执行</h1><h2 id="dispatch-async"><a href="#dispatch-async" class="headerlink" title="dispatch_async"></a>dispatch_async</h2><blockquote><p>默认会开启新线程执行传入的队列，会立即返回。</p></blockquote><h2 id="dispatch-sync"><a href="#dispatch-sync" class="headerlink" title="dispatch_sync"></a>dispatch_sync</h2><blockquote><p>在当前线程执行传入的队列，执行完才返回。</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_sync(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>当前的线程在主线程中执行时会导致死锁，dispatch_sync 操作会让传如的队列在当前线程执行，而且必须执行完才返回，dispatch_get_main_queue()又是串行队列，是先进先出，（先后顺序执行）必须要让先加入 dispatch_get_main_queue() 中的任务执行完毕执行（外面的代码），从而导致相互等待导致死锁。</p></blockquote><ul><li><code>串行队列a</code> 中 <code>同步执行dispatch_sync</code> <code>串行队列a</code> 的任务会导致<code>死锁</code></li></ul><h1 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;队列-dispatch-queue-t&quot;&gt;&lt;a href=&quot;#队列-dispatch-queue-t&quot; class=&quot;headerlink&quot; title=&quot;队列 dispatch_queue_t&quot;&gt;&lt;/a&gt;队列 dispatch_queue_t&lt;/h1&gt;&lt;h2 id=&quot;并行队列&quot;&gt;&lt;a href=&quot;#并行队列&quot; class=&quot;headerlink&quot; title=&quot;并行队列&quot;&gt;&lt;/a&gt;并行队列&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;其任务是随机顺序执行，完全由系统处理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;全局并行队列
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://liangdahong.com/categories/iOS/"/>
-    
-    
-      <category term="GCD" scheme="https://liangdahong.com/tags/GCD/"/>
     
   </entry>
   

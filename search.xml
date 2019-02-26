@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[面试题001]]></title>
+    <url>%2F2019%2F02%2F26%2F2019%2F%E9%9D%A2%E8%AF%95%E9%A2%98001%2F</url>
+    <content type="text"><![CDATA[写一个标准宏 MIN/MAX 利用 __typeof__ 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。 12#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;) OC如何实现多继承 具体怎么做 可以使用 OC 的消息转发机制，消息转发有 3 个过程 参考。动态方法解析 -&gt; 转发 -&gt; 自由派发。可以在 第 2 步 和 第 3 步来让相关的方法转发给其他对象，从而实现多继承类似的功能。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[2018]]></title>
     <url>%2F2018%2F12%2F31%2F2018%2F2018%2F</url>
     <content type="text"><![CDATA[领证了; 小朋友比以前听话多了; 赚了点外快把之前的所有外债还清了，无债一身轻，存了点粮食; 感谢苹果粑粑，虽然被虐千百遍，但还是有一些收获; 世界杯输了点，但还好，因祸得福; 技术方面就不谈了; 2019 加油。]]></content>

@@ -347,6 +347,156 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2019/02/26/2019/面试题001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁大红">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁大红的技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/26/2019/面试题001/" itemprop="url">面试题001</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T16:18:26+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/26/2019/面试题001/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/26/2019/面试题001/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>写一个标准宏 MIN/MAX</li>
+</ul>
+<blockquote>
+<p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/26/2019/面试题001/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2018/12/31/2018/2018/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -9436,7 +9586,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -9458,7 +9608,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
