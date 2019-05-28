@@ -42,19 +42,15 @@
     <link href="https://liangdahong.com/2019/02/26/2019/%E9%9D%A2%E8%AF%95%E9%A2%98001/"/>
     <id>https://liangdahong.com/2019/02/26/2019/面试题001/</id>
     <published>2019-02-26T08:18:26.000Z</published>
-    <updated>2019-02-26T09:23:22.000Z</updated>
+    <updated>2019-05-28T07:08:04.000Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>写一个标准宏 MIN/MAX</li></ul><blockquote><p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>OC如何实现多继承 具体怎么做</li></ul><blockquote><p>可以使用 OC 的消息转发机制，消息转发有 3 个过程 <a href="https://liangdahong.com/2018/12/28/2018/iOS-%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B9%8B%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/">参考</a>。<code>动态方法解析</code> -&gt; <code>转发</code> -&gt; <code>自由派发</code>。可以在 <code>第 2 步</code> 和 <code>第 3 步</code>来让相关的方法转发给其他对象，从而实现多继承类似的功能。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<ul><li>写一个标准宏 MIN/MAX</li></ul><a id="more"></a><blockquote><p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure><ul><li>OC如何实现多继承 具体怎么做</li></ul><blockquote><p>可以使用 OC 的消息转发机制，消息转发有 3 个过程 <a href="https://liangdahong.com/2018/12/28/2018/iOS-%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B9%8B%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/">参考</a>。<code>动态方法解析</code> -&gt; <code>转发</code> -&gt; <code>自由派发</code>。可以在 <code>第 2 步</code> 和 <code>第 3 步</code>来让相关的方法转发给其他对象，从而实现多继承类似的功能。</p></blockquote>]]></content>
     
     <summary type="html">
     
       &lt;ul&gt;
 &lt;li&gt;写一个标准宏 MIN/MAX&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;利用 &lt;code&gt;__typeof__&lt;/code&gt; 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#define kMIN(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &amp;lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#define kMAX(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &amp;gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

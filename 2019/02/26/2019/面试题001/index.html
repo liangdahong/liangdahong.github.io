@@ -87,17 +87,17 @@ history.back();
 
 
 
-<meta name="description" content="写一个标准宏 MIN/MAX   利用 __typeof__ 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。  12#define kMIN(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__)">
+<meta name="description" content="写一个标准宏 MIN/MAX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题001">
 <meta property="og:url" content="https://liangdahong.com/2019/02/26/2019/面试题001/index.html">
 <meta property="og:site_name" content="梁大红的技术Blog">
-<meta property="og:description" content="写一个标准宏 MIN/MAX   利用 __typeof__ 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。  12#define kMIN(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__)">
+<meta property="og:description" content="写一个标准宏 MIN/MAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T09:23:22.000Z">
+<meta property="og:updated_time" content="2019-05-28T07:08:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题001">
-<meta name="twitter:description" content="写一个标准宏 MIN/MAX   利用 __typeof__ 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。  12#define kMIN(a,b) (&amp;#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__)">
+<meta name="twitter:description" content="写一个标准宏 MIN/MAX">
 
 
 
@@ -428,11 +428,11 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
         <ul>
 <li>写一个标准宏 MIN/MAX</li>
 </ul>
+<a id="more"></a>
 <blockquote>
 <p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <ul>
 <li>OC如何实现多继承 具体怎么做</li>
 </ul>
@@ -701,19 +701,11 @@ showConfirmButton: true
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://blog.devtang.com" title="唐巧" target="_blank">唐巧</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="http://blog.cnbang.net/archives" title="bang" target="_blank">bang</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://blog.sunnyxx.com" title="sunnyxx" target="_blank">sunnyxx</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://stormzhang.com/" title="stormzhang" target="_blank">stormzhang</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
