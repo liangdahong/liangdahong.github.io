@@ -94,7 +94,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="查看 ip 地址  1ifconfig | grep &amp;quot;inet &amp;quot; | grep -v 127.0.0.1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-28T07:05:55.000Z">
+<meta property="og:updated_time" content="2019-05-29T01:19:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的资料">
 <meta name="twitter:description" content="查看 ip 地址  1ifconfig | grep &amp;quot;inet &amp;quot; | grep -v 127.0.0.1">
@@ -430,6 +430,10 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | grep &quot;inet &quot; | grep -v 127.0.0.1</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<ul>
+<li>微信小程序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.2.12</span><br><span class="line"></span><br><span class="line">// 搜索</span><br><span class="line">find / -name &quot;*.wxapkg&quot;</span><br><span class="line"></span><br><span class="line">// 删除</span><br><span class="line">rm -rf $(find / -name &quot;*.wxapkg&quot;)</span><br><span class="line"></span><br><span class="line">// 拷贝到电脑</span><br><span class="line">scp root@192.168.2.12:/private/var/mobile/Containers/Data/Application/24B958CE-A2B6-4B8C-ABC6-90075E90F2A0/Library/WechatPrivate/5fbbe972df96a510dc8560269047c82a/WeApp/LocalCache/release/wxe7c3f366905ced15/1.wxapkg /Users/___liangdahong/Desktop/wx</span><br><span class="line"></span><br><span class="line">// 解包</span><br><span class="line">node ./wxappUnpacker-master/wuWxapkg.js 1.wxapkg</span><br><span class="line"></span><br><span class="line">335418265</span><br></pre></td></tr></table></figure>
 
       
     </div>

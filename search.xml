@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[我的资料]]></title>
     <url>%2F2019%2F05%2F28%2F2019%2F%E6%88%91%E7%9A%84%E8%B5%84%E6%96%99%2F</url>
-    <content type="text"><![CDATA[查看 ip 地址 1ifconfig | grep &quot;inet &quot; | grep -v 127.0.0.1]]></content>
+    <content type="text"><![CDATA[查看 ip 地址 1ifconfig | grep &quot;inet &quot; | grep -v 127.0.0.1 微信小程序 123456789101112131415ssh root@192.168.2.12// 搜索find / -name &quot;*.wxapkg&quot;// 删除rm -rf $(find / -name &quot;*.wxapkg&quot;)// 拷贝到电脑scp root@192.168.2.12:/private/var/mobile/Containers/Data/Application/24B958CE-A2B6-4B8C-ABC6-90075E90F2A0/Library/WechatPrivate/5fbbe972df96a510dc8560269047c82a/WeApp/LocalCache/release/wxe7c3f366905ced15/1.wxapkg /Users/___liangdahong/Desktop/wx// 解包node ./wxappUnpacker-master/wuWxapkg.js 1.wxapkg335418265]]></content>
   </entry>
   <entry>
     <title><![CDATA[面试题001]]></title>
