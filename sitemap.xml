@@ -422,7 +422,7 @@
   </url>
   
   <url>
-    <loc>https://liangdahong.com/search/index.html</loc>
+    <loc>https://liangdahong.com/album/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
@@ -436,14 +436,7 @@
   </url>
   
   <url>
-    <loc>https://liangdahong.com/tags/index.html</loc>
-    
-    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liangdahong.com/album/index.html</loc>
+    <loc>https://liangdahong.com/search/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
@@ -451,6 +444,13 @@
   
   <url>
     <loc>https://liangdahong.com/categories/index.html</loc>
+    
+    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liangdahong.com/tags/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
