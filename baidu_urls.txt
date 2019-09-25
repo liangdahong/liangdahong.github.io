@@ -1,6 +1,6 @@
 https://liangdahong.com/2019/06/04/转载/转-UIStackView的简单使用与理解/
-https://liangdahong.com/2019/05/28/2019/我的资料/
-https://liangdahong.com/2019/02/26/2019/面试题001/
+https://liangdahong.com/2019/05/28/我的资料/
+https://liangdahong.com/2019/02/26/面试题001/
 https://liangdahong.com/2018/12/31/2018/2018/
 https://liangdahong.com/2018/12/28/2018/iOS-运行时之消息转发机制/
 https://liangdahong.com/2018/10/19/2018/JSPatch简单分析1/
@@ -14,7 +14,6 @@ https://liangdahong.com/2018/05/22/转载/转-面试中的-10-大排序算法总
 https://liangdahong.com/2018/04/13/2018/Web-前端学习笔记之一/
 https://liangdahong.com/2018/02/26/2018/Nots/
 https://liangdahong.com/2018/02/12/2018/iOS的一点调试技巧/
-https://liangdahong.com/2018/02/05/2018/题目/
 https://liangdahong.com/2018/01/01/2018/2018年计划/
 https://liangdahong.com/2017/12/01/2017/一些小知识点/
 https://liangdahong.com/2017/11/28/2017/iOS事件传递和响应过程/
