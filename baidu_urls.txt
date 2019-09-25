@@ -7,7 +7,7 @@ https://liangdahong.com/2018/10/19/2018/JSPatch简单分析1/
 https://liangdahong.com/2018/08/08/2018/Swift-之-init-构造方法/
 https://liangdahong.com/2018/07/11/2018/正确高效使用-Google/
 https://liangdahong.com/2018/06/25/转载/转-中国教育问题的根源在于大学而不在高中/
-https://liangdahong.com/2018/06/13/2018/CSS-入门之一/
+https://liangdahong.com/2018/06/13/2018/微信小程序开发相关/
 https://liangdahong.com/2018/06/08/2018/浅谈-iOS-事件的传递和响应过程/
 https://liangdahong.com/2018/05/23/转载/转-优化-iOS-程序性能的-24-个方法/
 https://liangdahong.com/2018/05/22/转载/转-面试中的-10-大排序算法总结/
