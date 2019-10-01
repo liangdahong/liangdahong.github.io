@@ -96,7 +96,7 @@ history.back();
 <meta property="og:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-07T01:50:52.000Z">
+<meta property="og:updated_time" content="2019-10-01T16:05:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods 的简单使用">
 <meta name="twitter:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
@@ -503,11 +503,10 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <p>9、提交给 cocoapods 管理</p>
 <p><code>pod trunk push IHExtension.podspec --allow-warnings</code></p>
 <p>10、如果成功，可能需要等几分钟才可以 search 到你的 lib, 可去<a href="https://cocoapods.org/" target="_blank" rel="noopener">cocoapods</a>查看</p>
-<p>11、提交好了以后如果还是无法搜索到自己的项目，可以使用以下方法</p>
-<p>删除搜索目录</p>
-<p><code>rm ~/Library/Caches/CocoaPods/search_index.json</code></p>
-<p><code>pod search</code><br>或者<br><code>pod repo update</code></p>
-<p>12、可以正常使用了<br><code>pod search XXX</code></p>
+<p>11、提交好了以后如果还是无法搜索到自己的项目，可以尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pod setup</span><br><span class="line"></span><br><span class="line">rm ~/Library/Caches/CocoaPods/search_index.json</span><br></pre></td></tr></table></figure>
+<p>12、继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search XXX</span><br></pre></td></tr></table></figure>
 <p>13、如果想多人维护一个库（需先让指定的邮箱注册）</p>
 <p><code>pod trunk add-owner IHExtension xxx@xxx.com</code></p>
 <p>14、查看自己的信息</p>
