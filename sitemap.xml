@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liangdahong.com/2019/10/09/2019/React-Native-%E7%9B%B8%E5%85%B3/</loc>
+    
+    <lastmod>2019-10-09T07:58:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liangdahong.com/2018/06/13/2018/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</loc>
     
     <lastmod>2019-10-09T06:42:32.000Z</lastmod>
@@ -408,13 +415,6 @@
   </url>
   
   <url>
-    <loc>https://liangdahong.com/about/index.html</loc>
-    
-    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liangdahong.com/album/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
@@ -430,6 +430,13 @@
   
   <url>
     <loc>https://liangdahong.com/search/index.html</loc>
+    
+    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liangdahong.com/about/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     

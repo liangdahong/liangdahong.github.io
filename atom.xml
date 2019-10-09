@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liangdahong.com/"/>
-  <updated>2019-06-04T03:29:39.000Z</updated>
+  <updated>2019-10-09T07:58:31.000Z</updated>
   <id>https://liangdahong.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native 相关</title>
+    <link href="https://liangdahong.com/2019/10/09/2019/React-Native-%E7%9B%B8%E5%85%B3/"/>
+    <id>https://liangdahong.com/2019/10/09/2019/React-Native-相关/</id>
+    <published>2019-10-09T06:57:25.000Z</published>
+    <updated>2019-10-09T07:58:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p><a href="https://facebook.github.io/react-native/" target="_blank" rel="noopener">https://facebook.github.io/react-native/</a></p></li><li><p><a href="https://github.com/facebook/react-native" target="_blank" rel="noopener">https://github.com/facebook/react-native</a></p></li><li><p><a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">https://reactnative.cn/docs/getting-started/</a></p></li><li><p><a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a></p></li></ul><a id="more"></a><h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><ul><li>环境搭建 <a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">https://reactnative.cn/docs/getting-started/</a></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd xxxx</span><br><span class="line">react-native run-ios </span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://facebook.github.io/react-native/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://facebook.github.io/react-native/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/react-native&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/facebook/react-native&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://reactnative.cn/docs/getting-started/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://reactnative.cn/docs/getting-started/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.imooc.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.imooc.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="React Native" scheme="https://liangdahong.com/categories/React-Native/"/>
+    
+    
+      <category term="React Native" scheme="https://liangdahong.com/tags/React-Native/"/>
+    
+  </entry>
   
   <entry>
     <title>(转)UIStackView的简单使用与理解</title>
@@ -450,29 +481,6 @@
     </summary>
     
       <category term="Objective-C" scheme="https://liangdahong.com/categories/Objective-C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>iOS第三方库背后的原理和简单使用</title>
-    <link href="https://liangdahong.com/2017/11/27/2017/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>https://liangdahong.com/2017/11/27/2017/iOS第三方库背后的原理和简单使用/</id>
-    <published>2017-11-27T13:48:03.000Z</published>
-    <updated>2019-08-02T08:27:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg" alt="https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg"></p><blockquote><p>在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。</p></blockquote><a id="more"></a><h1 id="MJExtension"><a href="#MJExtension" class="headerlink" title="MJExtension"></a>MJExtension</h1><blockquote><p><a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a></p></blockquote><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="json-gt-Model"><a href="#json-gt-Model" class="headerlink" title="json -&gt; Model"></a>json -&gt; Model</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// json -&gt; Model </span></span><br><span class="line">+ (instancetype)mj_objectWithKeyValues:(id)keyValues;</span><br><span class="line"></span><br><span class="line"><span class="comment">// json -&gt; Model 数组</span></span><br><span class="line">+ (NSMutableArray *)mj_objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray;</span><br></pre></td></tr></table></figure><h3 id="Model-gt-json"><a href="#Model-gt-json" class="headerlink" title="Model -&gt; json"></a>Model -&gt; json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  转换为JSON Data</span><br><span class="line"> */</span><br><span class="line">- (NSData *)mj_JSONData;</span><br><span class="line">/**</span><br><span class="line"> *  转换为字典或者数组</span><br><span class="line"> */</span><br><span class="line">- (id)mj_JSONObject;</span><br><span class="line">/**</span><br><span class="line"> *  转换为JSON 字符串</span><br><span class="line"> */</span><br><span class="line">- (NSString *)mj_JSONString;</span><br></pre></td></tr></table></figure><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*数组中需要转换的模型*/</span></span><br><span class="line">+ (NSDictionary *)mj_objectClassInArray&#123;</span><br><span class="line">    <span class="keyword">return</span> @&#123;</span><br><span class="line">             @<span class="string">"array1"</span>: BMImageInfoModel.class,</span><br><span class="line">             &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*key 重命名 属性名为key : json 中的key为 value  */</span></span><br><span class="line">+ (NSDictionary *)mj_replacedKeyFromPropertyName &#123;</span><br><span class="line">    <span class="keyword">return</span> @&#123;</span><br><span class="line">             @<span class="string">"desc"</span>: @<span class="string">"description"</span>,</span><br><span class="line">             @<span class="string">"ID"</span>: @<span class="string">"id"</span>,</span><br><span class="line">             &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*json -&gt; Model 完成时*/</span></span><br><span class="line">- (<span class="keyword">void</span>)mj_keyValuesDidFinishConvertingToObject &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*Model -&gt; json 完成时*/</span></span><br><span class="line">- (<span class="keyword">void</span>)mj_objectDidFinishConvertingToKeyValues &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol><li><p>我们知道 json-&gt;Model时，其实就是在dict中取对应的值然后设置到Model中，  <code>obj.name = dict[@&quot;name&quot;];</code>   我们知道Model中的属性一般是非常多的，而且一个项目中Model也是非常多，而且Model中的属性随时可能变动，像上面的赋值代码就会成千上万，而且非常不好维护，那么我们有没有快捷的方法解决好这些问题呢？<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>就是为我们解决了这些问题的一个库而且可以扩展许多功能。不管你有多少属性只需要<code>mj_objectWithKeyValues</code>这样一行代码完美搞定。</p></li><li><p>在上面的分析中我们肯定要想办法动态的获取Model中的属性，同时去dict中取相应的值设置给Model相应的属性，其实<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>的核心功能就是解决这个问题，<a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a>使用Runtime动态地的获取模型的属性，然后动态的在dict中取相应的值设置给Model，当然其中做了特别多的优化和扩展。</p></li><li><p>动态获取模型的属性</p></li></ol><blockquote><p>NSObject+MJKeyValue.m 文件 87 行的如下代码</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[clazz mj_enumerateProperties:^(MJProperty *property, BOOL *stop)...</span><br></pre></td></tr></table></figure><ol><li>使用KVC赋值</li></ol><blockquote><p>NSObject+MJKeyValue.m 文件 189 行的如下代码</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.赋值</span></span><br><span class="line">[property setValue:value forObject:self];</span><br></pre></td></tr></table></figure><p>此方法内部如下（NSObject+MJKeyValue.m 文件78行）：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  设置成员变量的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)setValue:(id)value forObject:(id)object</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (self.type.KVCDisabled || value == nil) <span class="keyword">return</span>;</span><br><span class="line">    [object setValue:value forKey:self.name];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>基本功能的代码基本就是上面的代码段，当然有大量的优化和扩展防错等功能未展开。</p></blockquote><ol><li>支持模型的继承属性，比如：Model的父类有一个name属性，那么在转换时会支持name属性的获取</li><li>对一些特殊类型做了特殊处理，比如：BOOL类型等</li><li>支持模型嵌套模型转换</li><li>支持模型嵌套数组转换，如果数组中的对象是模型需实现相应协议</li><li>支持指定属性名称支持转换和指定属性名称不支持转换</li><li>只对属性有效</li><li>支持readonly属性</li><li>对Model的属性做了缓存大幅度增加性能</li><li>添加一些扩展方法，Model-&gt;jsonData, Model-&gt;json, Model-&gt;dict</li><li>json(NSData dict，NSString)-&gt;模型 </li><li>json(NSData arr，NSString)-&gt;模型数组 </li><li>获取到模型的属性列表时做缓存</li><li>内部使用KVC赋值</li></ol><h1 id="YYModel"><a href="#YYModel" class="headerlink" title="YYModel"></a>YYModel</h1><h1 id="YYCache"><a href="#YYCache" class="headerlink" title="YYCache"></a>YYCache</h1><h1 id="UITableView-FDTemplateLayoutCell"><a href="#UITableView-FDTemplateLayoutCell" class="headerlink" title="UITableView-FDTemplateLayoutCell"></a>UITableView-FDTemplateLayoutCell</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg&quot; alt=&quot;https://cdn.pixabay.com/photo/2018/01/16/23/37/sunset-3087145__340.jpg&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在我们平时的开发中，或多或少都会使用到一些开源库，在小公司甚至大量依赖第三方，那么我们对一些知名第三方是否有必要了解下它背后的原理呢，甚至应该阅读一些知名第三方的底层实现和原理，下面就简单介绍一些第三方的实现原理和简单的使用方法吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://liangdahong.com/categories/iOS/"/>
     
     
   </entry>
