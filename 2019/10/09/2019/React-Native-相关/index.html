@@ -95,7 +95,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="https://facebook.github.io/react-native/ https://github.com/facebook/react-native">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-10T06:38:32.000Z">
+<meta property="og:updated_time" content="2019-10-10T09:26:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 相关">
 <meta name="twitter:description" content="https://facebook.github.io/react-native/ https://github.com/facebook/react-native">
@@ -468,7 +468,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><ul>
 <li>环境搭建 <a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">https://reactnative.cn/docs/getting-started/</a></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">react-native init xxx（项目名）</span><br><span class="line">cd 项目下</span><br><span class="line">react-native run-ios </span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">react-native init xxx（项目名） 初始化项目</span><br><span class="line"></span><br><span class="line">cd 项目下</span><br><span class="line"></span><br><span class="line">react-native run-ios  运行项目</span><br><span class="line"></span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
 <h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><p>模拟器上 Command + D  调出调试工具</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Reload 重新加载js</span><br><span class="line">Debug JS Remotely  Debug模式 会打开一个浏览器来调试</span><br><span class="line">Enable Live Reload 是否修改了实时加载（重新run 到首页去了）</span><br><span class="line">Start Systrace     </span><br><span class="line">Enable Hot Reloading  热加载当前的页面（只更新当前显示的页面，不会到 首页去）</span><br><span class="line">... 其他</span><br></pre></td></tr></table></figure>
 <h3 id="vscode-的一些快捷键"><a href="#vscode-的一些快捷键" class="headerlink" title="vscode 的一些快捷键"></a>vscode 的一些快捷键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Shift + Alt + F</span><br><span class="line">Ubuntu Ctrl + Shift + I</span><br><span class="line">Mac Shift + Option + F</span><br></pre></td></tr></table></figure>
@@ -495,7 +495,6 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">export default class OneComponent extends Component &#123;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line"></span><br><span class="line">        fetch(&apos;https://facebook.github.io/react-native/movies.json&apos;, </span><br><span class="line">        &#123;</span><br><span class="line">            method: &apos;GET&apos;,</span><br><span class="line"></span><br><span class="line">            headers: &#123;</span><br><span class="line">                Accept: &apos;application/json&apos;,</span><br><span class="line">                &apos;Content-Type&apos;: &apos;application/json&apos;,</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            // body: JSON.stringify(&#123;</span><br><span class="line">            //     // firstParam: &apos;yourValue&apos;,</span><br><span class="line">            //     // secondParam: &apos;yourOtherValue&apos;,</span><br><span class="line">            // &#125;),</span><br><span class="line">        &#125;,)</span><br><span class="line">        </span><br><span class="line">        //  json 处理</span><br><span class="line">            .then((response) =&gt; response.json())</span><br><span class="line">            </span><br><span class="line">            // 成功了</span><br><span class="line">            .then((responseJson) =&gt; &#123;</span><br><span class="line">                console.log(&apos;成功了&apos; + responseJson);</span><br><span class="line">            &#125;)</span><br><span class="line">            </span><br><span class="line">            // 异常处理</span><br><span class="line">            .catch((error) =&gt; &#123;</span><br><span class="line">                console.log(&apos;失败了&apos; + error);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="Lib"><a href="#Lib" class="headerlink" title="Lib"></a>Lib</h3><ul>
 <li><a href="https://github.com/react-native-community/react-native-navbar" target="_blank" rel="noopener">https://github.com/react-native-community/react-native-navbar</a></li>
-<li></li>
 </ul>
 
       
@@ -588,6 +587,10 @@ showConfirmButton: true
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/11/Jenkins-相关/" rel="prev" title="Jenkins 相关">
+                Jenkins 相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -677,7 +680,7 @@ showConfirmButton: true
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -688,7 +691,7 @@ showConfirmButton: true
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -699,7 +702,7 @@ showConfirmButton: true
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
