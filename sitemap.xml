@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liangdahong.com/2019/10/12/GCD%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2019-10-12T16:26:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liangdahong.com/2019/10/11/Jenkins-%E7%9B%B8%E5%85%B3/</loc>
     
-    <lastmod>2019-10-11T15:49:07.000Z</lastmod>
+    <lastmod>2019-10-12T13:32:55.000Z</lastmod>
     
   </url>
   
@@ -422,14 +429,21 @@
   </url>
   
   <url>
-    <loc>https://liangdahong.com/categories/index.html</loc>
+    <loc>https://liangdahong.com/search/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liangdahong.com/search/index.html</loc>
+    <loc>https://liangdahong.com/album/index.html</loc>
+    
+    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liangdahong.com/categories/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
@@ -444,13 +458,6 @@
   
   <url>
     <loc>https://liangdahong.com/about/index.html</loc>
-    
-    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liangdahong.com/album/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     

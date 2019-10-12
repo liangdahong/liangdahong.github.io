@@ -95,7 +95,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="Java jdk安装可以去下面的地址去下载 Java jdk 来手动安装  https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-11T15:49:07.000Z">
+<meta property="og:updated_time" content="2019-10-12T13:32:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins 相关">
 <meta name="twitter:description" content="Java jdk安装可以去下面的地址去下载 Java jdk 来手动安装  https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
@@ -473,7 +473,16 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <li><p>安装好 jenkins 后面就可以使用浏览器打开 &lt;<a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 了</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">解锁 Jenkins</span><br><span class="line">为了确保管理员安全地安装 Jenkins，密码已写入到日志中（不知道在哪里？）该文件在服务器上：</span><br><span class="line"></span><br><span class="line">/Users/Shared/Jenkins/Home/secrets/initialAdminPassword</span><br><span class="line"></span><br><span class="line">请从本地复制密码并粘贴到下面。</span><br><span class="line"></span><br><span class="line">读取下面的这个文件中的密码 注意强制修改他的权限就可以打开了</span><br><span class="line">/Users/Shared/Jenkins/Home/secrets/initialAdminPassword </span><br><span class="line"></span><br><span class="line">我这里打开是 ：</span><br><span class="line"></span><br><span class="line">ebed5b8f51f84d50a9a04eb580cc1292</span><br><span class="line"></span><br><span class="line">然后可以选择安装插件</span><br><span class="line">1、自动安装推荐的插件</span><br><span class="line">2、自定义安装插件</span><br><span class="line"></span><br><span class="line">安装好了以后就你要设置用户名和密码了</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">解锁 Jenkins</span><br><span class="line">为了确保管理员安全地安装 Jenkins，密码已写入到日志中（不知道在哪里？）该文件在服务器上：</span><br><span class="line"></span><br><span class="line">/Users/Shared/Jenkins/Home/secrets/initialAdminPassword</span><br><span class="line"></span><br><span class="line">请从本地复制密码并粘贴到下面。</span><br><span class="line"></span><br><span class="line">读取下面的这个文件中的密码 注意强制修改他的权限就可以打开了</span><br><span class="line">/Users/Shared/Jenkins/Home/secrets/initialAdminPassword </span><br><span class="line"></span><br><span class="line">我这里打开是 ：</span><br><span class="line"></span><br><span class="line">ebed5b8f51f84d50a9a04eb580cc1292</span><br><span class="line"></span><br><span class="line">然后可以选择安装插件</span><br><span class="line">1、自动安装推荐的插件</span><br><span class="line">2、自定义安装插件</span><br><span class="line"></span><br><span class="line">默认安装会有下面的这些插件</span><br><span class="line"></span><br><span class="line">Folders </span><br><span class="line">OWASP Markup Formatter</span><br><span class="line">Build Timeout </span><br><span class="line">Credentials Binding</span><br><span class="line">Timestamper</span><br><span class="line">Workspace Cleanup</span><br><span class="line">Ant</span><br><span class="line">Gradle </span><br><span class="line">Pipeline</span><br><span class="line">GitHub Branch Source </span><br><span class="line">Pipeline: GitHub Groovy Libraries</span><br><span class="line">Pipeline: Stage View </span><br><span class="line">Git </span><br><span class="line">Subversion </span><br><span class="line">SSH Slaves</span><br><span class="line">Matrix Authorization Strategy </span><br><span class="line">PAM Authentication </span><br><span class="line">LDAP </span><br><span class="line">Email Extension</span><br><span class="line">Mailer </span><br><span class="line">Localization: Chinese (Simplified)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果您不确定需要哪些插件，请选择 安装建议的插件 。 您可以通过Jenkins中的Manage Jenkins &gt; Manage Plugins 页面在稍后的时间点安装（或删除）其他Jenkins插件 。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">安装好了以后就你要设置用户名和密码了</span><br><span class="line"></span><br><span class="line">user: liangdahong</span><br><span class="line">pass: liangdahong</span><br></pre></td></tr></table></figure>
+<p>jenkins 重新启动 - <a href="http://localhost:8080/reload" target="_blank" rel="noopener">http://localhost:8080/reload</a></p>
+<p>参考 - <a href="https://www.cnblogs.com/dzblog/p/6962810.html" target="_blank" rel="noopener">https://www.cnblogs.com/dzblog/p/6962810.html</a></p>
+<p>修改一些配置</p>
+<p><a href="http://localhost:8080/pluginManager/advanced" target="_blank" rel="noopener">http://localhost:8080/pluginManager/advanced</a></p>
+<ul>
+<li>jenkins 插件下载 <a href="http://updates.jenkins-ci.org/download/plugins/ssh/" target="_blank" rel="noopener">http://updates.jenkins-ci.org/download/plugins/ssh/</a></li>
+<li>可以在这里下载好了然后在 <a href="http://localhost:8080/pluginManager/advanced" target="_blank" rel="noopener">http://localhost:8080/pluginManager/advanced</a> 上传</li>
+<li>就可以自己安装了</li>
+</ul>
 
       
     </div>
@@ -565,6 +574,10 @@ showConfirmButton: true
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/12/GCD笔记/" rel="prev" title="GCD笔记">
+                GCD笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -654,7 +667,7 @@ showConfirmButton: true
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
