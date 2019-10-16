@@ -1,4 +1,4 @@
-https://liangdahong.com/2019/10/12/GCD笔记/
+https://liangdahong.com/2019/10/12/pthread、NSThread、GCD、NSOperation、NSOperationQueue/
 https://liangdahong.com/2019/10/11/Jenkins-相关/
 https://liangdahong.com/2019/10/09/2019/React-Native-相关/
 https://liangdahong.com/2019/06/04/转载/转-UIStackView的简单使用与理解/
