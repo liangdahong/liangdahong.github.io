@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+(function(){
+if(''){
+if (prompt('请输入文章密码') !== ''){
+alert('密码错误！');
+history.back();
+}
+}
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+<meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="说在前面 https://github.com/bang590/JSPatch   JSPatch 是一个基于 JavaScriptCore 的开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 实时修复线上 bug。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSPatch简单分析1">
+<meta property="og:url" content="https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/index.html">
+<meta property="og:site_name" content="梁大红的技术Blog">
+<meta property="og:description" content="说在前面 https://github.com/bang590/JSPatch   JSPatch 是一个基于 JavaScriptCore 的开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 实时修复线上 bug。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.10tiao.com/img.do?url=http%3A//mmbiz.qpic.cn/mmbiz_png/2iaHTl80iajP816eIm8wfzO5MeuIT0VlNtlJWH4Xy4Ioj7ib79tKzAiaDpqJkVM8kDn8nTjXpUUqRibRulJ9bic5DqXg/0%3Fwx_fmt%3Dpng">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2026898-1c826218dc28ab68.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2019-10-18T09:00:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSPatch简单分析1">
+<meta name="twitter:description" content="说在前面 https://github.com/bang590/JSPatch   JSPatch 是一个基于 JavaScriptCore 的开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 实时修复线上 bug。">
+<meta name="twitter:image" content="http://www.10tiao.com/img.do?url=http%3A//mmbiz.qpic.cn/mmbiz_png/2iaHTl80iajP816eIm8wfzO5MeuIT0VlNtlJWH4Xy4Ioj7ib79tKzAiaDpqJkVM8kDn8nTjXpUUqRibRulJ9bic5DqXg/0%3Fwx_fmt%3Dpng">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+var NexT = window.NexT || {};
+var CONFIG = {
+root: '/',
+scheme: 'Pisces',
+version: '5.1.4',
+sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+fancybox: true,
+tabs: true,
+motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+duoshuo: {
+userId: '0',
+author: '博主'
+},
+algolia: {
+applicationID: '',
+apiKey: '',
+indexName: '',
+hits: {"per_page":10},
+labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+}
+};
+</script>
+
+
+
+<link rel="canonical" href="https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/"/>
+
+
+
+
+
+
+  <title>JSPatch简单分析1 | 梁大红的技术Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cfc3472238e91bbaf9532f7d54b9ff7c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/liangdahong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁大红的技术Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-objective-c">
+          <a href="/categories/Objective-C" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            Objective-C
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-swift">
+          <a href="/categories/Swift" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Swift
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/Web" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁大红">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁大红的技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JSPatch简单分析1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T09:01:29+08:00">
+                2018-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/19/00-技术-iOS/JSPatch简单分析1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/19/00-技术-iOS/JSPatch简单分析1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><ul>
+<li><a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">https://github.com/bang590/JSPatch</a></li>
+</ul>
+<blockquote>
+<p>JSPatch 是一个基于 JavaScriptCore 的开源项目，只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 实时修复线上 bug。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="JavaScriptCore初探"><a href="#JavaScriptCore初探" class="headerlink" title="JavaScriptCore初探"></a>JavaScriptCore初探</h3><ul>
+<li><a href="https://hjgitbook.gitbooks.io/ios/content/04-technical-research/04-javascriptcore-note.html" target="_blank" rel="noopener">本段参考来自</a></li>
+</ul>
+<blockquote>
+<p>注：JavaScriptCore API也可以用Swift来调用，本文用Objective-C来介绍。</p>
+</blockquote>
+<ul>
+<li><p>在iOS7之前，原生应用和Web应用之间很难通信。如果你想在iOS设备上渲染HTML或者运行JavaScript，你不得不使用UIWebView。iOS7引入了JavaScriptCore，功能更强大，使用更简单。</p>
+</li>
+<li><p>JavaScriptCore是封装了JavaScript和Objective-C桥接的Objective-C API，只要用很少的代码，就可以做到JavaScript调用Objective-C，或者Objective-C调用JavaScript。</p>
+</li>
+<li><p>在之前的iOS版本，你只能通过向UIWebView发送stringByEvaluatingJavaScriptFromString:消息来执行一段JavaScript脚本。并且如果想用JavaScript调用Objective-C，必须打开一个自定义的URL（例如：foo://），然后在UIWebView的delegate方法webView:shouldStartLoadWithRequest:navigationType中进行处理。</p>
+</li>
+<li><p>然而现在可以利用JavaScriptCore的先进功能了，它可以：</p>
+</li>
+<li><ul>
+<li>运行JavaScript脚本而不需要依赖UIWebView</li>
+</ul>
+</li>
+<li><ul>
+<li>使用现代Objective-C的语法（例如Blocks和下标）</li>
+</ul>
+</li>
+<li><ul>
+<li>在Objective-C和JavaScript之间无缝的传递值或者对象</li>
+</ul>
+</li>
+<li><ul>
+<li>创建混合对象（原生对象可以将JavaScript值或函数作为一个属性）</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用-JavaScriptCore-做-JavaScript-和-OC-之间的相互调用的2个小例子"><a href="#使用-JavaScriptCore-做-JavaScript-和-OC-之间的相互调用的2个小例子" class="headerlink" title="使用 JavaScriptCore 做 JavaScript 和 OC 之间的相互调用的2个小例子"></a>使用 JavaScriptCore 做 JavaScript 和 OC 之间的相互调用的2个小例子</h3><h4 id="Objective-C调用JavaScript"><a href="#Objective-C调用JavaScript" class="headerlink" title="Objective-C调用JavaScript"></a>Objective-C调用JavaScript</h4><h5 id="1"><a href="#1" class="headerlink" title="1"></a>1</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSContext *context = [[JSContext alloc] init];</span><br><span class="line">NSString *str = @<span class="string">"(1*(2-2)+1)*5*8-2+9"</span>;</span><br><span class="line">JSValue *value =  [context evaluateScript:str];</span><br><span class="line">NSLog(@<span class="string">"%@ = %@"</span>, str,value.toNumber);</span><br></pre></td></tr></table></figure>
+<h5 id="2"><a href="#2" class="headerlink" title="2"></a>2</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JSContext *context = [[JSContext alloc] init];</span><br><span class="line">NSString *jsfunc = @<span class="string">"function fac(n)&#123; return (n * 2);&#125;"</span>;</span><br><span class="line">[context evaluateScript:jsfunc];</span><br><span class="line">JSValue *func = context[@<span class="string">"fac"</span>];</span><br><span class="line">JSValue *value1 = [func callWithArguments:@[@<span class="number">100</span>]];</span><br><span class="line">NSLog(@<span class="string">"%@"</span>,value1.toNumber);</span><br></pre></td></tr></table></figure>
+<h4 id="JavaScript调用Objective-C"><a href="#JavaScript调用Objective-C" class="headerlink" title="JavaScript调用Objective-C"></a>JavaScript调用Objective-C</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JSContext *context = [[JSContext alloc] init];</span><br><span class="line">[context evaluateScript:@<span class="string">"function printHello() &#123;print(\"Hello, World! 我在 JS 中 来的\");&#125;"</span>];</span><br><span class="line">context[@<span class="string">"print"</span>] = ^(NSString *text) &#123;</span><br><span class="line">    NSLog(@<span class="string">"%@"</span>, text);</span><br><span class="line">&#125;;</span><br><span class="line">JSValue *function = context[@<span class="string">"printHello"</span>];</span><br><span class="line">[function callWithArguments:@[]];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>知道了 JavaScriptCore 的强大之处，又由于 JavaScript 是脚本语言同时 OC 的动态语言，所以 JSPatch 就诞生了。</p>
+</blockquote>
+<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><ul>
+<li><a href="https://github.com/bang590/JSPatch/wiki/JSPatch-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3" target="_blank" rel="noopener">参考来自 JSPatch 实现原理详解</a></li>
+</ul>
+<ul>
+<li>我们从 JSPatch 例子开始看，比如：我们使用了下面的 js 来动态创建一个view</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">require('UIView')</span><br><span class="line">var view = UIView.alloc().init()</span><br><span class="line">view.setBackgroundColor(require('UIColor').grayColor())</span><br><span class="line">view.setAlpha(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当我们在 oc 中执行上面的 js 时，</li>
+<li>require(‘UIView’) 是调用 js 中的一个方法 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var _require = function(clsName) &#123;</span><br><span class="line">  if (!global[clsName]) &#123;</span><br><span class="line">    global[clsName] = &#123;</span><br><span class="line">      __clsName: clsName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  return global[clsName]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>var view = UIView.alloc().init() 表示使用 UIView 调用  alloc init 方法，那么我们的 js 中其实是没有 这2 个方法的，但如果没有的话会报错，开发者开始想的办法动态给 js 添加，因为 js 可以随时随地增加方法，但比较痛苦。因为这些方法其实是来自于 oc 中  需要我们去遍历 oc 。由于 js 没有方法转发的功能，最后用了一个精巧的解决这个问题，在每一个 js 发放调用前先调一个 js 已经实现好的方法 __c（），其实现如下图。在这个js方法中做处理，同时想办法回调到 oc 中做应该做的事。使用上面的 js 就会最后回调到吗oc 中创建一个 view 设置颜色等。</li>
+</ul>
+<ul>
+<li>动添加 __c 的调用如下：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSString *formatedScript = [NSString stringWithFormat:@<span class="string">";(function()&#123;try&#123;\n%@\n&#125;catch(e)&#123;_OC_catch(e.message, e.stack)&#125;&#125;)();"</span>,</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">;(function()&#123;<span class="keyword">try</span>&#123;</span><br><span class="line">defineClass('JPViewController', &#123;</span><br><span class="line">  handleBtn: function(sender) &#123;</span><br><span class="line">    var tableViewCtrl = JPTableViewController.__c(<span class="string">"alloc"</span>)().__c(<span class="string">"init"</span>)()</span><br><span class="line">    self.__c(<span class="string">"navigationController"</span>)().__c(<span class="string">"pushViewController_animated"</span>)(tableViewCtrl, YES)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">defineClass('JPTableViewController : UITableViewController &lt;UIAlertViewDelegate&gt;', ['data'], &#123;</span><br><span class="line">  dataSource: function() &#123;</span><br><span class="line">    var data = self.__c(<span class="string">"data"</span>)();</span><br><span class="line">    <span class="keyword">if</span> (data) <span class="keyword">return</span> data;</span><br><span class="line">    var data = [];</span><br><span class="line">    <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i ++) &#123;</span><br><span class="line">      data.__c(<span class="string">"push"</span>)(<span class="string">"cell from js "</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line">    self.__c(<span class="string">"setData"</span>)(data)</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;,</span><br><span class="line">  numberOfSectionsInTableView: function(tableView) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_numberOfRowsInSection: function(tableView, section) &#123;</span><br><span class="line">    <span class="keyword">return</span> self.__c(<span class="string">"dataSource"</span>)().length;</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_cellForRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">    var cell = tableView.__c(<span class="string">"dequeueReusableCellWithIdentifier"</span>)(<span class="string">"cell"</span>) </span><br><span class="line">    <span class="keyword">if</span> (!cell) &#123;</span><br><span class="line">      cell = require('UITableViewCell').__c("alloc")().__c("initWithStyle_reuseIdentifier")(0, "cell")</span><br><span class="line">    &#125;</span><br><span class="line">    cell.__c(<span class="string">"textLabel"</span>)().__c(<span class="string">"setText"</span>)(self.__c(<span class="string">"dataSource"</span>)()[indexPath.__c(<span class="string">"row"</span>)()])</span><br><span class="line">    <span class="keyword">return</span> cell</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_heightForRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">60</span></span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_didSelectRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">     var alertView = require('UIAlertView').__c("alloc")().__c("initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles")("Alert",self.__c("dataSource")()[indexPath.__c("row")()], self, "OK",  null);</span><br><span class="line">     alertView.__c(<span class="string">"show"</span>)()</span><br><span class="line">  &#125;,</span><br><span class="line">  alertView_willDismissWithButtonIndex: function(alertView, idx) &#123;</span><br><span class="line">    console.__c("log")('click btn ' + alertView.__c("buttonTitleAtIndex")(idx).__c("toJS")())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;_OC_catch(e.message, e.<span class="built_in">stack</span>)&#125;&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var _customMethods = &#123;</span><br><span class="line">__c: function(methodName) &#123;</span><br><span class="line">  var slf = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (slf instanceof Boolean) &#123;</span><br><span class="line">    <span class="keyword">return</span> function() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (slf[methodName]) &#123;</span><br><span class="line">    <span class="keyword">return</span> slf[methodName].bind(slf);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!slf.__obj &amp;&amp; !slf.__clsName) &#123;</span><br><span class="line">    throw new Error(slf + '.' + methodName + ' is undefined')</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>JSPatch 的最基本的操作底层原理就是依靠 js 和 oc 的相互调用来实现的，同时 JavaScriptCore 可以做到 oc 对象 在 oc 和 js 组件无缝传递。</li>
+</ul>
+<ul>
+<li>下面简单说下 JSPatch 是怎么样做到动态添加方法  和 交换方法的。我们使用 runtime 来添加方法 一般是提前已经有了  C函数的实现，我们在添加时，让 IMP 指向我们的 c函数指针即可，但是 JSPatch 是完全动态的添加任何类型的方法，怎么做到呢？？ 肯定不可能我们提前就实现好了  c函数，这里开发者是使用了一个通用的 c函数来实现这个问题，就是 所有添加的方法 其实都是执行到了写死的 c函数中，c函数如下，当然做了各种的坑处理，包括各种参数匹配，</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">JPForwardInvocation</span><span class="params">(__unsafe_unretained id assignSlf, SEL selector, NSInvocation *invocation)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    _JSLastCallStack = [NSThread callStackSymbols];</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    BOOL deallocFlag = NO;</span><br><span class="line">    id slf = assignSlf;</span><br><span class="line">    BOOL isBlock = [[assignSlf class] isSubclassOfClass : NSClassFromString(@<span class="string">"NSBlock"</span>)];</span><br><span class="line">    </span><br><span class="line">    NSMethodSignature *methodSignature = [invocation methodSignature];</span><br><span class="line">    NSInteger numberOfArguments = [methodSignature numberOfArguments];</span><br><span class="line">    NSString *selectorName = isBlock ? @<span class="string">""</span> : NSStringFromSelector(invocation.selector);</span><br><span class="line">    NSString *JPSelectorName = [NSString stringWithFormat:@<span class="string">"_JP%@"</span>, selectorName];</span><br><span class="line">    JSValue *jsFunc = isBlock ? objc_getAssociatedObject(assignSlf, <span class="string">"_JSValue"</span>)[@<span class="string">"cb"</span>] : getJSFunctionInObjectHierachy(slf, JPSelectorName);</span><br><span class="line">    <span class="keyword">if</span> (!jsFunc) &#123;</span><br><span class="line">        JPExecuteORIGForwardInvocation(slf, selector, invocation);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSMutableArray *argList = [[NSMutableArray alloc] init];</span><br><span class="line">    <span class="keyword">if</span> (!isBlock) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([slf class] == slf) &#123;</span><br><span class="line">            [argList addObject:[JSValue valueWithObject:@&#123;@<span class="string">"__clsName"</span>: NSStringFromClass([slf class])&#125; inContext:_context]];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([selectorName isEqualToString:@<span class="string">"dealloc"</span>]) &#123;</span><br><span class="line">            [argList addObject:[JPBoxing boxAssignObj:slf]];</span><br><span class="line">            deallocFlag = YES;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            [argList addObject:[JPBoxing boxWeakObj:slf]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (NSUInteger i = isBlock ? <span class="number">1</span> : <span class="number">2</span>; i &lt; numberOfArguments; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *argumentType = [methodSignature getArgumentTypeAtIndex:i];</span><br><span class="line">        <span class="keyword">switch</span>(argumentType[<span class="number">0</span>] == <span class="string">'r'</span> ? argumentType[<span class="number">1</span>] : argumentType[<span class="number">0</span>]) &#123;</span><br><span class="line">        </span><br><span class="line">            <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_ARG_CASE(_typeChar, _type) \</span></span><br><span class="line">            <span class="keyword">case</span> _typeChar: &#123;   \</span><br><span class="line">                _type arg;  \</span><br><span class="line">                [invocation getArgument:&amp;arg atIndex:i];    \</span><br><span class="line">                [argList addObject:@(arg)]; \</span><br><span class="line">                <span class="keyword">break</span>;  \</span><br><span class="line">            &#125;</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'c'</span>, <span class="keyword">char</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'C'</span>, <span class="keyword">unsigned</span> <span class="keyword">char</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'s'</span>, <span class="keyword">short</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'S'</span>, <span class="keyword">unsigned</span> <span class="keyword">short</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'i'</span>, <span class="keyword">int</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'I'</span>, <span class="keyword">unsigned</span> <span class="keyword">int</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'l'</span>, <span class="keyword">long</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'L'</span>, <span class="keyword">unsigned</span> <span class="keyword">long</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'q'</span>, <span class="keyword">long</span> <span class="keyword">long</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'Q'</span>, <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'f'</span>, <span class="keyword">float</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'d'</span>, <span class="keyword">double</span>)</span><br><span class="line">            JP_FWD_ARG_CASE(<span class="string">'B'</span>, BOOL)</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'@'</span>: &#123;</span><br><span class="line">                __unsafe_unretained id arg;</span><br><span class="line">                [invocation getArgument:&amp;arg atIndex:i];</span><br><span class="line">                <span class="keyword">if</span> ([arg isKindOfClass:NSClassFromString(@<span class="string">"NSBlock"</span>)]) &#123;</span><br><span class="line">                    [argList addObject:(arg ? [arg copy]: _nilObj)];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    [argList addObject:(arg ? arg: _nilObj)];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'&#123;'</span>: &#123;</span><br><span class="line">                NSString *typeString = extractStructName([NSString stringWithUTF8String:argumentType]);</span><br><span class="line">                <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_ARG_STRUCT(_type, _transFunc) \</span></span><br><span class="line">                <span class="keyword">if</span> ([typeString rangeOfString:@#_type].location != NSNotFound) &#123;    \</span><br><span class="line">                    _type arg; \</span><br><span class="line">                    [invocation getArgument:&amp;arg atIndex:i];    \</span><br><span class="line">                    [argList addObject:[JSValue _transFunc:arg inContext:_context]];  \</span><br><span class="line">                    <span class="keyword">break</span>; \</span><br><span class="line">                &#125;</span><br><span class="line">                JP_FWD_ARG_STRUCT(CGRect, valueWithRect)</span><br><span class="line">                JP_FWD_ARG_STRUCT(CGPoint, valueWithPoint)</span><br><span class="line">                JP_FWD_ARG_STRUCT(CGSize, valueWithSize)</span><br><span class="line">                JP_FWD_ARG_STRUCT(NSRange, valueWithRange)</span><br><span class="line">                </span><br><span class="line">                @synchronized (_context) &#123;</span><br><span class="line">                    NSDictionary *structDefine = _registeredStruct[typeString];</span><br><span class="line">                    <span class="keyword">if</span> (structDefine) &#123;</span><br><span class="line">                        <span class="keyword">size_t</span> size = sizeOfStructTypes(structDefine[@<span class="string">"types"</span>]);</span><br><span class="line">                        <span class="keyword">if</span> (size) &#123;</span><br><span class="line">                            <span class="keyword">void</span> *ret = <span class="built_in">malloc</span>(size);</span><br><span class="line">                            [invocation getArgument:ret atIndex:i];</span><br><span class="line">                            NSDictionary *dict = getDictOfStruct(ret, structDefine);</span><br><span class="line">                            [argList addObject:[JSValue valueWithObject:dict inContext:_context]];</span><br><span class="line">                            <span class="built_in">free</span>(ret);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">':'</span>: &#123;</span><br><span class="line">                SEL selector;</span><br><span class="line">                [invocation getArgument:&amp;selector atIndex:i];</span><br><span class="line">                NSString *selectorName = NSStringFromSelector(selector);</span><br><span class="line">                [argList addObject:(selectorName ? selectorName: _nilObj)];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'^'</span>:</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'*'</span>: &#123;</span><br><span class="line">                <span class="keyword">void</span> *arg;</span><br><span class="line">                [invocation getArgument:&amp;arg atIndex:i];</span><br><span class="line">                [argList addObject:[JPBoxing boxPointer:arg]];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'#'</span>: &#123;</span><br><span class="line">                Class arg;</span><br><span class="line">                [invocation getArgument:&amp;arg atIndex:i];</span><br><span class="line">                [argList addObject:[JPBoxing boxClass:arg]];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">default</span>: &#123;</span><br><span class="line">                NSLog(@<span class="string">"error type %s"</span>, argumentType);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (_currInvokeSuperClsName[selectorName]) &#123;</span><br><span class="line">        Class cls = NSClassFromString(_currInvokeSuperClsName[selectorName]);</span><br><span class="line">        NSString *tmpSelectorName = [[selectorName stringByReplacingOccurrencesOfString:@<span class="string">"_JPSUPER_"</span> withString:@<span class="string">"_JP"</span>] stringByReplacingOccurrencesOfString:@<span class="string">"SUPER_"</span> withString:@<span class="string">"_JP"</span>];</span><br><span class="line">        <span class="keyword">if</span> (!_JSOverideMethods[cls][tmpSelectorName]) &#123;</span><br><span class="line">            NSString *ORIGSelectorName = [selectorName stringByReplacingOccurrencesOfString:@<span class="string">"SUPER_"</span> withString:@<span class="string">"ORIG"</span>];</span><br><span class="line">            [argList removeObjectAtIndex:<span class="number">0</span>];</span><br><span class="line">            id retObj = callSelector(_currInvokeSuperClsName[selectorName], ORIGSelectorName, [JSValue valueWithObject:argList inContext:_context], [JSValue valueWithObject:@&#123;@<span class="string">"__obj"</span>: slf, @<span class="string">"__realClsName"</span>: @<span class="string">""</span>&#125; inContext:_context], NO);</span><br><span class="line">            id __autoreleasing ret = formatJSToOC([JSValue valueWithObject:retObj inContext:_context]);</span><br><span class="line">            [invocation setReturnValue:&amp;ret];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSArray *params = _formatOCToJSList(argList);</span><br><span class="line">    <span class="keyword">char</span> returnType[<span class="number">255</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(returnType, [methodSignature methodReturnType]);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Restore the return type</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(returnType, @encode(JPDouble)) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(returnType, @encode(<span class="keyword">double</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(returnType, @encode(JPFloat)) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">strcpy</span>(returnType, @encode(<span class="keyword">float</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (returnType[<span class="number">0</span>] == <span class="string">'r'</span> ? returnType[<span class="number">1</span>] : returnType[<span class="number">0</span>]) &#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CALL_JS \</span></span><br><span class="line">            JSValue *jsval; \</span><br><span class="line">            [_JSMethodForwardCallLock lock];   \</span><br><span class="line">            jsval = [jsFunc callWithArguments:params]; \</span><br><span class="line">            [_JSMethodForwardCallLock unlock]; \</span><br><span class="line">            <span class="keyword">while</span> (![jsval isNull] &amp;&amp; ![jsval isUndefined] &amp;&amp; [jsval hasProperty:@<span class="string">"__isPerformInOC"</span>]) &#123; \</span><br><span class="line">                NSArray *args = nil;  \</span><br><span class="line">                JSValue *cb = jsval[@<span class="string">"cb"</span>]; \</span><br><span class="line">                <span class="keyword">if</span> ([jsval hasProperty:@<span class="string">"sel"</span>]) &#123;   \</span><br><span class="line">                    id callRet = callSelector(![jsval[@<span class="string">"clsName"</span>] isUndefined] ? [jsval[@<span class="string">"clsName"</span>] toString] : nil, [jsval[@<span class="string">"sel"</span>] toString], jsval[@<span class="string">"args"</span>], ![jsval[@<span class="string">"obj"</span>] isUndefined] ? jsval[@<span class="string">"obj"</span>] : nil, NO);  \</span><br><span class="line">                    args = @[[_context[@<span class="string">"_formatOCToJS"</span>] callWithArguments:callRet ? @[callRet] : _formatOCToJSList(@[_nilObj])]];  \</span><br><span class="line">                &#125;   \</span><br><span class="line">                [_JSMethodForwardCallLock lock];    \</span><br><span class="line">                jsval = [cb callWithArguments:args];  \</span><br><span class="line">                [_JSMethodForwardCallLock unlock];  \</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CASE_RET(_typeChar, _type, _retCode)   \</span></span><br><span class="line">            <span class="keyword">case</span> _typeChar : &#123; \</span><br><span class="line">                JP_FWD_RET_CALL_JS \</span><br><span class="line">                _retCode \</span><br><span class="line">                [invocation setReturnValue:&amp;ret];\</span><br><span class="line">                <span class="keyword">break</span>;  \</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CASE(_typeChar, _type, _typeSelector)   \</span></span><br><span class="line">            JP_FWD_RET_CASE_RET(_typeChar, _type, _type ret = [[jsval toObject] _typeSelector];)   \</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CODE_ID \</span></span><br><span class="line">            id __autoreleasing ret = formatJSToOC(jsval); \</span><br><span class="line">            <span class="keyword">if</span> (ret == _nilObj ||   \</span><br><span class="line">                ([ret isKindOfClass:[NSNumber class]] &amp;&amp; <span class="built_in">strcmp</span>([ret objCType], <span class="string">"c"</span>) == <span class="number">0</span> &amp;&amp; ![ret boolValue])) ret = nil;  \</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CODE_POINTER    \</span></span><br><span class="line">            <span class="keyword">void</span> *ret; \</span><br><span class="line">            id obj = formatJSToOC(jsval); \</span><br><span class="line">            <span class="keyword">if</span> ([obj isKindOfClass:[JPBoxing class]]) &#123; \</span><br><span class="line">                ret = [((JPBoxing *)obj) unboxPointer]; \</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CODE_CLASS    \</span></span><br><span class="line">            Class ret;   \</span><br><span class="line">            ret = formatJSToOC(jsval);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_CODE_SEL    \</span></span><br><span class="line">            SEL ret;   \</span><br><span class="line">            id obj = formatJSToOC(jsval); \</span><br><span class="line">            <span class="keyword">if</span> ([obj isKindOfClass:[NSString class]]) &#123; \</span><br><span class="line">                ret = NSSelectorFromString(obj); \</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        JP_FWD_RET_CASE_RET(<span class="string">'@'</span>, id, JP_FWD_RET_CODE_ID)</span><br><span class="line">        JP_FWD_RET_CASE_RET(<span class="string">'^'</span>, <span class="keyword">void</span>*, JP_FWD_RET_CODE_POINTER)</span><br><span class="line">        JP_FWD_RET_CASE_RET(<span class="string">'*'</span>, <span class="keyword">void</span>*, JP_FWD_RET_CODE_POINTER)</span><br><span class="line">        JP_FWD_RET_CASE_RET(<span class="string">'#'</span>, Class, JP_FWD_RET_CODE_CLASS)</span><br><span class="line">        JP_FWD_RET_CASE_RET(<span class="string">':'</span>, SEL, JP_FWD_RET_CODE_SEL)</span><br><span class="line"></span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'c'</span>, <span class="keyword">char</span>, charValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'C'</span>, <span class="keyword">unsigned</span> <span class="keyword">char</span>, unsignedCharValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'s'</span>, <span class="keyword">short</span>, shortValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'S'</span>, <span class="keyword">unsigned</span> <span class="keyword">short</span>, unsignedShortValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'i'</span>, <span class="keyword">int</span>, intValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'I'</span>, <span class="keyword">unsigned</span> <span class="keyword">int</span>, unsignedIntValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'l'</span>, <span class="keyword">long</span>, longValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'L'</span>, <span class="keyword">unsigned</span> <span class="keyword">long</span>, unsignedLongValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'q'</span>, <span class="keyword">long</span> <span class="keyword">long</span>, longLongValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'Q'</span>, <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>, unsignedLongLongValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'f'</span>, <span class="keyword">float</span>, floatValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'d'</span>, <span class="keyword">double</span>, doubleValue)</span><br><span class="line">        JP_FWD_RET_CASE(<span class="string">'B'</span>, BOOL, boolValue)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'v'</span>: &#123;</span><br><span class="line">            JP_FWD_RET_CALL_JS</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">case</span> <span class="string">'&#123;'</span>: &#123;</span><br><span class="line">            NSString *typeString = extractStructName([NSString stringWithUTF8String:returnType]);</span><br><span class="line">            <span class="meta">#<span class="meta-keyword">define</span> JP_FWD_RET_STRUCT(_type, _funcSuffix) \</span></span><br><span class="line">            <span class="keyword">if</span> ([typeString rangeOfString:@#_type].location != NSNotFound) &#123;    \</span><br><span class="line">                JP_FWD_RET_CALL_JS \</span><br><span class="line">                _type ret = [jsval _funcSuffix]; \</span><br><span class="line">                [invocation setReturnValue:&amp;ret];\</span><br><span class="line">                <span class="keyword">break</span>;  \</span><br><span class="line">            &#125;</span><br><span class="line">            JP_FWD_RET_STRUCT(CGRect, toRect)</span><br><span class="line">            JP_FWD_RET_STRUCT(CGPoint, toPoint)</span><br><span class="line">            JP_FWD_RET_STRUCT(CGSize, toSize)</span><br><span class="line">            JP_FWD_RET_STRUCT(NSRange, toRange)</span><br><span class="line">            </span><br><span class="line">            @synchronized (_context) &#123;</span><br><span class="line">                NSDictionary *structDefine = _registeredStruct[typeString];</span><br><span class="line">                <span class="keyword">if</span> (structDefine) &#123;</span><br><span class="line">                    <span class="keyword">size_t</span> size = sizeOfStructTypes(structDefine[@<span class="string">"types"</span>]);</span><br><span class="line">                    JP_FWD_RET_CALL_JS</span><br><span class="line">                    <span class="keyword">void</span> *ret = <span class="built_in">malloc</span>(size);</span><br><span class="line">                    NSDictionary *dict = formatJSToOC(jsval);</span><br><span class="line">                    getStructDataWithDict(ret, dict, structDefine);</span><br><span class="line">                    [invocation setReturnValue:ret];</span><br><span class="line">                    <span class="built_in">free</span>(ret);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">default</span>: &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (_pointersToRelease) &#123;</span><br><span class="line">        <span class="keyword">for</span> (NSValue *val in _pointersToRelease) &#123;</span><br><span class="line">            <span class="keyword">void</span> *pointer = <span class="literal">NULL</span>;</span><br><span class="line">            [val getValue:&amp;pointer];</span><br><span class="line">            CFRelease(pointer);</span><br><span class="line">        &#125;</span><br><span class="line">        _pointersToRelease = nil;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (deallocFlag) &#123;</span><br><span class="line">        slf = nil;</span><br><span class="line">        Class instClass = object_getClass(assignSlf);</span><br><span class="line">        Method deallocMethod = class_getInstanceMethod(instClass, NSSelectorFromString(@<span class="string">"ORIGdealloc"</span>));</span><br><span class="line">        <span class="keyword">void</span> (*originalDealloc)(__unsafe_unretained id, SEL) = (__typeof__(originalDealloc))method_getImplementation(deallocMethod);</span><br><span class="line">        originalDealloc(assignSlf, NSSelectorFromString(@<span class="string">"dealloc"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="平台使用"><a href="#平台使用" class="headerlink" title="平台使用"></a>平台使用</h2><ul>
+<li><a href="https://github.com/bang590/JSPatch/wiki" target="_blank" rel="noopener">平台使用说明</a></li>
+<li>如果使用其平台来做还是算简单的，基本不用做其他配置。</li>
+</ul>
+<h3 id="集成-SDK"><a href="#集成-SDK" class="headerlink" title="集成 SDK"></a>集成 SDK</h3><blockquote>
+<p>一般情况的SDK的使用完全按照文档基本没有问题</p>
+</blockquote>
+<ul>
+<li>在平台创建 APP</li>
+<li>下载SDK集成到项目中</li>
+<li>已经集成完毕</li>
+<li>在需要修复 bug 时，先写好 js 脚本</li>
+<li>本地测试</li>
+<li>测试成功后，去平台下发即可。</li>
+</ul>
+<h3 id="平台-SDK-使用注意点："><a href="#平台-SDK-使用注意点：" class="headerlink" title="平台 SDK 使用注意点："></a>平台 SDK 使用注意点：</h3><ul>
+<li>补丁累计不要超过 1 个</li>
+<li>每一次 App 更新必须使用原生来处理掉所有的补丁，同时需要清除相应的补丁下载。</li>
+<li>每一次下发补丁需提本地测试</li>
+</ul>
+<h2 id="自建平台"><a href="#自建平台" class="headerlink" title="自建平台"></a>自建平台</h2><ul>
+<li><p><img src="http://www.10tiao.com/img.do?url=http%3A//mmbiz.qpic.cn/mmbiz_png/2iaHTl80iajP816eIm8wfzO5MeuIT0VlNtlJWH4Xy4Ioj7ib79tKzAiaDpqJkVM8kDn8nTjXpUUqRibRulJ9bic5DqXg/0%3Fwx_fmt%3Dpng" alt=""></p>
+</li>
+<li><p><a href="http://www.10tiao.com/html/655/201701/2650215152/1.html" target="_blank" rel="noopener">自建平台时需要处理的一些问题</a></p>
+</li>
+</ul>
+<h2 id="拷贝下官方的一个-DEMO"><a href="#拷贝下官方的一个-DEMO" class="headerlink" title="拷贝下官方的一个 DEMO"></a>拷贝下官方的一个 DEMO</h2><ul>
+<li>有一个最简单的控制器上有一个按钮，现在想加点功能，就是在点击这个按钮时跳转到一个新界面，新的界面上有一个 tableView，同时做相应的简单展示、</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;JPViewController.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation JPViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 50)];</span><br><span class="line">    [btn setTitle:@&quot;Push JPTableViewController&quot; forState:UIControlStateNormal];</span><br><span class="line">    [btn addTarget:self action:@selector(handleBtn:) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">    [btn setBackgroundColor:[UIColor grayColor]];</span><br><span class="line">    [self.view addSubview:btn];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)handleBtn:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<ul>
+<li>集成项目</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[JPEngine startEngine];</span><br><span class="line">NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@&quot;demo&quot; ofType:@&quot;js&quot;];</span><br><span class="line">NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];</span><br><span class="line">[JPEngine evaluateScript:script];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>JS 脚本如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">defineClass(&apos;JPViewController&apos;, &#123;</span><br><span class="line">  handleBtn: function(sender) &#123;</span><br><span class="line">    var tableViewCtrl = JPTableViewController.alloc().init()</span><br><span class="line">    self.navigationController().pushViewController_animated(tableViewCtrl, YES)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">defineClass(&apos;JPTableViewController : UITableViewController &lt;UIAlertViewDelegate&gt;&apos;, [&apos;data&apos;], &#123;</span><br><span class="line">  dataSource: function() &#123;</span><br><span class="line">    var data = self.data();</span><br><span class="line">    if (data) return data;</span><br><span class="line">    var data = [];</span><br><span class="line">    for (var i = 0; i &lt; 20; i ++) &#123;</span><br><span class="line">      data.push(&quot;cell from js &quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    self.setData(data)</span><br><span class="line">    return data;</span><br><span class="line">  &#125;,</span><br><span class="line">  numberOfSectionsInTableView: function(tableView) &#123;</span><br><span class="line">    return 1;</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_numberOfRowsInSection: function(tableView, section) &#123;</span><br><span class="line">    return self.dataSource().length;</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_cellForRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">    var cell = tableView.dequeueReusableCellWithIdentifier(&quot;cell&quot;) </span><br><span class="line">    if (!cell) &#123;</span><br><span class="line">      cell = require(&apos;UITableViewCell&apos;).alloc().initWithStyle_reuseIdentifier(0, &quot;cell&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    cell.textLabel().setText(self.dataSource()[indexPath.row()])</span><br><span class="line">    return cell</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_heightForRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">    return 60</span><br><span class="line">  &#125;,</span><br><span class="line">  tableView_didSelectRowAtIndexPath: function(tableView, indexPath) &#123;</span><br><span class="line">     var alertView = require(&apos;UIAlertView&apos;).alloc().initWithTitle_message_delegate_cancelButtonTitle_otherButtonTitles(&quot;Alert&quot;,self.dataSource()[indexPath.row()], self, &quot;OK&quot;,  null);</span><br><span class="line">     alertView.show()</span><br><span class="line">  &#125;,</span><br><span class="line">  alertView_willDismissWithButtonIndex: function(alertView, idx) &#123;</span><br><span class="line">    console.log(&apos;click btn &apos; + alertView.buttonTitleAtIndex(idx).toJS())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/2026898-1c826218dc28ab68.gif?imageMogr2/auto-orient/strip" alt="1111.gif"></p>
+
+      
+    </div>
+    
+    
+    
+
+
+<div>
+
+<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">- END -</div>
+
+</div>
+
+
+</div>
+
+<div>
+
+
+
+<img align="center" src="https://liangdahong.com/images/0/wxgzh.jpg" width="25%" style="border-radius:5px; box-shadow: 5px 5px 5px #999999"></img>
+<div align="center" style="color: #aaaaaa">⌾</div>
+<div align="center">关注微信公众号，发现更多精彩</div>
+
+<div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
+
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<!-- JS库 sweetalert 可修改路径 -->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<p><span>文章作者:</span><a href="/" title="访问 梁大红 的个人博客">梁大红</a></p>
+<p><span>特别声明:</span><a href="https://liangdahong.com/about/" title="A">若无特殊声明均为原创，转载请注明，侵权请联系</a></p>
+<p><span>版权声明:</span><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a></p>
+
+</div>
+
+<script>
+var clipboard = new Clipboard('.fa-clipboard');
+$(".fa-clipboard").click(function(){
+clipboard.on('success', function(){
+swal({
+title: "",
+text: '拷贝成功!',
+icon: "success",
+showConfirmButton: true
+});
+});
+});
+</script>
+
+
+
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/05-生活-感叹/时光轴/" rel="next" title="时光轴">
+                <i class="fa fa-chevron-left"></i> 时光轴
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/00-技术-iOS/iOS-运行时之消息转发机制/" rel="prev" title="iOS 运行时之消息转发机制">
+                iOS 运行时之消息转发机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="梁大红" />
+            
+              <p class="site-author-name" itemprop="name">梁大红</p>
+              <p class="site-description motion-element" itemprop="description">千里之行始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangdahong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/liangdahong" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/liangdahong" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/dahong.liang" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ios@liangdahong.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.com" title="Mattt" target="_blank">Mattt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.ibireme.com" title="ibireme" target="_blank">ibireme</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="onevcat" target="_blank">onevcat</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.cnbang.net/archives" title="bang" target="_blank">bang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sunnyxx.com" title="sunnyxx" target="_blank">sunnyxx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.awhisper.net/" title="折腾范儿の味精" target="_blank">折腾范儿の味精</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jinxiansen.com/" title="晋先森" target="_blank">晋先森</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haodachuang.cn/" title="乡长" target="_blank">乡长</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.</span> <span class="nav-text">说在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScriptCore初探"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScriptCore初探</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-JavaScriptCore-做-JavaScript-和-OC-之间的相互调用的2个小例子"><span class="nav-number">1.2.</span> <span class="nav-text">使用 JavaScriptCore 做 JavaScript 和 OC 之间的相互调用的2个小例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Objective-C调用JavaScript"><span class="nav-number">1.2.1.</span> <span class="nav-text">Objective-C调用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript调用Objective-C"><span class="nav-number">1.2.2.</span> <span class="nav-text">JavaScript调用Objective-C</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理分析"><span class="nav-number">2.</span> <span class="nav-text">原理分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平台使用"><span class="nav-number">3.</span> <span class="nav-text">平台使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集成-SDK"><span class="nav-number">3.1.</span> <span class="nav-text">集成 SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台-SDK-使用注意点："><span class="nav-number">3.2.</span> <span class="nav-text">平台 SDK 使用注意点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建平台"><span class="nav-number">4.</span> <span class="nav-text">自建平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝下官方的一个-DEMO"><span class="nav-number">5.</span> <span class="nav-text">拷贝下官方的一个 DEMO</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+<span class="author" itemprop="copyrightHolder">梁大红</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://liangdahong.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/';
+          this.page.identifier = '2018/10/19/00-技术-iOS/JSPatch简单分析1/';
+          this.page.title = 'JSPatch简单分析1';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://liangdahong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
