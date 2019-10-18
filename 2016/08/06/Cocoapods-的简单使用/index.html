@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+(function(){
+if(''){
+if (prompt('请输入文章密码') !== ''){
+alert('密码错误！');
+history.back();
+}
+}
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+<meta name="keywords" content="Cocoapods," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
+<meta name="keywords" content="Cocoapods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cocoapods 的简单使用">
+<meta property="og:url" content="https://liangdahong.com/2016/08/06/Cocoapods-的简单使用/index.html">
+<meta property="og:site_name" content="梁大红的技术Blog">
+<meta property="og:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-10-18T08:58:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cocoapods 的简单使用">
+<meta name="twitter:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+var NexT = window.NexT || {};
+var CONFIG = {
+root: '/',
+scheme: 'Pisces',
+version: '5.1.4',
+sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+fancybox: true,
+tabs: true,
+motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+duoshuo: {
+userId: '0',
+author: '博主'
+},
+algolia: {
+applicationID: '',
+apiKey: '',
+indexName: '',
+hits: {"per_page":10},
+labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+}
+};
+</script>
+
+
+
+<link rel="canonical" href="https://liangdahong.com/2016/08/06/Cocoapods-的简单使用/"/>
+
+
+
+
+
+
+  <title>Cocoapods 的简单使用 | 梁大红的技术Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cfc3472238e91bbaf9532f7d54b9ff7c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/liangdahong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁大红的技术Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-objective-c">
+          <a href="/categories/Objective-C" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            Objective-C
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-swift">
+          <a href="/categories/Swift" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Swift
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-web">
+          <a href="/categories/Web" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
+            
+            Web
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2016/08/06/Cocoapods-的简单使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁大红">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁大红的技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cocoapods 的简单使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-06T21:04:31+08:00">
+                2016-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/06/Cocoapods-的简单使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/06/Cocoapods-的简单使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>前提在已经安装好 cocoapods 的情况下</p>
+</blockquote>
+<h2 id="使用-Cocoapods"><a href="#使用-Cocoapods" class="headerlink" title="使用 Cocoapods"></a>使用 Cocoapods</h2><h3 id="初步使用pod"><a href="#初步使用pod" class="headerlink" title="初步使用pod"></a>初步使用pod</h3><p>1、使用 Xcode 创建一个名为： myCocoapods 的项目</p>
+<p>2、创建 .gitignore 文件 <code>touch .gitignore</code>，配置好我们平常需要忽略的相关文件，打开  Pods/ 可以参考<a href="https://github.com/github/gitignore/blob/master/Objective-C.gitignore" target="_blank" rel="noopener">github官方之gitignore</a></p>
+<p>3、cd 到刚才的项目</p>
+<p>4、<code>pod init</code></p>
+<blockquote>
+<p>如果是升级 Xcode8 后，可能执行 <code>pod init</code><br> 后没有任何反应或者其他错误<br>查找资料得:<br>执行 <code>sudo gem install -n /usr/local/bin cocoapods --pre</code><br>后可正常使用<br><a href="http://www.jianshu.com/p/af3afa16d3a5/comments/4413467" target="_blank" rel="noopener">参考自</a></p>
+</blockquote>
+<p>5、<code>pod update</code></p>
+<p>6、在 Podfile 中添加相应的第三方</p>
+<p><code>最简单的版本选择:</code><a href="https://www.gitbook.com/book/tasselx/podfile/details" target="_blank" rel="noopener">参考</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#  取最新版本</span><br><span class="line">pod 'MJRefresh',</span><br><span class="line"></span><br><span class="line">#  取<span class="number">3.1</span><span class="number">.12</span></span><br><span class="line">pod 'MJRefresh', ‘3.1.12'</span><br><span class="line"></span><br><span class="line">#  [<span class="number">3.1</span><span class="number">.12</span> ...]</span><br><span class="line">pod 'MJRefresh', ‘&gt;=3.1.12'</span><br><span class="line"></span><br><span class="line">#  (<span class="number">3.1</span><span class="number">.12</span> ...]</span><br><span class="line">pod 'MJRefresh', ‘&gt;3.1.12'</span><br><span class="line"></span><br><span class="line">#  [<span class="number">0.0</span><span class="number">.0</span> <span class="number">3.1</span><span class="number">.12</span>]</span><br><span class="line">pod 'MJRefresh', ‘&lt;=3.1.12'</span><br><span class="line"></span><br><span class="line">#  [<span class="number">0.0</span><span class="number">.0</span> <span class="number">3.1</span><span class="number">.12</span>)</span><br><span class="line">pod 'MJRefresh', ‘&lt;3.1.12'</span><br><span class="line"></span><br><span class="line"># [<span class="number">3.1</span><span class="number">.12</span> <span class="number">3.2</span><span class="number">.0</span>)</span><br><span class="line">pod 'MJRefresh', ‘~&gt;3.1.12'</span><br></pre></td></tr></table></figure>
+<p>7、 在 <code>pod update</code> 或者 <code>pod update --verbose --no-repo-update</code></p>
+<p>8、把项目 push 到仓库</p>
+<p>9、项目的初始化基本OK，另一个开发到来以后直接去 git 仓库 clone 项目下来</p>
+<p>10、然后  <code>pod update</code> 或者 <code>pod update --verbose --no-repo-update</code> 一下即可正常使用了</p>
+<p>11、项目结构如下：<br><img src="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><a href="https://github.com/liangdahong/myCocoapods/tree/master" target="_blank" rel="noopener">Demo链接</a></p>
+<h3 id="pod的一些命令"><a href="#pod的一些命令" class="headerlink" title="pod的一些命令"></a>pod的一些命令</h3><h4 id="列出所有本地已经缓存的第三方库"><a href="#列出所有本地已经缓存的第三方库" class="headerlink" title="列出所有本地已经缓存的第三方库"></a>列出所有本地已经缓存的第三方库</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod cache <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出如下</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iCarousel:</span><br><span class="line">- Version: <span class="number">1.8</span><span class="number">.2</span></span><br><span class="line">Type:    Release</span><br><span class="line">Spec:    /Users/vivi/Library/Caches/CocoaPods/Pods/Specs/Release/iCarousel/<span class="number">1.8</span>.podspec.json</span><br><span class="line">Pod:     /Users/vivi/Library/Caches/CocoaPods/Pods/Release/iCarousel/<span class="number">1.8</span><span class="number">.2</span><span class="number">-67</span>c8a</span><br><span class="line">libextobjc:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h4 id="清除指定缓存"><a href="#清除指定缓存" class="headerlink" title="清除指定缓存"></a>清除指定缓存</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod cache clean libName</span><br></pre></td></tr></table></figure>
+<h4 id="清除全部缓存"><a href="#清除全部缓存" class="headerlink" title="清除全部缓存"></a>清除全部缓存</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod cache clean all</span><br></pre></td></tr></table></figure>
+<h2 id="让自己的代码使用-cocoapods-管理"><a href="#让自己的代码使用-cocoapods-管理" class="headerlink" title="让自己的代码使用 cocoapods 管理"></a>让自己的代码使用 cocoapods 管理</h2><p>1、在github创建项目</p>
+<p>2、初始化好项目</p>
+<p>3、clone 项目下来</p>
+<p>4、到项目root目录下， 创建 spec 文件<br><code>cd 项目</code><br><code>pod spec create 名称</code></p>
+<p>5、编辑 spec 文件 （MJRefresh的spec文件是这样写的，里面具体的含义以后补充，或者 自行<a href="https://www.google.com.hk" target="_blank" rel="noopener">Google</a>）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Pod::Spec.<span class="keyword">new</span> <span class="keyword">do</span> |s|</span><br><span class="line">s.name         = 'MJRefresh'</span><br><span class="line">s.version      = '3.1.12'</span><br><span class="line">s.summary      = 'An easy way to use pull-to-refresh'</span><br><span class="line">s.homepage     = 'https://github.com/CoderMJLee/MJRefresh'</span><br><span class="line">s.license      = 'MIT'</span><br><span class="line">s.authors      = &#123;'MJ Lee' =&gt; '199109106@qq.com'&#125;</span><br><span class="line">s.platform     = :ios, '6.0'</span><br><span class="line">s.source       = &#123;:git =&gt; 'https://github.com/CoderMJLee/MJRefresh.git', :tag =&gt; s.version&#125;</span><br><span class="line">s.source_files = 'MJRefresh/**/*.&#123;h,m&#125;'</span><br><span class="line">s.resource     = 'MJRefresh/MJRefresh.bundle'</span><br><span class="line">s.requires_arc = <span class="literal">true</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>6、新建 <code>tag</code> 且提交项目</p>
+<p><code>git add .</code>  </p>
+<p><code>git commit -m &#39;0.01&#39;</code></p>
+<p><code>git tag 0.0.1</code></p>
+<p><code>git push --tags</code></p>
+<p><code>git push origin master</code></p>
+<p>7、验证一下 podspec 文件</p>
+<p><code>pod lib lint</code> </p>
+<p>8、如果是第一次提交需验证一下,不是第一次可以不用此步</p>
+<p><code>pod trunk register ios@idhong.com &#39;idhong&#39; --description=‘一些描述’</code></p>
+<blockquote>
+<p>此时需要登录邮箱验证一下身份，看提示即可</p>
+</blockquote>
+<p>9、提交给 cocoapods 管理</p>
+<p><code>pod trunk push IHExtension.podspec --allow-warnings</code></p>
+<p>10、如果成功，可能需要等几分钟才可以 search 到你的 lib, 可去<a href="https://cocoapods.org/" target="_blank" rel="noopener">cocoapods</a>查看</p>
+<p>11、提交好了以后如果还是无法搜索到自己的项目，可以尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pod setup</span><br><span class="line"></span><br><span class="line">rm ~/Library/Caches/CocoaPods/search_index.json</span><br></pre></td></tr></table></figure>
+<p>12、继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search XXX</span><br></pre></td></tr></table></figure>
+<p>13、如果想多人维护一个库（需先让指定的邮箱注册）</p>
+<p><code>pod trunk add-owner IHExtension xxx@xxx.com</code></p>
+<p>14、查看自己的信息</p>
+<p><code>pod trunk me</code></p>
+<p><a href="https://github.com/liangdahong/IHExtension" target="_blank" rel="noopener">Demo链接</a></p>
+<h2 id="公司公共模块使用-cocoapods-管理"><a href="#公司公共模块使用-cocoapods-管理" class="headerlink" title="公司公共模块使用 cocoapods 管理"></a>公司公共模块使用 cocoapods 管理</h2><h3 id="pod-的配置文件放在cocoapods官网-配置里的指向github"><a href="#pod-的配置文件放在cocoapods官网-配置里的指向github" class="headerlink" title="pod 的配置文件放在cocoapods官网 配置里的指向github"></a>pod 的配置文件放在cocoapods官网 配置里的指向github</h3><p>上面的方式</p>
+<h3 id="pod-的配置文件放在cocoapods官网-配置里的指向内网"><a href="#pod-的配置文件放在cocoapods官网-配置里的指向内网" class="headerlink" title="pod 的配置文件放在cocoapods官网 配置里的指向内网"></a>pod 的配置文件放在cocoapods官网 配置里的指向内网</h3><p>外面可以搜到到，但是无法下载，需要打tag</p>
+<p>1、如果公司的项目较多，那么许多公共模块，一些工具类如果使用 pod 管理起来就更加方便了。</p>
+<p>2、一个方法的只需要把上面配置文件；<br><code>s.homepage</code>  <code>s.source</code>  指向自己的内网就👌,虽然把 pod 的配置文件push 到了cocoapods 官网，但是别人其实无法查看其中的任何内容。</p>
+<p>使用和配置都比较简单，但是外面的人会搜到你的模块，只是无法下载</p>
+<h3 id="配置文件-使用电脑路径的方式"><a href="#配置文件-使用电脑路径的方式" class="headerlink" title="配置文件 使用电脑路径的方式"></a>配置文件 使用电脑路径的方式</h3><p>使用还比较简单，而且不需要打 tag，比较适合公共模块在开发阶段，push就可以了</p>
+<p>–</p>
+<p>pod ‘iOS-Echarts’, :path =&gt; ‘../iOS-Echarts’<br>路径为  <code>podspec</code> 在本电脑的的路径，可以把自己的私有第三方放在内网上，然后下载到本地方的一定路径，可以放到 <code>~/</code> 的路径那么全部成员的电脑都可以正常使用了，可以自由发挥，但是保证配置完全正确</p>
+<h3 id="使用-私有-repo-管理配置文件的方式"><a href="#使用-私有-repo-管理配置文件的方式" class="headerlink" title="使用 私有 repo 管理配置文件的方式"></a>使用 私有 repo 管理配置文件的方式</h3><p>操作比较复杂，需要打 tag，适合于公共模块已经比较稳定的情况</p>
+<p>思路为自己创建私有的spect来管理内部的 lib 的配置文件，就和其他公共第三方放到 cocoapods 官网一样</p>
+<ul>
+<li>需要创建一个私有的管理 第三方的配置的 库</li>
+<li>创建一个自己的库让私有仓库管理</li>
+<li>创建好上面的2个库</li>
+<li>添加进去 <code>pod repo add spect的名称  spect的git地址</code></li>
+<li>验证一下 <code>pod spec lint IHKit.podspec --sources=&#39;https://github.com/liangdahong/IHKit.git, https://github.com/CocoaPods/Specs.git&#39; --allow-warnings</code></li>
+<li>push到自己的私有仓库进行管理 <code>pod repo push &#39;IHCocoapods&#39; IHKit.podspec  --allow-warnings</code><br>push 时需要在全部配置好的情况下，配置文件填写完整，tag配置ok</li>
+</ul>
+<p>完成后就可以正常使用了<br>在 <code>Podfile</code> 声明一下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 官方库</span><br><span class="line">source 'https://github.com/CocoaPods/Specs.git'</span><br><span class="line"># 私有库  </span><br><span class="line">source 'https://github.com/liangdahong/IHCocoapods.git'</span><br></pre></td></tr></table></figure>
+<ul>
+<li>想删除一个库，可以用 <code>pod repo remove WTSpecs</code></li>
+<li>如果想删除一个库的一个版本 可以直接到文件夹下删除指定的文件夹 在 push 到 git 就好了</li>
+</ul>
+<hr>
+<p>其他人使用时，pod repo add spect的名称  spect的git地址 添加到目录下，以后用更新只需要<br>cd ~/.cocoapods/repos 到指定的目录下  pull 就OK</p>
+<ul>
+<li><a href="http://blog.wtlucky.com/blog/2015/02/26/create-private-podspec/" target="_blank" rel="noopener">参考1</a></li>
+<li><a href="http://www.jianshu.com/p/4b63dfbd8be7" target="_blank" rel="noopener">参考2</a></li>
+<li><a href="http://www.cocoachina.com/ios/20150228/11206.html" target="_blank" rel="noopener">参考3</a></li>
+</ul>
+<h2 id="利用-appledoc-生成-API-文档"><a href="#利用-appledoc-生成-API-文档" class="headerlink" title="利用 appledoc 生成 API 文档"></a>利用 appledoc 生成 API 文档</h2><ul>
+<li><p>克隆项目 <code>git  clone  https://github.com/tomaz/appledoc.git</code></p>
+</li>
+<li><p>到目录下  <code>cd appledoc</code></p>
+</li>
+<li><p>安装 <code>sudo sh install-appledoc.sh</code></p>
+</li>
+<li><p>查看版本情况 <code>appledoc --version</code></p>
+</li>
+<li><p>生成文档  <code>appledoc --no-create-docset --output 生成的文档保存的路径   --project-name &quot;你的项目名称&quot; --company-id &quot;com.idhong&quot; --project-company &quot;公司名称&quot;   需要生成文档的项目</code>    </p>
+</li>
+</ul>
+<p><a href="http://blog.devtang.com/2012/02/01/use-appledoc-to-generate-xcode-doc/" target="_blank" rel="noopener">参考1</a><br><a href="http://www.jianshu.com/p/726498efc757" target="_blank" rel="noopener">参考2</a> </p>
+
+      
+    </div>
+    
+    
+    
+
+
+<div>
+
+<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">- END -</div>
+
+</div>
+
+
+</div>
+
+<div>
+
+
+
+<img align="center" src="https://liangdahong.com/images/0/wxgzh.jpg" width="25%" style="border-radius:5px; box-shadow: 5px 5px 5px #999999"></img>
+<div align="center" style="color: #aaaaaa">⌾</div>
+<div align="center">关注微信公众号，发现更多精彩</div>
+
+<div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
+
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<!-- JS库 sweetalert 可修改路径 -->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<p><span>文章作者:</span><a href="/" title="访问 梁大红 的个人博客">梁大红</a></p>
+<p><span>特别声明:</span><a href="https://liangdahong.com/about/" title="A">若无特殊声明均为原创，转载请注明，侵权请联系</a></p>
+<p><span>版权声明:</span><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a></p>
+
+</div>
+
+<script>
+var clipboard = new Clipboard('.fa-clipboard');
+$(".fa-clipboard").click(function(){
+clipboard.on('success', function(){
+swal({
+title: "",
+text: '拷贝成功!',
+icon: "success",
+showConfirmButton: true
+});
+});
+});
+</script>
+
+
+
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Cocoapods/" rel="tag"> <i class="fa fa-tag"></i> Cocoapods</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/31/2018/Swift-元组（Tuples）/" rel="next" title="Swift 元组（Tuples）">
+                <i class="fa fa-chevron-left"></i> Swift 元组（Tuples）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/2016/Cocoapods-的简单使用/" rel="prev" title="Cocoapods 的简单使用">
+                Cocoapods 的简单使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="梁大红" />
+            
+              <p class="site-author-name" itemprop="name">梁大红</p>
+              <p class="site-description motion-element" itemprop="description">千里之行始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangdahong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/liangdahong" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/liangdahong" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/dahong.liang" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ios@liangdahong.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.com" title="Mattt" target="_blank">Mattt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.ibireme.com" title="ibireme" target="_blank">ibireme</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="onevcat" target="_blank">onevcat</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.cnbang.net/archives" title="bang" target="_blank">bang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sunnyxx.com" title="sunnyxx" target="_blank">sunnyxx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.awhisper.net/" title="折腾范儿の味精" target="_blank">折腾范儿の味精</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jinxiansen.com/" title="晋先森" target="_blank">晋先森</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haodachuang.cn/" title="乡长" target="_blank">乡长</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Cocoapods"><span class="nav-number">1.</span> <span class="nav-text">使用 Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步使用pod"><span class="nav-number">1.1.</span> <span class="nav-text">初步使用pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod的一些命令"><span class="nav-number">1.2.</span> <span class="nav-text">pod的一些命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列出所有本地已经缓存的第三方库"><span class="nav-number">1.2.1.</span> <span class="nav-text">列出所有本地已经缓存的第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除指定缓存"><span class="nav-number">1.2.2.</span> <span class="nav-text">清除指定缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除全部缓存"><span class="nav-number">1.2.3.</span> <span class="nav-text">清除全部缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让自己的代码使用-cocoapods-管理"><span class="nav-number">2.</span> <span class="nav-text">让自己的代码使用 cocoapods 管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司公共模块使用-cocoapods-管理"><span class="nav-number">3.</span> <span class="nav-text">公司公共模块使用 cocoapods 管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向github"><span class="nav-number">3.1.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向内网"><span class="nav-number">3.2.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向内网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件-使用电脑路径的方式"><span class="nav-number">3.3.</span> <span class="nav-text">配置文件 使用电脑路径的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-私有-repo-管理配置文件的方式"><span class="nav-number">3.4.</span> <span class="nav-text">使用 私有 repo 管理配置文件的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-appledoc-生成-API-文档"><span class="nav-number">4.</span> <span class="nav-text">利用 appledoc 生成 API 文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+<span class="author" itemprop="copyrightHolder">梁大红</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://liangdahong.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://liangdahong.com/2016/08/06/Cocoapods-的简单使用/';
+          this.page.identifier = '2016/08/06/Cocoapods-的简单使用/';
+          this.page.title = 'Cocoapods 的简单使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://liangdahong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
