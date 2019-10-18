@@ -7,6 +7,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>GCD</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Jenkins 相关]]></title>
@@ -37,6 +40,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[我的资料]]></title>
@@ -45,6 +51,9 @@
       <categories>
         <category>01-技术-微信小程序</category>
       </categories>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[面试题001]]></title>
@@ -53,6 +62,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>面试题</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS 运行时之消息转发机制]]></title>
@@ -61,6 +73,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[JSPatch简单分析1]]></title>
@@ -69,6 +84,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[时光轴]]></title>
@@ -77,6 +95,9 @@
       <categories>
         <category>05-生活-感叹</category>
       </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Swift 之 init 构造方法]]></title>
@@ -85,6 +106,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[正确高效使用 Google]]></title>
@@ -93,6 +117,9 @@
       <categories>
         <category>03-技术-计算机</category>
       </categories>
+      <tags>
+        <tag>计算机</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - 中国教育问题的根源在于大学而不在高中]]></title>
@@ -101,6 +128,9 @@
       <categories>
         <category>05-生活-感叹</category>
       </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[微信小程序开发相关]]></title>
@@ -120,6 +150,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - 优化 iOS 程序性能的 24 个方法]]></title>
@@ -128,6 +161,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - 面试中的 10 大排序算法总结]]></title>
@@ -136,6 +172,9 @@
       <categories>
         <category>03-技术-计算机</category>
       </categories>
+      <tags>
+        <tag>计算机</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Web 前端学习笔记之一]]></title>
@@ -144,6 +183,9 @@
       <categories>
         <category>02-技术-前端</category>
       </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Nots]]></title>
@@ -152,6 +194,9 @@
       <categories>
         <category>02-技术-前端</category>
       </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS的一点调试技巧]]></title>
@@ -160,6 +205,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[一些小知识点]]></title>
@@ -168,6 +216,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS事件传递和响应过程]]></title>
@@ -176,6 +227,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS第三方库背后的原理和简单使用]]></title>
@@ -184,6 +238,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS开发之GCD详解]]></title>
@@ -203,6 +260,9 @@
       <categories>
         <category>03-技术-计算机</category>
       </categories>
+      <tags>
+        <tag>计算机</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[计算机存储单位和带宽等的关系]]></title>
@@ -211,6 +271,9 @@
       <categories>
         <category>03-技术-计算机</category>
       </categories>
+      <tags>
+        <tag>计算机</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[OC中mutableCopy及copy与NSString和集合类]]></title>
@@ -219,6 +282,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NSString为什么要使用copy修饰]]></title>
@@ -227,6 +293,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS开发之自定义View的一些坑]]></title>
@@ -235,6 +304,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[在Storyboard及Xib中为TableView设置HeaderView和FooterView]]></title>
@@ -244,7 +316,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>Storyboard</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -255,7 +327,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>Blocks</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -276,6 +348,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NSInvocation的简单使用]]></title>
@@ -284,6 +359,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[介绍几个iOS开发中被忽略的系统框架]]></title>
@@ -292,6 +370,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - 对函数式编程的一点理解]]></title>
@@ -300,6 +381,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - GCD 深入理解之二]]></title>
@@ -308,6 +392,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>GCD</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[转 - GCD 深入理解之一]]></title>
@@ -316,6 +403,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>GCD</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS状态栏操作]]></title>
@@ -324,6 +414,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[iOS UICollectionView Cell拖拽重排的实现]]></title>
@@ -332,6 +425,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[毕业两年的一点感悟和成长]]></title>
@@ -341,7 +437,7 @@
         <category>05-生活-感叹</category>
       </categories>
       <tags>
-        <tag>吐槽</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -352,6 +448,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
+        <tag>iOS</tag>
         <tag>JavaScript</tag>
       </tags>
   </entry>
@@ -362,6 +459,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[BMScan 博客讲解]]></title>
@@ -370,6 +470,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>iOS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[NSObject Runtime 杂货铺]]></title>
@@ -390,7 +493,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>Xcode</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -444,6 +547,9 @@
       <categories>
         <category>00-技术-iOS</category>
       </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[回忆我们系安排的实习]]></title>
@@ -453,7 +559,7 @@
         <category>05-生活-感叹</category>
       </categories>
       <tags>
-        <tag>吐槽</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -464,7 +570,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>系统框架</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -475,7 +581,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>命令行</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -486,7 +592,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>逆向</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -497,7 +603,7 @@
         <category>03-技术-计算机</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>计算机</tag>
       </tags>
   </entry>
   <entry>
@@ -508,7 +614,7 @@
         <category>00-技术-iOS</category>
       </categories>
       <tags>
-        <tag>第三方</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>

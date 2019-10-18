@@ -76,7 +76,7 @@ history.back();
 
 
 
-<meta name="keywords" content="Hexo, NexT" />
+<meta name="keywords" content="GCD," />
 
 
 
@@ -88,6 +88,7 @@ history.back();
 
 
 <meta name="description" content="文章转自 https://github.com/nixzhu/dev-blog  在本系列的第一部分中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 dispatch_once，你创建了一个线程安全的 PhotoManager 单例，而且你通过使用 dispatch_barrier_async 和 dispatch_sync 的组合使得对 Photos 数组">
+<meta name="keywords" content="GCD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="转 - GCD 深入理解之二">
 <meta property="og:url" content="https://liangdahong.com/2017/08/06/00-技术-iOS/转-GCD-深入理解之二/index.html">
@@ -101,7 +102,7 @@ history.back();
 <meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2014/01/I_See_What_You_Did_Meme.png">
 <meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2014/01/Dispatch_Sources_Xcode_Breakpoint_Console.png">
 <meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2014/01/Dispatch_Sources_Debugger_Updating_UI.png">
-<meta property="og:updated_time" content="2019-10-18T09:35:06.000Z">
+<meta property="og:updated_time" content="2019-10-18T23:11:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="转 - GCD 深入理解之二">
 <meta name="twitter:description" content="文章转自 https://github.com/nixzhu/dev-blog  在本系列的第一部分中，你已经学到超过你想像的关于并发、线程以及GCD 如何工作的知识。通过在初始化时利用 dispatch_once，你创建了一个线程安全的 PhotoManager 单例，而且你通过使用 dispatch_barrier_async 和 dispatch_sync 的组合使得对 Photos 数组">
@@ -229,36 +230,6 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
         </li>
       
         
-        <li class="menu-item menu-item-objective-c">
-          <a href="/categories/Objective-C" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
-            
-            Objective-C
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-swift">
-          <a href="/categories/Swift" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
-            
-            Swift
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-web">
-          <a href="/categories/Web" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-microchip"></i> <br />
-            
-            Web
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
@@ -285,6 +256,66 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-00-技术-ios">
+          <a href="/categories/00-技术-iOS" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            00-技术-iOS
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-01-技术-微信小程序">
+          <a href="/categories/01-技术-微信小程序" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            01-技术-微信小程序
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-02-技术-前端">
+          <a href="/categories/02-技术-前端" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            02-技术-前端
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-03-技术-计算机">
+          <a href="/categories/03-技术-计算机" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            03-技术-计算机
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-04-技术-hexo">
+          <a href="/categories/04-技术-Hexo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            04-技术-Hexo
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-05-生活-感叹">
+          <a href="/categories/05-生活-感叹" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-eercast"></i> <br />
+            
+            05-生活-感叹
           </a>
         </li>
       
@@ -696,6 +727,12 @@ showConfirmButton: true
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/GCD/" rel="tag"> <i class="fa fa-tag"></i> GCD</a>
+          
+        </div>
+      
 
       
       
@@ -819,7 +856,7 @@ showConfirmButton: true
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -830,7 +867,7 @@ showConfirmButton: true
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
