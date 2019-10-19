@@ -4,6 +4,41 @@
 
     
   <url>
+    <loc>https://liangdahong.com/2019/10/18/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%9A%84%E4%B8%80%E7%82%B9%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2019-10-19T15:47:07.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-10-18T09:00:04.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2019/06/04/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-UIStackView%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%90%86%E8%A7%A3/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>(转)UIStackView的简单使用与理解</title>
+        <pubTime>2019-06-04T03:16:33.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://liangdahong.com/2016/04/10/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%90%84%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
@@ -24,14 +59,134 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/05/09/00-%E6%8A%80%E6%9C%AF-iOS/BMScan-%E5%8D%9A%E5%AE%A2%E8%AE%B2%E8%A7%A3/</loc>
+    <loc>https://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>BMScan 博客讲解</title>
-        <pubTime>2017-05-09T15:59:30.000Z</pubTime>
+        <title>正确高效使用 Google</title>
+        <pubTime>2018-07-11T03:30:49.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/10/15/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%E5%92%8C%E5%B8%A6%E5%AE%BD%E7%AD%89%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>计算机存储单位和带宽等的关系</title>
+        <pubTime>2017-10-15T09:06:25.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nots</title>
+        <pubTime>2018-02-26T07:11:51.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+         
+           
+             
+              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8C/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>转 - GCD 深入理解之二</title>
+        <pubTime>2017-08-06T08:54:16.000Z</pubTime>
+        
+        <tag>GCD</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/09/14/00-%E6%8A%80%E6%9C%AF-iOS/%E5%9C%A8Storyboard%E5%8F%8AXib%E4%B8%AD%E4%B8%BATableView%E8%AE%BE%E7%BD%AEHeaderView%E5%92%8CFooterView/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>在Storyboard及Xib中为TableView设置HeaderView和FooterView</title>
+        <pubTime>2017-09-14T14:28:45.000Z</pubTime>
         
         <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2016/04/20/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E9%80%86%E5%90%91%E4%B9%8B%E8%8E%B7%E5%8F%96%E7%AC%AC%E4%B8%89%E6%96%B9App%E5%A4%B4%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS逆向之获取第三方App头文件</title>
+        <pubTime>2016-04-20T14:25:04.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%B8%80/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>转 - GCD 深入理解之一</title>
+        <pubTime>2017-08-06T08:51:44.000Z</pubTime>
+        
+        <tag>GCD</tag>
          
          
            
@@ -64,12 +219,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/08/18/00-%E6%8A%80%E6%9C%AF-iOS/NSInvocation%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E5%AF%B9%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>NSInvocation的简单使用</title>
-        <pubTime>2017-08-17T16:06:59.000Z</pubTime>
+        <title>转 - 对函数式编程的一点理解</title>
+        <pubTime>2017-08-06T09:25:25.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -84,12 +239,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/10/12/00-%E6%8A%80%E6%9C%AF-iOS/NSString%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8copy%E4%BF%AE%E9%A5%B0/</loc>
+    <loc>https://liangdahong.com/2017/05/09/00-%E6%8A%80%E6%9C%AF-iOS/BMScan-%E5%8D%9A%E5%AE%A2%E8%AE%B2%E8%A7%A3/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>NSString为什么要使用copy修饰</title>
-        <pubTime>2017-10-12T14:13:30.000Z</pubTime>
+        <title>BMScan 博客讲解</title>
+        <pubTime>2017-05-09T15:59:30.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -126,99 +281,19 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/10/12/00-%E6%8A%80%E6%9C%AF-iOS/OC%E4%B8%ADmutableCopy%E5%8F%8Acopy%E4%B8%8ENSString%E5%92%8C%E9%9B%86%E5%90%88%E7%B1%BB/</loc>
+    <loc>https://liangdahong.com/2017/10/16/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>OC中mutableCopy及copy与NSString和集合类</title>
-        <pubTime>2017-10-12T14:53:35.000Z</pubTime>
+        <title>浅谈计算机内存分配</title>
+        <pubTime>2017-10-16T15:05:25.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>计算机</tag>
          
          
            
              
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%B8%80/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - GCD 深入理解之一</title>
-        <pubTime>2017-08-06T08:51:44.000Z</pubTime>
-        
-        <tag>GCD</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8C/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - GCD 深入理解之二</title>
-        <pubTime>2017-08-06T08:54:16.000Z</pubTime>
-        
-        <tag>GCD</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/07/17/00-%E6%8A%80%E6%9C%AF-iOS/iOS-UICollectionView-Cell%E6%8B%96%E6%8B%BD%E9%87%8D%E6%8E%92%E7%9A%84%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS UICollectionView Cell拖拽重排的实现</title>
-        <pubTime>2017-07-17T14:08:39.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E5%AF%B9%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - 对函数式编程的一点理解</title>
-        <pubTime>2017-08-06T09:25:25.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
           
         </display>
     </data>
@@ -232,6 +307,66 @@
         <display>
         <title>iOS事件传递和响应过程</title>
         <pubTime>2017-11-28T15:49:27.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/08/18/00-%E6%8A%80%E6%9C%AF-iOS/NSInvocation%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>NSInvocation的简单使用</title>
+        <pubTime>2017-08-17T16:06:59.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/08/03/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%8A%B6%E6%80%81%E6%A0%8F%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS状态栏操作</title>
+        <pubTime>2017-08-03T14:31:50.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/11/27/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS第三方库背后的原理和简单使用</title>
+        <pubTime>2017-11-27T13:48:03.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -286,106 +421,6 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/04/09/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%AC%E4%B8%89%E6%96%B9/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS开发中的一些第三方</title>
-        <pubTime>2016-04-09T13:50:53.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/10/15/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%E5%92%8C%E5%B8%A6%E5%AE%BD%E7%AD%89%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>计算机存储单位和带宽等的关系</title>
-        <pubTime>2017-10-15T09:06:25.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/08/03/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%8A%B6%E6%80%81%E6%A0%8F%E6%93%8D%E4%BD%9C/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS状态栏操作</title>
-        <pubTime>2017-08-03T14:31:50.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/10/16/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈计算机内存分配</title>
-        <pubTime>2017-10-16T15:05:25.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/11/27/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS第三方库背后的原理和简单使用</title>
-        <pubTime>2017-11-27T13:48:03.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://liangdahong.com/2016/06/01/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E6%96%B9%E5%88%86%E4%BA%AB%E6%A1%86%E6%9E%B6Social-framework%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
@@ -426,92 +461,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/04/20/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E9%80%86%E5%90%91%E4%B9%8B%E8%8E%B7%E5%8F%96%E7%AC%AC%E4%B8%89%E6%96%B9App%E5%A4%B4%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://liangdahong.com/2016/04/09/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%AC%E4%B8%89%E6%96%B9/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>iOS逆向之获取第三方App头文件</title>
-        <pubTime>2016-04-20T14:25:04.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>正确高效使用 Google</title>
-        <pubTime>2018-07-11T03:30:49.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Nots</title>
-        <pubTime>2018-02-26T07:11:51.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-         
-           
-             
-              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2019/06/04/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-UIStackView%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>(转)UIStackView的简单使用与理解</title>
-        <pubTime>2019-06-04T03:16:33.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/09/14/00-%E6%8A%80%E6%9C%AF-iOS/%E5%9C%A8Storyboard%E5%8F%8AXib%E4%B8%AD%E4%B8%BATableView%E8%AE%BE%E7%BD%AEHeaderView%E5%92%8CFooterView/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>在Storyboard及Xib中为TableView设置HeaderView和FooterView</title>
-        <pubTime>2017-09-14T14:28:45.000Z</pubTime>
+        <title>iOS开发中的一些第三方</title>
+        <pubTime>2016-04-09T13:50:53.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -606,86 +561,6 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/06/08/00-%E6%8A%80%E6%9C%AF-iOS/%E6%B5%85%E8%B0%88-iOS-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2019-10-18T23:09:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈 iOS 事件的传递和响应过程</title>
-        <pubTime>2018-06-08T03:16:11.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/08/08/00-%E6%8A%80%E6%9C%AF-iOS/Swift-%E4%B9%8B-init-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2019-10-18T23:09:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>Swift 之 init 构造方法</title>
-        <pubTime>2018-08-08T03:54:09.000Z</pubTime>
-        
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2016/07/31/00-%E6%8A%80%E6%9C%AF-iOS/Swift-%E5%85%83%E7%BB%84%EF%BC%88Tuples%EF%BC%89/</loc>
-    <lastmod>2019-10-18T23:09:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>Swift 元组（Tuples）</title>
-        <pubTime>2016-07-31T02:51:49.000Z</pubTime>
-        
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/12/01/00-%E6%8A%80%E6%9C%AF-iOS/%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-10-18T23:09:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>一些小知识点</title>
-        <pubTime>2017-12-01T13:13:00.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://liangdahong.com/2018/05/23/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E4%BC%98%E5%8C%96-iOS-%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E7%9A%84-24-%E4%B8%AA%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2019-10-18T23:09:53.000Z</lastmod>
     <data>
@@ -726,12 +601,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/02/12/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%9A%84%E4%B8%80%E7%82%B9%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://liangdahong.com/2017/12/01/00-%E6%8A%80%E6%9C%AF-iOS/%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-10-18T23:09:53.000Z</lastmod>
     <data>
         <display>
-        <title>iOS的一点调试技巧</title>
-        <pubTime>2018-02-12T07:38:00.000Z</pubTime>
+        <title>一些小知识点</title>
+        <pubTime>2017-12-01T13:13:00.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -752,6 +627,26 @@
         <display>
         <title>iOS开发之自定义View的一些坑</title>
         <pubTime>2017-09-27T14:11:15.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2018/06/08/00-%E6%8A%80%E6%9C%AF-iOS/%E6%B5%85%E8%B0%88-iOS-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2019-10-18T23:09:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈 iOS 事件的传递和响应过程</title>
+        <pubTime>2018-06-08T03:16:11.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -866,12 +761,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/</loc>
+    <loc>https://liangdahong.com/2018/10/18/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E6%97%B6%E5%85%89%E8%BD%B4/</loc>
     <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
         <display>
-        <title>转 - 中国教育问题的根源在于大学而不在高中</title>
-        <pubTime>2018-06-25T09:17:40.000Z</pubTime>
+        <title>时光轴</title>
+        <pubTime>2018-10-18T09:03:26.000Z</pubTime>
         
         <tag>生活</tag>
          
@@ -906,26 +801,6 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/10/18/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E6%97%B6%E5%85%89%E8%BD%B4/</loc>
-    <lastmod>2019-10-18T23:04:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>时光轴</title>
-        <pubTime>2018-10-18T09:03:26.000Z</pubTime>
-        
-        <tag>生活</tag>
-         
-         
-           
-             
-              <breadCrumb title="05-生活-感叹" url="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://liangdahong.com/2016/07/01/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E5%9B%9E%E5%BF%86%E6%88%91%E4%BB%AC%E7%B3%BB%E5%AE%89%E6%8E%92%E7%9A%84%E5%AE%9E%E4%B9%A0/</loc>
     <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
@@ -946,19 +821,19 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/04/25/00-%E6%8A%80%E6%9C%AF-iOS/NSObject-Runtime-%E6%9D%82%E8%B4%A7%E9%93%BA/</loc>
-    <lastmod>2019-10-18T09:35:06.000Z</lastmod>
+    <loc>https://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/</loc>
+    <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
         <display>
-        <title>NSObject Runtime 杂货铺</title>
-        <pubTime>2017-04-25T13:25:04.000Z</pubTime>
+        <title>转 - 中国教育问题的根源在于大学而不在高中</title>
+        <pubTime>2018-06-25T09:17:40.000Z</pubTime>
         
-        <tag>Runtime</tag>
+        <tag>生活</tag>
          
          
            
              
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+              <breadCrumb title="05-生活-感叹" url="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
           
         </display>
     </data>
@@ -966,14 +841,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/09/11/00-%E6%8A%80%E6%9C%AF-iOS/Objective-C%E4%B8%8ESwift%E6%96%B9%E6%B3%95%E7%9A%84%E7%B1%BB%E6%AF%94%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <loc>https://liangdahong.com/2017/10/30/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B9%8BGCD%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2019-10-18T09:35:06.000Z</lastmod>
     <data>
         <display>
-        <title>Objective-C 与 Swift 方法的类比系列（一）</title>
-        <pubTime>2016-09-11T02:48:13.000Z</pubTime>
+        <title>iOS开发之GCD详解</title>
+        <pubTime>2017-10-30T14:30:06.000Z</pubTime>
         
-        <tag>Swift</tag>
+        <tag>GCD</tag>
          
          
            
@@ -1006,14 +881,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/10/30/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B9%8BGCD%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>https://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
     <lastmod>2019-10-18T09:35:06.000Z</lastmod>
     <data>
         <display>
-        <title>iOS开发之GCD详解</title>
-        <pubTime>2017-10-30T14:30:06.000Z</pubTime>
+        <title>各种资料收集区</title>
+        <pubTime>2016-09-10T05:29:05.000Z</pubTime>
         
-        <tag>GCD</tag>
+        <tag>资料</tag>
          
          
            
@@ -1026,14 +901,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
+    <loc>https://liangdahong.com/2017/04/25/00-%E6%8A%80%E6%9C%AF-iOS/NSObject-Runtime-%E6%9D%82%E8%B4%A7%E9%93%BA/</loc>
     <lastmod>2019-10-18T09:35:06.000Z</lastmod>
     <data>
         <display>
-        <title>各种资料收集区</title>
-        <pubTime>2016-09-10T05:29:05.000Z</pubTime>
+        <title>NSObject Runtime 杂货铺</title>
+        <pubTime>2017-04-25T13:25:04.000Z</pubTime>
         
-        <tag>资料</tag>
+        <tag>Runtime</tag>
          
          
            
