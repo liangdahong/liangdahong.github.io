@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liangdahong.com/"/>
-  <updated>2019-10-19T15:47:07.000Z</updated>
+  <updated>2019-10-18T23:11:33.000Z</updated>
   <id>https://liangdahong.com/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://liangdahong.com/2019/10/18/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%9A%84%E4%B8%80%E7%82%B9%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
-    <id>https://liangdahong.com/2019/10/18/00-技术-iOS/iOS的一点调试技巧/</id>
-    <published>2019-10-18T09:00:04.000Z</published>
-    <updated>2019-10-19T15:47:07.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>pthread、NSThread、GCD、NSOperation、NSOperationQueue</title>
@@ -243,7 +229,7 @@
     <link href="https://liangdahong.com/2018/10/18/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E6%97%B6%E5%85%89%E8%BD%B4/"/>
     <id>https://liangdahong.com/2018/10/18/05-生活-感叹/时光轴/</id>
     <published>2018-10-18T09:03:26.000Z</published>
-    <updated>2019-10-18T23:04:55.000Z</updated>
+    <updated>2019-10-19T16:30:41.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><a id="more"></a><ul><li>领证了;</li><li>小朋友比以前听话多了;</li><li>赚了点外快把之前的所有外债还清了，无债一身轻，存了点粮食;</li><li>感谢苹果粑粑，虽然被虐千百遍，但还是有一些收获;</li><li>世界杯输了点，但还好，因祸得福;</li><li>技术方面就不谈了;</li><li>2019 加油。</li></ul><h1 id="2018年计划"><a href="#2018年计划" class="headerlink" title="2018年计划"></a>2018年计划</h1><ul><li>学习 Web前端 -&gt; 会实现基本的界面。</li><li>在 Web前端 的基础上学习微信小程序 -&gt; 会简单的业务功能开发。</li><li>深耕 iOS 技术，对性能优化，有一点的积累。</li><li>稍微复习下算法。</li><li>加强 Swift 的学习。</li></ul>]]></content>
     
@@ -516,6 +502,32 @@
     
     
       <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发之GCD详解</title>
+    <link href="https://liangdahong.com/2017/10/30/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B9%8BGCD%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://liangdahong.com/2017/10/30/00-技术-iOS/iOS开发之GCD详解/</id>
+    <published>2017-10-30T14:30:06.000Z</published>
+    <updated>2019-10-18T09:35:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="队列-dispatch-queue-t"><a href="#队列-dispatch-queue-t" class="headerlink" title="队列 dispatch_queue_t"></a>队列 dispatch_queue_t</h1><h2 id="并行队列"><a href="#并行队列" class="headerlink" title="并行队列"></a>并行队列</h2><blockquote><p>其任务是随机顺序执行，完全由系统处理。</p></blockquote><ul><li>全局并行队列<a id="more"></a></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure><ul><li>自定义创建并行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure><h2 id="串行队列"><a href="#串行队列" class="headerlink" title="串行队列"></a>串行队列</h2><blockquote><p>其任务是按照先后顺序执行</p></blockquote><ul><li>全局串行队列 (主线程队列)</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_main_queue();</span><br></pre></td></tr></table></figure><ul><li>自定义创建串行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure><blockquote><p>队列可以理解为对任务的管理，对任务使用 <code>串行(先后顺序执行)</code>还是<code>并行（随机执行，由系统确定）</code>处理。</p></blockquote><h1 id="异步执行-amp-同步执行"><a href="#异步执行-amp-同步执行" class="headerlink" title="异步执行&amp;同步执行"></a>异步执行&amp;同步执行</h1><h2 id="dispatch-async"><a href="#dispatch-async" class="headerlink" title="dispatch_async"></a>dispatch_async</h2><blockquote><p>默认会开启新线程执行传入的队列，会立即返回。</p></blockquote><h2 id="dispatch-sync"><a href="#dispatch-sync" class="headerlink" title="dispatch_sync"></a>dispatch_sync</h2><blockquote><p>在当前线程执行传入的队列，执行完才返回。</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_sync(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>当前的线程在主线程中执行时会导致死锁，dispatch_sync 操作会让传如的队列在当前线程执行，而且必须执行完才返回，dispatch_get_main_queue()又是串行队列，是先进先出，（先后顺序执行）必须要让先加入 dispatch_get_main_queue() 中的任务执行完毕执行（外面的代码），从而导致相互等待导致死锁。</p></blockquote><ul><li><code>串行队列a</code> 中 <code>同步执行dispatch_sync</code> <code>串行队列a</code> 的任务会导致<code>死锁</code></li></ul><h1 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;队列-dispatch-queue-t&quot;&gt;&lt;a href=&quot;#队列-dispatch-queue-t&quot; class=&quot;headerlink&quot; title=&quot;队列 dispatch_queue_t&quot;&gt;&lt;/a&gt;队列 dispatch_queue_t&lt;/h1&gt;&lt;h2 id=&quot;并行队列&quot;&gt;&lt;a href=&quot;#并行队列&quot; class=&quot;headerlink&quot; title=&quot;并行队列&quot;&gt;&lt;/a&gt;并行队列&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;其任务是随机顺序执行，完全由系统处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;全局并行队列
+    
+    </summary>
+    
+      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+    
+    
+      <category term="GCD" scheme="https://liangdahong.com/tags/GCD/"/>
     
   </entry>
   
