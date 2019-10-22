@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liangdahong.com/"/>
-  <updated>2019-10-18T23:11:33.000Z</updated>
+  <updated>2019-10-22T09:11:57.000Z</updated>
   <id>https://liangdahong.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift学习笔记</title>
+    <link href="https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://liangdahong.com/2019/10/22/00-技术-iOS/Swift学习笔记/</id>
+    <published>2019-10-22T08:54:21.000Z</published>
+    <updated>2019-10-22T09:11:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><a id="more"></a><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// repeating 重复</span></span><br><span class="line"><span class="keyword">var</span> threeDoubles = <span class="type">Array</span>(repeating: <span class="number">0.0</span>, <span class="built_in">count</span>: <span class="number">3</span>)</span><br><span class="line"><span class="comment">// += </span></span><br><span class="line">threeDoubles+=threeDoubles;</span><br><span class="line"><span class="comment">// 特殊初始化</span></span><br><span class="line"><span class="keyword">var</span> numbers = <span class="type">Array</span>(<span class="number">1</span>..&lt;<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 块替换</span></span><br><span class="line"><span class="comment">// 把 4 5 6 这部分换为 [100, 200] 会操作数组的个数</span></span><br><span class="line"><span class="comment">// [100,200,4,5,6,7,8]</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">arr[<span class="number">0</span>...<span class="number">2</span>] = [<span class="number">100</span>, <span class="number">200</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// for-in</span></span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> [<span class="string">"1"</span>, <span class="string">"2"</span>] &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="number">_</span>, <span class="number">_</span>) <span class="keyword">in</span> [<span class="string">"1"</span>, <span class="string">"2"</span>].enumerated() &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">2</span> &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>..&lt;<span class="number">2</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳动循环</span></span><br><span class="line"><span class="comment">// 2 4 6 8 10 12</span></span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="built_in">stride</span>(from: <span class="number">2</span>, through: <span class="number">12</span>, by: <span class="number">2</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Array&quot;&gt;&lt;a href=&quot;#Array&quot; class=&quot;headerlink&quot; title=&quot;Array&quot;&gt;&lt;/a&gt;Array&lt;/h1&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>pthread、NSThread、GCD、NSOperation、NSOperationQueue</title>
@@ -502,32 +520,6 @@
     
     
       <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发之GCD详解</title>
-    <link href="https://liangdahong.com/2017/10/30/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E4%B9%8BGCD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://liangdahong.com/2017/10/30/00-技术-iOS/iOS开发之GCD详解/</id>
-    <published>2017-10-30T14:30:06.000Z</published>
-    <updated>2019-10-18T09:35:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="队列-dispatch-queue-t"><a href="#队列-dispatch-queue-t" class="headerlink" title="队列 dispatch_queue_t"></a>队列 dispatch_queue_t</h1><h2 id="并行队列"><a href="#并行队列" class="headerlink" title="并行队列"></a>并行队列</h2><blockquote><p>其任务是随机顺序执行，完全由系统处理。</p></blockquote><ul><li>全局并行队列<a id="more"></a></li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure><ul><li>自定义创建并行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure><h2 id="串行队列"><a href="#串行队列" class="headerlink" title="串行队列"></a>串行队列</h2><blockquote><p>其任务是按照先后顺序执行</p></blockquote><ul><li>全局串行队列 (主线程队列)</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_get_main_queue();</span><br></pre></td></tr></table></figure><ul><li>自定义创建串行队列</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">dispatch_queue_create(<span class="string">"com.idhong.concurrentQueue"</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure><blockquote><p>队列可以理解为对任务的管理，对任务使用 <code>串行(先后顺序执行)</code>还是<code>并行（随机执行，由系统确定）</code>处理。</p></blockquote><h1 id="异步执行-amp-同步执行"><a href="#异步执行-amp-同步执行" class="headerlink" title="异步执行&amp;同步执行"></a>异步执行&amp;同步执行</h1><h2 id="dispatch-async"><a href="#dispatch-async" class="headerlink" title="dispatch_async"></a>dispatch_async</h2><blockquote><p>默认会开启新线程执行传入的队列，会立即返回。</p></blockquote><h2 id="dispatch-sync"><a href="#dispatch-sync" class="headerlink" title="dispatch_sync"></a>dispatch_sync</h2><blockquote><p>在当前线程执行传入的队列，执行完才返回。</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_sync(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>当前的线程在主线程中执行时会导致死锁，dispatch_sync 操作会让传如的队列在当前线程执行，而且必须执行完才返回，dispatch_get_main_queue()又是串行队列，是先进先出，（先后顺序执行）必须要让先加入 dispatch_get_main_queue() 中的任务执行完毕执行（外面的代码），从而导致相互等待导致死锁。</p></blockquote><ul><li><code>串行队列a</code> 中 <code>同步执行dispatch_sync</code> <code>串行队列a</code> 的任务会导致<code>死锁</code></li></ul><h1 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;队列-dispatch-queue-t&quot;&gt;&lt;a href=&quot;#队列-dispatch-queue-t&quot; class=&quot;headerlink&quot; title=&quot;队列 dispatch_queue_t&quot;&gt;&lt;/a&gt;队列 dispatch_queue_t&lt;/h1&gt;&lt;h2 id=&quot;并行队列&quot;&gt;&lt;a href=&quot;#并行队列&quot; class=&quot;headerlink&quot; title=&quot;并行队列&quot;&gt;&lt;/a&gt;并行队列&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;其任务是随机顺序执行，完全由系统处理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;全局并行队列
-    
-    </summary>
-    
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-    
-    
-      <category term="GCD" scheme="https://liangdahong.com/tags/GCD/"/>
     
   </entry>
   
