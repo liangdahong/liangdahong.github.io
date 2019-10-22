@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liangdahong.com/"/>
-  <updated>2019-10-22T09:11:57.000Z</updated>
+  <updated>2019-10-22T09:33:08.000Z</updated>
   <id>https://liangdahong.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://liangdahong.com/2019/10/22/00-技术-iOS/Swift学习笔记/</id>
     <published>2019-10-22T08:54:21.000Z</published>
-    <updated>2019-10-22T09:11:57.000Z</updated>
+    <updated>2019-10-22T09:33:08.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><a id="more"></a><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// repeating 重复</span></span><br><span class="line"><span class="keyword">var</span> threeDoubles = <span class="type">Array</span>(repeating: <span class="number">0.0</span>, <span class="built_in">count</span>: <span class="number">3</span>)</span><br><span class="line"><span class="comment">// += </span></span><br><span class="line">threeDoubles+=threeDoubles;</span><br><span class="line"><span class="comment">// 特殊初始化</span></span><br><span class="line"><span class="keyword">var</span> numbers = <span class="type">Array</span>(<span class="number">1</span>..&lt;<span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 块替换</span></span><br><span class="line"><span class="comment">// 把 4 5 6 这部分换为 [100, 200] 会操作数组的个数</span></span><br><span class="line"><span class="comment">// [100,200,4,5,6,7,8]</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">arr[<span class="number">0</span>...<span class="number">2</span>] = [<span class="number">100</span>, <span class="number">200</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// for-in</span></span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> [<span class="string">"1"</span>, <span class="string">"2"</span>] &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="number">_</span>, <span class="number">_</span>) <span class="keyword">in</span> [<span class="string">"1"</span>, <span class="string">"2"</span>].enumerated() &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>...<span class="number">2</span> &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="number">1</span>..&lt;<span class="number">2</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳动循环</span></span><br><span class="line"><span class="comment">// 2 4 6 8 10 12</span></span><br><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="keyword">in</span> <span class="built_in">stride</span>(from: <span class="number">2</span>, through: <span class="number">12</span>, by: <span class="number">2</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -31,6 +31,10 @@
     
     </summary>
     
+      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+    
+    
+      <category term="Swift" scheme="https://liangdahong.com/tags/Swift/"/>
     
   </entry>
   

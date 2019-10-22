@@ -4,6 +4,12 @@
     <title><![CDATA[Swift学习笔记]]></title>
     <url>%2F2019%2F10%2F22%2F00-%E6%8A%80%E6%9C%AF-iOS%2FSwift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[Array 12345678910111213141516171819202122// repeating 重复var threeDoubles = Array(repeating: 0.0, count: 3)// += threeDoubles+=threeDoubles;// 特殊初始化var numbers = Array(1..&lt;7)// 块替换// 把 4 5 6 这部分换为 [100, 200] 会操作数组的个数// [100,200,4,5,6,7,8]var arr = [1,2,3,4,5,6,7,8]arr[0...2] = [100, 200]// for-infor _ in ["1", "2"] &#123;&#125;for (_, _) in ["1", "2"].enumerated() &#123;&#125;for _ in 1...2 &#123;&#125;for _ in 1..&lt;2 &#123;&#125;// 跳动循环// 2 4 6 8 10 12for _ in stride(from: 2, through: 12, by: 2) &#123;&#125;]]></content>
+      <categories>
+        <category>00-技术-iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[pthread、NSThread、GCD、NSOperation、NSOperationQueue]]></title>
