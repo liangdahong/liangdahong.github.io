@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
-    <lastmod>2019-10-22T09:37:26.000Z</lastmod>
+    <loc>https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-10-23T14:35:28.000Z</lastmod>
     <data>
         <display>
-        <title>各种资料收集区</title>
-        <pubTime>2016-09-10T05:29:05.000Z</pubTime>
+        <title>Swift学习笔记</title>
+        <pubTime>2019-10-22T08:54:21.000Z</pubTime>
         
-        <tag>资料</tag>
+        <tag>Swift</tag>
          
          
            
@@ -24,14 +24,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-10-22T09:33:08.000Z</lastmod>
+    <loc>https://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
+    <lastmod>2019-10-22T09:37:26.000Z</lastmod>
     <data>
         <display>
-        <title>Swift学习笔记</title>
-        <pubTime>2019-10-22T08:54:21.000Z</pubTime>
+        <title>各种资料收集区</title>
+        <pubTime>2016-09-10T05:29:05.000Z</pubTime>
         
-        <tag>Swift</tag>
+        <tag>资料</tag>
          
          
            
@@ -84,6 +84,26 @@
 
     
   <url>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8C/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>转 - GCD 深入理解之二</title>
+        <pubTime>2017-08-06T08:54:16.000Z</pubTime>
+        
+        <tag>GCD</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://liangdahong.com/2017/08/18/00-%E6%8A%80%E6%9C%AF-iOS/NSInvocation%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
@@ -97,6 +117,26 @@
            
              
               <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/10/15/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%E5%92%8C%E5%B8%A6%E5%AE%BD%E7%AD%89%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>计算机存储单位和带宽等的关系</title>
+        <pubTime>2017-10-15T09:06:25.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
           
         </display>
     </data>
@@ -139,6 +179,86 @@
            
              
               <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2017/10/16/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈计算机内存分配</title>
+        <pubTime>2017-10-16T15:05:25.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>正确高效使用 Google</title>
+        <pubTime>2018-07-11T03:30:49.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2016/04/10/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%90%84%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>各种排序算法</title>
+        <pubTime>2016-04-10T11:19:19.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nots</title>
+        <pubTime>2018-02-26T07:11:51.000Z</pubTime>
+        
+        <tag>前端</tag>
+         
+         
+           
+             
+              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
           
         </display>
     </data>
@@ -226,6 +346,26 @@
 
     
   <url>
+    <loc>https://liangdahong.com/2018/05/22/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%BD%AC-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84-10-%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>转 - 面试中的 10 大排序算法总结</title>
+        <pubTime>2018-05-22T15:42:55.000Z</pubTime>
+        
+        <tag>计算机</tag>
+         
+         
+           
+             
+              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://liangdahong.com/2017/11/27/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
@@ -266,34 +406,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%B8%80/</loc>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E5%AF%B9%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>转 - GCD 深入理解之一</title>
-        <pubTime>2017-08-06T08:51:44.000Z</pubTime>
+        <title>转 - 对函数式编程的一点理解</title>
+        <pubTime>2017-08-06T09:25:25.000Z</pubTime>
         
-        <tag>GCD</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8C/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - GCD 深入理解之二</title>
-        <pubTime>2017-08-06T08:54:16.000Z</pubTime>
-        
-        <tag>GCD</tag>
+        <tag>iOS</tag>
          
          
            
@@ -326,139 +446,19 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E5%AF%B9%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/</loc>
+    <loc>https://liangdahong.com/2017/08/06/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-GCD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%B8%80/</loc>
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     <data>
         <display>
-        <title>转 - 对函数式编程的一点理解</title>
-        <pubTime>2017-08-06T09:25:25.000Z</pubTime>
+        <title>转 - GCD 深入理解之一</title>
+        <pubTime>2017-08-06T08:51:44.000Z</pubTime>
         
-        <tag>iOS</tag>
+        <tag>GCD</tag>
          
          
            
              
               <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Nots</title>
-        <pubTime>2018-02-26T07:11:51.000Z</pubTime>
-        
-        <tag>前端</tag>
-         
-         
-           
-             
-              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2016/04/10/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%90%84%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>各种排序算法</title>
-        <pubTime>2016-04-10T11:19:19.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>正确高效使用 Google</title>
-        <pubTime>2018-07-11T03:30:49.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/10/16/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B5%85%E8%B0%88%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈计算机内存分配</title>
-        <pubTime>2017-10-16T15:05:25.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/10/15/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D%E5%92%8C%E5%B8%A6%E5%AE%BD%E7%AD%89%E7%9A%84%E5%85%B3%E7%B3%BB/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>计算机存储单位和带宽等的关系</title>
-        <pubTime>2017-10-15T09:06:25.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/05/22/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%BD%AC-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84-10-%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - 面试中的 10 大排序算法总结</title>
-        <pubTime>2018-05-22T15:42:55.000Z</pubTime>
-        
-        <tag>计算机</tag>
-         
-         
-           
-             
-              <breadCrumb title="03-技术-计算机" url="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
           
         </display>
     </data>
@@ -546,12 +546,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/10/19/00-%E6%8A%80%E6%9C%AF-iOS/JSPatch%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%901/</loc>
+    <loc>https://liangdahong.com/2017/05/11/00-%E6%8A%80%E6%9C%AF-iOS/iOS-%E7%B3%BB%E7%BB%9F%E6%8E%A7%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2019-10-18T23:09:53.000Z</lastmod>
     <data>
         <display>
-        <title>JSPatch简单分析1</title>
-        <pubTime>2018-10-19T01:01:29.000Z</pubTime>
+        <title>iOS 系统控件的一些用法</title>
+        <pubTime>2017-05-11T15:26:19.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -566,12 +566,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2017/05/11/00-%E6%8A%80%E6%9C%AF-iOS/iOS-%E7%B3%BB%E7%BB%9F%E6%8E%A7%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/</loc>
+    <loc>https://liangdahong.com/2018/10/19/00-%E6%8A%80%E6%9C%AF-iOS/JSPatch%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%901/</loc>
     <lastmod>2019-10-18T23:09:53.000Z</lastmod>
     <data>
         <display>
-        <title>iOS 系统控件的一些用法</title>
-        <pubTime>2017-05-11T15:26:19.000Z</pubTime>
+        <title>JSPatch简单分析1</title>
+        <pubTime>2018-10-19T01:01:29.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -626,14 +626,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/05/02/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://liangdahong.com/2019/02/26/00-%E6%8A%80%E6%9C%AF-iOS/%E9%9D%A2%E8%AF%95%E9%A2%98001/</loc>
     <lastmod>2019-10-18T23:09:47.000Z</lastmod>
     <data>
         <display>
-        <title>iOS开发的一些终端命令</title>
-        <pubTime>2016-05-02T14:22:23.000Z</pubTime>
+        <title>面试题001</title>
+        <pubTime>2019-02-26T08:18:26.000Z</pubTime>
         
-        <tag>Git</tag>
+        <tag>面试题</tag>
          
          
            
@@ -646,14 +646,14 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2019/02/26/00-%E6%8A%80%E6%9C%AF-iOS/%E9%9D%A2%E8%AF%95%E9%A2%98001/</loc>
+    <loc>https://liangdahong.com/2016/05/02/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-10-18T23:09:47.000Z</lastmod>
     <data>
         <display>
-        <title>面试题001</title>
-        <pubTime>2019-02-26T08:18:26.000Z</pubTime>
+        <title>iOS开发的一些终端命令</title>
+        <pubTime>2016-05-02T14:22:23.000Z</pubTime>
         
-        <tag>面试题</tag>
+        <tag>Git</tag>
          
          
            
@@ -686,12 +686,12 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/07/01/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E5%9B%9E%E5%BF%86%E6%88%91%E4%BB%AC%E7%B3%BB%E5%AE%89%E6%8E%92%E7%9A%84%E5%AE%9E%E4%B9%A0/</loc>
+    <loc>https://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/</loc>
     <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
         <display>
-        <title>回忆我们系安排的实习</title>
-        <pubTime>2016-07-01T15:33:24.000Z</pubTime>
+        <title>转 - 中国教育问题的根源在于大学而不在高中</title>
+        <pubTime>2018-06-25T09:17:40.000Z</pubTime>
         
         <tag>生活</tag>
          
@@ -726,26 +726,6 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/</loc>
-    <lastmod>2019-10-18T23:04:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>转 - 中国教育问题的根源在于大学而不在高中</title>
-        <pubTime>2018-06-25T09:17:40.000Z</pubTime>
-        
-        <tag>生活</tag>
-         
-         
-           
-             
-              <breadCrumb title="05-生活-感叹" url="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://liangdahong.com/2017/08/29/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E7%BB%99%E8%BA%AB%E5%A4%84%E4%BA%8C%E6%B5%81%E5%A4%A7%E5%AD%A6%E4%BE%9D%E6%97%A7%E8%BF%B7%E8%8C%AB%E7%9A%84%E4%BD%A0%E4%B8%80%E4%BA%9B%E8%BF%87%E6%9D%A5%E4%BA%BA%E7%9A%84%E5%A4%A7%E5%AE%9E%E8%AF%9D/</loc>
     <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
@@ -766,19 +746,19 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2019/10/11/00-%E6%8A%80%E6%9C%AF-iOS/Jenkins-%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2019-10-18T09:35:06.000Z</lastmod>
+    <loc>https://liangdahong.com/2016/07/01/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E5%9B%9E%E5%BF%86%E6%88%91%E4%BB%AC%E7%B3%BB%E5%AE%89%E6%8E%92%E7%9A%84%E5%AE%9E%E4%B9%A0/</loc>
+    <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
         <display>
-        <title>Jenkins 相关</title>
-        <pubTime>2019-10-11T14:17:13.000Z</pubTime>
+        <title>回忆我们系安排的实习</title>
+        <pubTime>2016-07-01T15:33:24.000Z</pubTime>
         
-        <tag>Jenkins</tag>
+        <tag>生活</tag>
          
          
            
              
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+              <breadCrumb title="05-生活-感叹" url="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
           
         </display>
     </data>
@@ -834,6 +814,26 @@
         <pubTime>2017-10-30T14:30:06.000Z</pubTime>
         
         <tag>GCD</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2019/10/11/00-%E6%8A%80%E6%9C%AF-iOS/Jenkins-%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2019-10-18T09:35:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jenkins 相关</title>
+        <pubTime>2019-10-11T14:17:13.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
          
          
            
