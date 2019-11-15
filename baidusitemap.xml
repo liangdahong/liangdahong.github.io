@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>https://liangdahong.com/2018/06/13/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2019-11-15T03:03:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>微信小程序开发相关</title>
+        <pubTime>2018-06-13T09:08:17.000Z</pubTime>
+        
+        <tag>微信小程序</tag>
+         
+         
+           
+             
+              <breadCrumb title="01-技术-微信小程序" url="https://liangdahong.com/categories/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2019/10/09/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/React-Native-%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2019-11-15T02:29:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>React Native 相关</title>
+        <pubTime>2019-10-09T06:57:25.000Z</pubTime>
+        
+        <tag>React Native</tag>
+         
+         
+           
+             
+              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-11-08T07:13:02.000Z</lastmod>
+    <lastmod>2019-11-10T08:53:42.000Z</lastmod>
     <data>
         <display>
         <title>Swift学习笔记</title>
@@ -67,26 +107,6 @@
         <pubTime>2018-02-26T07:11:51.000Z</pubTime>
         
         <tag>前端</tag>
-         
-         
-           
-             
-              <breadCrumb title="02-技术-前端" url="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2019/10/09/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/React-Native-%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2019-11-06T16:26:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>React Native 相关</title>
-        <pubTime>2019-10-09T06:57:25.000Z</pubTime>
-        
-        <tag>React Native</tag>
          
          
            
@@ -701,26 +721,6 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2019/05/28/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E6%88%91%E7%9A%84%E8%B5%84%E6%96%99/</loc>
-    <lastmod>2019-10-18T23:08:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>我的资料</title>
-        <pubTime>2019-05-28T07:05:13.000Z</pubTime>
-        
-        <tag>微信小程序</tag>
-         
-         
-           
-             
-              <breadCrumb title="01-技术-微信小程序" url="https://liangdahong.com/categories/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://liangdahong.com/2016/07/01/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E5%9B%9E%E5%BF%86%E6%88%91%E4%BB%AC%E7%B3%BB%E5%AE%89%E6%8E%92%E7%9A%84%E5%AE%9E%E4%B9%A0/</loc>
     <lastmod>2019-10-18T23:04:55.000Z</lastmod>
     <data>
@@ -854,26 +854,6 @@
            
              
               <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2018/06/13/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2019-10-18T09:31:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>微信小程序开发相关</title>
-        <pubTime>2018-06-13T09:08:17.000Z</pubTime>
-        
-        <tag>微信小程序</tag>
-         
-         
-           
-             
-              <breadCrumb title="01-技术-微信小程序" url="https://liangdahong.com/categories/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
           
         </display>
     </data>
