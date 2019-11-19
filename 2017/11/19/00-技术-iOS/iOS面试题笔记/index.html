@@ -95,7 +95,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="写一个标准宏 MIN/MAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-19T04:03:09.000Z">
+<meta property="og:updated_time" content="2019-11-19T07:59:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS面试题笔记">
 <meta name="twitter:description" content="写一个标准宏 MIN/MAX">
@@ -509,26 +509,8 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <p><a href="https://github.com/liangdahong/iOS-Interview-Notes/tree/master/002-CornerRadius-Demo0" target="_blank" rel="noopener">demo - https://github.com/liangdahong/iOS-Interview-Notes/tree/master/002-CornerRadius-Demo0</a></p>
 </blockquote>
 <h1 id="003-响应链"><a href="#003-响应链" class="headerlink" title="003-响应链"></a>003-响应链</h1><blockquote>
-<p>我们在平常的开发中肯定经常使用到各种事件，如：button的点击，scrollView的滑动，tableView的Cell的点击等一系列事件，那么他的底层到底是怎么处理的呢？是怎么样传递的，下面会解决以下几个问题。</p>
+<p>触摸事件的传递和响应过程</p>
 </blockquote>
-<ol>
-<li>为什么子视图超出了其父视图时，超出的部分默认无法触发事件</li>
-<li>为什么父视图关闭事件响应时，其之后的全部视图均无法响应事件</li>
-<li>为什么子视图关闭事件时，我们点击子视图时，事件会触发到其父视图</li>
-<li>…</li>
-</ol>
-<blockquote>
-<p>在iOS系统中事件包括</p>
-</blockquote>
-<ol>
-<li>触屏事件(例如点击按钮、通过手势缩放图片、拖动上下滚动页面等)</li>
-<li>加速计事件(例如摇一摇红包、通过旋转设备控制赛车方向、指南针等)</li>
-<li>远程控制事件(例如耳机的线控、外接手柄、遥控器等)</li>
-</ol>
-<blockquote>
-<p>目前主要研究触摸事件的传递和响应过程</p>
-</blockquote>
-<hr>
 <blockquote>
 <p>在触摸事件的处理过程中会有 事件传递 和 事件响应过程，首先当用户触摸屏幕时，会从上向下</p>
 </blockquote>
