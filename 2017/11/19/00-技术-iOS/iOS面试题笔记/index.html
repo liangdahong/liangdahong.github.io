@@ -76,7 +76,7 @@ history.back();
 
 
 
-<meta name="keywords" content="iOS," />
+<meta name="keywords" content="面试," />
 
 
 
@@ -87,18 +87,18 @@ history.back();
 
 
 
-<meta name="description" content="转载自 https://lockxmonk.github.io/15391408783293.html   之前一直在吐槽iOS的布局方式（frame和autolayout）相比前端的flex布局方式很落后，也在想有没有其它的方式来改善。最近偶然发现UIStackView的存在（苹果爸爸原谅我😂），了解后发现其中的使用与布局方式类似于flex布局，感觉这就是苹果爸爸借鉴flex布局特点所构造的">
-<meta name="keywords" content="iOS">
+<meta name="description" content="写一个标准宏 MIN/MAX">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(转)UIStackView的简单使用与理解">
-<meta property="og:url" content="https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/index.html">
+<meta property="og:title" content="iOS面试题笔记">
+<meta property="og:url" content="https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/index.html">
 <meta property="og:site_name" content="梁大红的技术Blog">
-<meta property="og:description" content="转载自 https://lockxmonk.github.io/15391408783293.html   之前一直在吐槽iOS的布局方式（frame和autolayout）相比前端的flex布局方式很落后，也在想有没有其它的方式来改善。最近偶然发现UIStackView的存在（苹果爸爸原谅我😂），了解后发现其中的使用与布局方式类似于flex布局，感觉这就是苹果爸爸借鉴flex布局特点所构造的">
+<meta property="og:description" content="写一个标准宏 MIN/MAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-18T23:11:33.000Z">
+<meta property="og:updated_time" content="2019-11-19T02:26:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(转)UIStackView的简单使用与理解">
-<meta name="twitter:description" content="转载自 https://lockxmonk.github.io/15391408783293.html   之前一直在吐槽iOS的布局方式（frame和autolayout）相比前端的flex布局方式很落后，也在想有没有其它的方式来改善。最近偶然发现UIStackView的存在（苹果爸爸原谅我😂），了解后发现其中的使用与布局方式类似于flex布局，感觉这就是苹果爸爸借鉴flex布局特点所构造的">
+<meta name="twitter:title" content="iOS面试题笔记">
+<meta name="twitter:description" content="写一个标准宏 MIN/MAX">
 
 
 
@@ -128,14 +128,14 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
 
 
-<link rel="canonical" href="https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/"/>
+<link rel="canonical" href="https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/"/>
 
 
 
 
 
 
-  <title>(转)UIStackView的简单使用与理解 | 梁大红的技术Blog</title>
+  <title>iOS面试题笔记 | 梁大红的技术Blog</title>
   
 
 
@@ -378,7 +378,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁大红">
@@ -395,7 +395,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
         
         
-          <h1 class="post-title" itemprop="name headline">(转)UIStackView的简单使用与理解</h1>
+          <h1 class="post-title" itemprop="name headline">iOS面试题笔记</h1>
         
 
         <div class="post-meta">
@@ -407,8 +407,8 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T11:16:33+08:00">
-                2019-06-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T09:44:37+08:00">
+                2017-11-19
               </time>
             
 
@@ -448,9 +448,9 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/#comments" itemprop="discussionUrl">
+                <a href="/2017/11/19/00-技术-iOS/iOS面试题笔记/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/11/19/00-技术-iOS/iOS面试题笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -479,85 +479,37 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
       
         <ul>
-<li>转载自 <a href="https://lockxmonk.github.io/15391408783293.html" target="_blank" rel="noopener">https://lockxmonk.github.io/15391408783293.html</a></li>
+<li>写一个标准宏 MIN/MAX</li>
 </ul>
-<blockquote>
-<p>之前一直在吐槽iOS的布局方式（frame和autolayout）相比前端的flex布局方式很落后，也在想有没有其它的方式来改善。最近偶然发现UIStackView的存在（苹果爸爸原谅我😂），了解后发现其中的使用与布局方式类似于flex布局，感觉这就是苹果爸爸借鉴flex布局特点所构造的一种布局实现方式吧。</p>
-</blockquote>
 <a id="more"></a>
-<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><blockquote>
-<p>这里我们看一下如何简单的使用stackview来创造一个拥有众多子item的水平视图。代码如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line"></span><br><span class="line">    containerView = [[UIStackView alloc]initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.bounds), 200)];</span><br><span class="line">    //子视图布局方向：水平或垂直</span><br><span class="line">    containerView.axis = UILayoutConstraintAxisHorizontal;//水平布局</span><br><span class="line">    //子控件依据何种规矩布局</span><br><span class="line">    containerView.distribution = UIStackViewDistributionFillEqually;//子控件均分</span><br><span class="line">    //子控件之间的最小间距</span><br><span class="line">    containerView.spacing = 10;</span><br><span class="line">    //子控件的对齐方式</span><br><span class="line">    containerView.alignment = UIStackViewAlignmentFill;</span><br><span class="line">    NSArray *tempArray = @[@&quot;1&quot;,@&quot;2&quot;,@&quot;3&quot;,@&quot;4&quot;];</span><br><span class="line">    for (NSInteger i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">//        UIView *view = [[UIView alloc]init];</span><br><span class="line">        UILabel *label = [[UILabel alloc] init];</span><br><span class="line">        label.textAlignment = NSTextAlignmentCenter;</span><br><span class="line">        label.backgroundColor = [UIColor colorWithRed:random()%256/255.0 green:random()%256/255.0 blue:random()%256/255.0 alpha:1];</span><br><span class="line">        label.numberOfLines = 0;</span><br><span class="line">        label.text = tempArray[i];</span><br><span class="line">        </span><br><span class="line">        [containerView addArrangedSubview:label];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    [self.view addSubview:containerView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>可以看到 <code>stackView</code> 的使用和view没有大的区别，使用时根绝需要来设置 <code>stackView</code> 的 <code>axis</code>（布局方向）, <code>distribution</code>（子控件依据何种规矩布局）, <code>spacing</code>（子控件之间的最小间距）, <code>alignment</code>（子控件的对齐方式）等属性。</p>
+<p>利用 <code>__typeof__</code> 重新声明 2 个相同类型的变量，在把相关的值赋值给新的变量，在进行比较，这样可以排除其他的各种优先级问题。</p>
 </blockquote>
-<hr>
-<h2 id="属性及方法"><a href="#属性及方法" class="headerlink" title="属性及方法"></a>属性及方法</h2><blockquote>
-<p>这里详细说明一下个属性的主要参数：</p>
-</blockquote>
-<h3 id="axis："><a href="#axis：" class="headerlink" title="axis："></a>axis：</h3><blockquote>
-<p>子控件的布局方向，水平（ <code>UILayoutConstraintAxisHorizontal</code>）或垂直（<code>UILayoutConstraintAxisVertical</code>）， 这个不用过多解释了</p>
-</blockquote>
-<h3 id="UIStackViewDistribution"><a href="#UIStackViewDistribution" class="headerlink" title="UIStackViewDistribution"></a>UIStackViewDistribution</h3><blockquote>
-<p><code>UIStackViewDistributionFill</code> ：它就是将 arrangedSubviews 填充满整个 StackView ，如果设置了spacing，那么这些 arrangedSubviews 之间的间距就是spacing。如果减去所有的spacing，所有的 arrangedSubview 的固有尺寸( intrinsicContentSize )不能填满或者超出 StackView 的尺寸，那就会按照 Hugging 或者 CompressionResistance 的优先级来拉伸或压缩一些 arrangedSubview 。如果出现优先级相同的情况，就按排列顺序来拉伸或压缩。</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewDistributionFillEqually</code> ：这种就是 StackView 的尺寸减去所有的spacing之后均分给 arrangedSubviews ，每个 arrangedSubview 的尺寸是相同的。</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewDistributionFillProportionally</code> ：这种跟FillEqually差不多，只不过这个不是讲尺寸均分给 arrangedSubviews ，而是根据 arrangedSubviews 的 intrinsicContentSize 按比例分配。</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewDistributionEqualSpacing</code> ：这种是使 arrangedSubview 之间的spacing相等，但是这个spacing是有可能大于 StackView 所设置的spacing，但是绝对不会小于。这个类型的布局可以这样理解，先按所有的 arrangedSubview 的 intrinsicContentSize 布局，然后余下的空间均分为spacing，如果大约 StackView 设置的spacing那这样就OK了，如果小于就按照 StackView 设置的spacing，然后按照 CompressionResistance 的优先级来压缩一个 arrangedSubview 。</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewDistributionEqualCentering</code> ：这种是使 arrangedSubview 的中心点之间的距离相等，这样没两个 arrangedSubview 之间的spacing就有可能不是相等的，但是这个spacing仍然是大于等于 StackView 设置的spacing的，不会是小于。这个类型布局仍然是如果 StackView 有多余的空间会均分给 arrangedSubviews 之间的spacing，如果空间不够那就按照 CompressionResistance 的优先级压缩 arrangedSubview 。</p>
-</blockquote>
-<h3 id="alignment"><a href="#alignment" class="headerlink" title="alignment"></a>alignment</h3><blockquote>
-<p><code>UIStackViewAlignmentFill</code> = 默认方式， 如果子控件水平布局, 则指子控件的垂直方向填充满stackView. 反之亦然</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentLeading</code> = 如果子控件竖直布局, 则指子控件左边对齐stackView左边. 反之亦然, 即 UIStackViewAlignmentTop = UIStackViewAlignmentLeading。</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentTop</code> = UIStackViewAlignmentLeading,</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentFirstBaseline</code> = 根据上方基线布局所有子视图的 y 值(适用于 Horizontal 模式)</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentLastBaseline</code> = 根据下方基线布局所有子视图的 y 值(适用于 Horizontal 模式)</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentCenter</code> = 中心对齐</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentTrailing</code> = 如果子控件竖直布局, 则指子控件左边对齐stackView右边. 反之亦然, 即UIStackViewAlignmentBottom = UIStackViewAlignmentTrailing</p>
-</blockquote>
-<blockquote>
-<p><code>UIStackViewAlignmentBottom</code> = UIStackViewAlignmentTrailing</p>
-</blockquote>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><blockquote>
-<p>这里还要说明几个方法：addArrangedSubview、removeArrangedSubview和insertArrangedSubview，日常view的添加和子视图从复视图删除使用的是addSubview和removeFromSuperview。</p>
-</blockquote>
-<blockquote>
-<p>其中完整方法如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">初始化数组:</span><br><span class="line">- (instancetype)initWithArrangedSubviews:(NSArray *)views;</span><br><span class="line">添加子视图: </span><br><span class="line">- (void)addArrangedSubview:(UIView *)view;</span><br><span class="line">移除子视图:</span><br><span class="line">- (void)removeArrangedSubview:(UIView *)view;</span><br><span class="line">根据下标插入视图:</span><br><span class="line">- (void)insertArrangedSubview:(UIView *)viewatIndex:(NSUInteger)stackIndex;</span><br></pre></td></tr></table></figure>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
-<p>注意： addArrangedSubview 和 insertArrangedSubview， 会把子控件加到arrangedSubviews数组的同时添加到StackView的subView数组中，但是removeArrangedSubview， 只会把子控件从arrangedSubviews数组中移除，不会从subviews中移除，如果需要调用removeFromSuperview</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>若我们需要删除stackView中subView数组的最后一个视图，可以用如下方式：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//removeArrangedSubview， 只会把子控件从arrangedSubviews数组中移除，</span><br><span class="line">//不会从subviews中移除，如果需要可调用removeFromSuperview</span><br><span class="line">UIView *view = [_containerView.subviews lastObject];</span><br><span class="line">[_containerView removeArrangedSubview:view];</span><br><span class="line">[view removeFromSuperview];</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>到此stackView的一个简单使用方式就知道了。</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define kMIN(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &lt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br><span class="line">#define kMAX(a,b) (&#123;__typeof__(a) __a__COUNTER__ = (a);__typeof__(b) __b__COUNTER__ = (b);(__a__COUNTER__) &gt; (__b__COUNTER__) ? (__a__COUNTER__) : (__b__COUNTER__);&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>转载自 <a href="https://lockxmonk.github.io/15391408783293.html" target="_blank" rel="noopener">https://lockxmonk.github.io/15391408783293.html</a></li>
+<li><p>圆角卡顿问题</p>
+<blockquote>
+<p> 卡顿的原因？</p>
+<p> 屏幕显示图像的原理是从上到下一行行继续扫描【当扫描完一行时发出一个HSyncx信号，扫描完整个屏幕时发出一个VSyncx信号】</p>
+<p> 当收到VSyncx信号时 CPU需把相关需要显示的内容交给GPU来渲染，渲染好了交到帧缓冲区准备显示，在下一帧显示的时候直接到帧缓冲区取出显示即可以，</p>
+<p> 理想状态的这样的，但是如果CPU或者GPU任务繁重，在需要显示的时候还没有准备好，就无法显示，会导致本来应该显示新的内容还会停留在上一帧，</p>
+<p> 可能造成跳帧的情况，卡顿就产生了，使用卡顿的本质就是 CPU 和 GPU任务未完成导致的。</p>
+<p> 圆角为什么可能导致卡顿呢？</p>
+<p> 正如【 卡顿的原因？】所诉，为了尽量不卡顿，所以推出多个帧缓冲区的概念，正所谓鱼和熊掌不可兼得，多个帧缓冲区虽然可以解决一些卡顿问题，</p>
+<p> 但帧缓冲区之间切换又是一个特别耗性能的问题，在设置圆角时【主要是 masksToBounds masksToBounds】就是在其他的帧缓冲区处理的【称：离屏渲染】</p>
+<p> 如果一个屏幕上太多圆角时就会导致频繁的帧缓冲区切换，消耗太多的 GPU性能，导致在收到VSyncx信号到显示 GPU没有处理完成，导致卡顿的产生。</p>
+<p> 那么怎么解决呢？</p>
+<p> 正如【圆角为什么可能导致卡顿呢？】中所诉，GPU太忙了，但此时CPU可能比较闲，那么我们是否可以想办法把一些任务分配给CPU来处理呢，</p>
+<p> 通常的处理方案就是如此：</p>
+<p> 预先用CPU，构建圆角路径贝塞尔曲线UIBezierPath，用原来的图片填充进圆角路径，获得天然的自带圆角透明的bitmap数据UIImage，从而直接交给GPU进行普通渲染【不使用 masksToBounds masksToBounds】。</p>
+<p> 代码如下：</p>
+<p> 是不是全部用CPU来处理就彻底解决了圆角问题呢？</p>
+<p> 当然不是的，如果我们全部都给CPU来处理，CPU的任务重了同样可能造成卡顿问题，通常情况下：</p>
+<p> 1、小量圆角直接使用 masksToBounds masksToBounds 即可，因为如果使用CPU来处理可能反而适得其反。</p>
+<p> 2、较多圆角时使用CPU来处理可以很好的处理卡顿问题，同时可以集合一些缓存策略。</p>
+<p> 3、如果实在无法解决时可以使用异步渲染的方式来处理参考：AsyncDisplayKit</p>
+</blockquote>
+</li>
 </ul>
 
       
@@ -627,7 +579,7 @@ showConfirmButton: true
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"> <i class="fa fa-tag"></i> iOS</a>
+            <a href="/tags/面试/" rel="tag"> <i class="fa fa-tag"></i> 面试</a>
           
         </div>
       
@@ -640,8 +592,8 @@ showConfirmButton: true
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/28/00-技术-iOS/iOS-运行时之消息转发机制/" rel="next" title="iOS 运行时之消息转发机制">
-                <i class="fa fa-chevron-left"></i> iOS 运行时之消息转发机制
+              <a href="/2017/10/30/00-技术-iOS/iOS开发之GCD详解/" rel="next" title="iOS开发之GCD详解">
+                <i class="fa fa-chevron-left"></i> iOS开发之GCD详解
               </a>
             
           </div>
@@ -650,8 +602,8 @@ showConfirmButton: true
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/09/02-技术-前端/React-Native-相关/" rel="prev" title="React Native 相关">
-                React Native 相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/27/00-技术-iOS/iOS第三方库背后的原理和简单使用/" rel="prev" title="iOS第三方库背后的原理和简单使用">
+                iOS第三方库背后的原理和简单使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -714,17 +666,8 @@ showConfirmButton: true
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -864,22 +807,6 @@ showConfirmButton: true
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">1.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性及方法"><span class="nav-number">2.</span> <span class="nav-text">属性及方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#axis："><span class="nav-number">2.1.</span> <span class="nav-text">axis：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIStackViewDistribution"><span class="nav-number">2.2.</span> <span class="nav-text">UIStackViewDistribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alignment"><span class="nav-number">2.3.</span> <span class="nav-text">alignment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.4.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -1033,9 +960,9 @@ showConfirmButton: true
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/';
-          this.page.identifier = '2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/';
-          this.page.title = '(转)UIStackView的简单使用与理解';
+          this.page.url = 'https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/';
+          this.page.identifier = '2017/11/19/00-技术-iOS/iOS面试题笔记/';
+          this.page.title = 'iOS面试题笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://liangdahong.disqus.com/embed.js';

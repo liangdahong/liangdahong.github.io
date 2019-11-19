@@ -4,7 +4,6 @@ https://liangdahong.com/2019/10/12/00-技术-iOS/pthread、NSThread、GCD、NSOp
 https://liangdahong.com/2019/10/11/00-技术-iOS/Jenkins-相关/
 https://liangdahong.com/2019/10/09/02-技术-前端/React-Native-相关/
 https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/
-https://liangdahong.com/2019/02/26/00-技术-iOS/面试题001/
 https://liangdahong.com/2018/12/28/00-技术-iOS/iOS-运行时之消息转发机制/
 https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/
 https://liangdahong.com/2018/10/18/05-生活-感叹/时光轴/
@@ -17,6 +16,7 @@ https://liangdahong.com/2018/05/22/03-技术-计算机/转-面试中的-10-大�
 https://liangdahong.com/2018/02/26/02-技术-前端/Nots/
 https://liangdahong.com/2017/11/28/00-技术-iOS/iOS事件传递和响应过程/
 https://liangdahong.com/2017/11/27/00-技术-iOS/iOS第三方库背后的原理和简单使用/
+https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/
 https://liangdahong.com/2017/10/30/00-技术-iOS/iOS开发之GCD详解/
 https://liangdahong.com/2017/10/16/03-技术-计算机/浅谈计算机内存分配/
 https://liangdahong.com/2017/10/15/03-技术-计算机/计算机存储单位和带宽等的关系/
