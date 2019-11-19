@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://liangdahong.com/2017/11/19/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-11-19T03:22:30.000Z</lastmod>
+    <lastmod>2019-11-19T04:03:09.000Z</lastmod>
     <data>
         <display>
         <title>iOS面试题笔记</title>
@@ -229,26 +229,6 @@
         <tag>iOS</tag>
          
         <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2017/11/28/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS事件传递和响应过程</title>
-        <pubTime>2017-11-28T15:49:27.000Z</pubTime>
-        
-        <tag>iOS</tag>
          
          
            
