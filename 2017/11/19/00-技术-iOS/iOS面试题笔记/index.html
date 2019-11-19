@@ -95,7 +95,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="写一个标准宏 MIN/MAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-19T02:26:14.000Z">
+<meta property="og:updated_time" content="2019-11-19T03:22:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS面试题笔记">
 <meta name="twitter:description" content="写一个标准宏 MIN/MAX">
@@ -503,14 +503,18 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <p> 通常的处理方案就是如此：</p>
 <p> 预先用CPU，构建圆角路径贝塞尔曲线UIBezierPath，用原来的图片填充进圆角路径，获得天然的自带圆角透明的bitmap数据UIImage，从而直接交给GPU进行普通渲染【不使用 masksToBounds masksToBounds】。</p>
 <p> 代码如下：</p>
+</blockquote>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@implementation UIImage (BMKit)</span><br><span class="line">- (instancetype)_imageAddCornerWithRadius:(CGFloat)radius size:(CGSize)size &#123;</span><br><span class="line">    CGRect rect = CGRectMake(0, 0, size.width, size.height);</span><br><span class="line">    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);</span><br><span class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</span><br><span class="line">    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect</span><br><span class="line">                                               byRoundingCorners:UIRectCornerAllCorners</span><br><span class="line">                                                     cornerRadii:CGSizeMake(radius, radius)];</span><br><span class="line">    CGContextAddPath(ctx,path.CGPath);</span><br><span class="line">    CGContextClip(ctx);</span><br><span class="line">    [self drawInRect:rect];</span><br><span class="line">    CGContextDrawPath(ctx, kCGPathFillStroke);</span><br><span class="line">    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();</span><br><span class="line">    UIGraphicsEndImageContext();</span><br><span class="line">    return newImage;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p> 是不是全部用CPU来处理就彻底解决了圆角问题呢？</p>
 <p> 当然不是的，如果我们全部都给CPU来处理，CPU的任务重了同样可能造成卡顿问题，通常情况下：</p>
 <p> 1、小量圆角直接使用 masksToBounds masksToBounds 即可，因为如果使用CPU来处理可能反而适得其反。</p>
 <p> 2、较多圆角时使用CPU来处理可以很好的处理卡顿问题，同时可以集合一些缓存策略。</p>
 <p> 3、如果实在无法解决时可以使用异步渲染的方式来处理参考：AsyncDisplayKit</p>
+<p><a href="https://github.com/liangdahong/iOS-Interview-Notes/tree/master/002-CornerRadius-Demo0" target="_blank" rel="noopener">demo - https://github.com/liangdahong/iOS-Interview-Notes/tree/master/002-CornerRadius-Demo0</a></p>
 </blockquote>
-</li>
-</ul>
 
       
     </div>
