@@ -96,7 +96,7 @@ history.back();
 <meta property="og:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-10-18T09:35:06.000Z">
+<meta property="og:updated_time" content="2019-11-27T23:11:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods 的简单使用">
 <meta name="twitter:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
@@ -586,6 +586,26 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 </li>
 </ul>
 <p><a href="http://blog.devtang.com/2012/02/01/use-appledoc-to-generate-xcode-doc/" target="_blank" rel="noopener">参考1</a><br><a href="http://www.jianshu.com/p/726498efc757" target="_blank" rel="noopener">参考2</a> </p>
+<h1 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h1><ul>
+<li><blockquote>
+<p>pod init</p>
+<p>创建 Podfile 文件</p>
+<p>pod setup</p>
+<p>更新</p>
+<p>pod search afn</p>
+<p>搜索第三方库</p>
+<p>pod install </p>
+<p>安装第三方库</p>
+<p>pod install –verbose –no-repo-update</p>
+<p>pod install –no-repo-update</p>
+<p>pod update </p>
+<p>pod update –verbose –no-repo-update</p>
+<p>pod update –no-repo-update</p>
+<p>~/Library/Caches/CocoaPods/search_index.json</p>
+<p>~/.cocoapods/repos/</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -901,7 +921,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Cocoapods"><span class="nav-number">1.</span> <span class="nav-text">使用 Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步使用pod"><span class="nav-number">1.1.</span> <span class="nav-text">初步使用pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod的一些命令"><span class="nav-number">1.2.</span> <span class="nav-text">pod的一些命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列出所有本地已经缓存的第三方库"><span class="nav-number">1.2.1.</span> <span class="nav-text">列出所有本地已经缓存的第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除指定缓存"><span class="nav-number">1.2.2.</span> <span class="nav-text">清除指定缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除全部缓存"><span class="nav-number">1.2.3.</span> <span class="nav-text">清除全部缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让自己的代码使用-cocoapods-管理"><span class="nav-number">2.</span> <span class="nav-text">让自己的代码使用 cocoapods 管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司公共模块使用-cocoapods-管理"><span class="nav-number">3.</span> <span class="nav-text">公司公共模块使用 cocoapods 管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向github"><span class="nav-number">3.1.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向内网"><span class="nav-number">3.2.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向内网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件-使用电脑路径的方式"><span class="nav-number">3.3.</span> <span class="nav-text">配置文件 使用电脑路径的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-私有-repo-管理配置文件的方式"><span class="nav-number">3.4.</span> <span class="nav-text">使用 私有 repo 管理配置文件的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-appledoc-生成-API-文档"><span class="nav-number">4.</span> <span class="nav-text">利用 appledoc 生成 API 文档</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Cocoapods"><span class="nav-number">1.</span> <span class="nav-text">使用 Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步使用pod"><span class="nav-number">1.1.</span> <span class="nav-text">初步使用pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod的一些命令"><span class="nav-number">1.2.</span> <span class="nav-text">pod的一些命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列出所有本地已经缓存的第三方库"><span class="nav-number">1.2.1.</span> <span class="nav-text">列出所有本地已经缓存的第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除指定缓存"><span class="nav-number">1.2.2.</span> <span class="nav-text">清除指定缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除全部缓存"><span class="nav-number">1.2.3.</span> <span class="nav-text">清除全部缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让自己的代码使用-cocoapods-管理"><span class="nav-number">2.</span> <span class="nav-text">让自己的代码使用 cocoapods 管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司公共模块使用-cocoapods-管理"><span class="nav-number">3.</span> <span class="nav-text">公司公共模块使用 cocoapods 管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向github"><span class="nav-number">3.1.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的配置文件放在cocoapods官网-配置里的指向内网"><span class="nav-number">3.2.</span> <span class="nav-text">pod 的配置文件放在cocoapods官网 配置里的指向内网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件-使用电脑路径的方式"><span class="nav-number">3.3.</span> <span class="nav-text">配置文件 使用电脑路径的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-私有-repo-管理配置文件的方式"><span class="nav-number">3.4.</span> <span class="nav-text">使用 私有 repo 管理配置文件的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-appledoc-生成-API-文档"><span class="nav-number">4.</span> <span class="nav-text">利用 appledoc 生成 API 文档</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pod"><span class="nav-number"></span> <span class="nav-text">pod</span></a></div>
             
 
           </div>

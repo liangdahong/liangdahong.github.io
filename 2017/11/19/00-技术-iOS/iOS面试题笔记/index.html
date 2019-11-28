@@ -95,7 +95,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="写一个标准宏 MIN/MAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-19T07:59:33.000Z">
+<meta property="og:updated_time" content="2019-11-28T16:22:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS面试题笔记">
 <meta name="twitter:description" content="写一个标准宏 MIN/MAX">
@@ -528,6 +528,18 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <li><a href="http://blog.flight.dev.qunar.com/2016/10/28/ios-event-mechanism-summary/" target="_blank" rel="noopener">http://blog.flight.dev.qunar.com/2016/10/28/ios-event-mechanism-summary/</a></li>
 <li><a href="http://www.jianshu.com/p/2e074db792ba" target="_blank" rel="noopener">http://www.jianshu.com/p/2e074db792ba</a></li>
 </ol>
+<h1 id="Runloop"><a href="#Runloop" class="headerlink" title="Runloop"></a>Runloop</h1><blockquote>
+<p>Runloop</p>
+<p>就是为了应用在有事做的时候干活，没事做时休眠，具体是使用 内核函数 mach_msg Mach_port来实现线程的休眠，和激活。</p>
+<p> runloop默认是没有创建的，只可以获取，懒加载的形式，runloop 和 线程是一个哈希关系，线程是 k，runloop 是 v，子线程中只可以获取当前线程的runloop或者max runloop。</p>
+<p>Runloop里分 mode 模式，每一个模式里面有 soure0 soure1 timer obje 来处理。<br>循环处理相应模式下的任务，在切换模式的时候被切换的模式下的任务就会暂停，比如：定时器默认情况下载 scrollView 跟踪的时候就暂停了。</p>
+<p>1、定时器在 scrollView 跟踪也处理可以使用 把定时器加到相应的模式下，或者直接标记为 COMM ，COMM不是一个具体的模式，只是把相应的 item 加到 COMM 中。又因为 【默认模式】和 【跟踪模式】都是 COMM 所以一举两得。<br>2、线程保活，需要处理 runloop，同时需要指定模式run起来，还需要 while 和 flag 来处理是否关闭处理，【注意使用 run 开启 runloop 是无法关闭的】<br>3、唤醒，是系统内核唤醒的；休眠，是系统内核让线程休眠的R</p>
+</blockquote>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>  arc : 其实是编译器特性，编译器在编译的时候主动加上了内存管理的代码。<br>   mrc: 在 arc 之前是程序员手动管理内存。<br>   oc 的内存回收机制使用了引用计数来处理的，当引用计数=0 的时候就释放掉对象，引用计数是在 对象的 isa 中存起来的，具体释放是在 release 的时候判断 引用计数是不是为0了，如果是就释放。</p>
+<p>   内存布局情况：</p>
+<p>   保留<br>   数据段【。。。】</p>
+<p>   autorelease 和 自动释放池。<br>   自动释放池，其实底层用到了【 c++结构体 4096  ，stack，双向链表】来实现的，在使用 autoreleasepool 的时候底层会在 autoreleasepool 开始的时候 做push 操作，【push操作其实就是在加入一个标记，然后每调 autolease 方法就会把此对象的地址加到 C++结构体的指定位置上，在 autoreleasepool 结束的时候 调用 pop 方法，底层其实就是 从这个位置向后处理刚才加到 c++结构体指定位置的对象执行 release 操作，当到 标记的地方就结束，这里就用到了stack，同时如果如果autolease的对象比较多的时候，这里会把  c++结构体 穿起来做成 双向链表，【在push的时候如果已经满了就去链表的下一个对象存储，在 pop 操作的时候如果一直没有找到标记就向上一个中去继续查，直到找到标记为止】】</p>
+<p>   同时 runloop 循环中也牵涉到 autoreleasepool<br>   1、在进入 runloop 的时候 push 操作，<br>   …工作…<br>   2、在休眠之前执行执行 pop 然后执行 push<br>   =====休息时间=====<br>   3、唤醒<br>    …工作…<br>   -&gt;2 或者 5<br>   5、退出 pop<br>   所以如果所以 autoreleasepool 方法中的 使用autorelease的临时变量不一定在离开方法就释放。</p>
 
       
     </div>
@@ -843,7 +855,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写一个标准宏-MIN-MAX"><span class="nav-number">1.</span> <span class="nav-text">写一个标准宏 MIN/MAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#圆角卡顿问题"><span class="nav-number">2.</span> <span class="nav-text">圆角卡顿问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#003-响应链"><span class="nav-number">3.</span> <span class="nav-text">003-响应链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写一个标准宏-MIN-MAX"><span class="nav-number">1.</span> <span class="nav-text">写一个标准宏 MIN/MAX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#圆角卡顿问题"><span class="nav-number">2.</span> <span class="nav-text">圆角卡顿问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#003-响应链"><span class="nav-number">3.</span> <span class="nav-text">003-响应链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.1.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Runloop"><span class="nav-number">4.</span> <span class="nav-text">Runloop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存管理"><span class="nav-number">5.</span> <span class="nav-text">内存管理</span></a></li></ol></div>
             
 
           </div>
