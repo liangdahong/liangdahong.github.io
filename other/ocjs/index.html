@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+            <title></title>
+            <style>
+                body{
+                    margin-top: 50px;
+                }
+            </style>
+            <title>测试网页</title>
+    </head>
+    <body>
+        <a href="idhong://liangdahong?method=scan&callMethod=openCamera">扫描二维码做网页跳转</a>
+        <p></p>
+        <a href="idhong://liangdahong?method=scan&callMethod=codingSearch">扫描二维码codingSearch搜索</a>
+        <script type="text/javascript">
+            function openCamera(str){
+                alert("Web 提示  \n 扫描成功（" + str + ")准备跳转界面");
+                window.location.href = str;
+            }
+            function codingSearch(str){
+                window.location.href = "http://www.coding.so/s?kw=" + str;
+            }
+        </script>
+    </body>
+</html>
