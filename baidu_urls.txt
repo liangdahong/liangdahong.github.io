@@ -1,3 +1,4 @@
+https://liangdahong.com/2019/12/06/Git/
 https://liangdahong.com/2019/12/02/vapor/
 https://liangdahong.com/2019/11/08/00-技术-iOS/Swift-Codable/
 https://liangdahong.com/2019/10/22/00-技术-iOS/Swift学习笔记/
@@ -16,7 +17,7 @@ https://liangdahong.com/2018/05/23/00-技术-iOS/转-优化-iOS-程序性能的-
 https://liangdahong.com/2018/05/22/03-技术-计算机/转-面试中的-10-大排序算法总结/
 https://liangdahong.com/2018/02/26/02-技术-前端/Nots/
 https://liangdahong.com/2017/11/27/00-技术-iOS/iOS第三方库背后的原理和简单使用/
-https://liangdahong.com/2017/11/19/00-技术-iOS/iOS面试题笔记/
+https://liangdahong.com/2017/11/19/iOS面试题笔记/
 https://liangdahong.com/2017/10/30/00-技术-iOS/iOS开发之GCD详解/
 https://liangdahong.com/2017/10/16/03-技术-计算机/浅谈计算机内存分配/
 https://liangdahong.com/2017/10/15/03-技术-计算机/计算机存储单位和带宽等的关系/

@@ -96,7 +96,7 @@ history.back();
 <meta property="og:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2026898-22d45cf1d6968489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-11-27T23:11:37.000Z">
+<meta property="og:updated_time" content="2019-12-10T23:42:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods 的简单使用">
 <meta name="twitter:description" content="之前做项目时，基本没有使用过 cocoapods，因为听道上的人说，使用 cocoapods 好麻烦，有时候出现一下坑的事情都不知道怎么弄，好坑的说，但是由于项目慢慢的迭代，导致使用的 第三方越来越多，而且还牵涉到 第三方库的版本问题，瞬间感觉好麻烦，还是玩玩 cocoapods 吧，本文主要讲述 cocoapods的使用 以初始化项目的一些注意点。">
@@ -487,6 +487,16 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <blockquote>
 <p>前提在已经安装好 cocoapods 的情况下</p>
 </blockquote>
+<blockquote>
+<p>~/Library/Caches/CocoaPods/</p>
+<p>~/Library/Caches/CocoaPods/Pods</p>
+<p>~/.cocoapods/repos/master</p>
+<p>rm ~/Library/Caches/CocoaPods/search_index.json</p>
+<p>pod setup</p>
+<p>pod repo update</p>
+<p>pod  install –no-repo-update </p>
+<p>pod  update –no-repo-update </p>
+</blockquote>
 <h2 id="使用-Cocoapods"><a href="#使用-Cocoapods" class="headerlink" title="使用 Cocoapods"></a>使用 Cocoapods</h2><h3 id="初步使用pod"><a href="#初步使用pod" class="headerlink" title="初步使用pod"></a>初步使用pod</h3><p>1、使用 Xcode 创建一个名为： myCocoapods 的项目</p>
 <p>2、创建 .gitignore 文件 <code>touch .gitignore</code>，配置好我们平常需要忽略的相关文件，打开  Pods/ 可以参考<a href="https://github.com/github/gitignore/blob/master/Objective-C.gitignore" target="_blank" rel="noopener">github官方之gitignore</a></p>
 <p>3、cd 到刚才的项目</p>
@@ -790,7 +800,7 @@ showConfirmButton: true
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -947,6 +957,10 @@ showConfirmButton: true
   </span>
 
 <span class="author" itemprop="copyrightHolder">梁大红</span>
+
+<br/>
+
+<span itemprop="copyrightYear">粤ICP备19155647号-1</span>
 
   
 </div>
