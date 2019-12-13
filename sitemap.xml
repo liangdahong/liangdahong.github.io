@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liangdahong.com/about/index.html</loc>
+    
+    <lastmod>2019-12-13T18:49:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liangdahong.com/2019/12/02/vapor/</loc>
     
-    <lastmod>2019-12-13T17:59:38.000Z</lastmod>
+    <lastmod>2019-12-13T18:32:48.000Z</lastmod>
     
   </url>
   
@@ -334,13 +341,6 @@
     <loc>https://liangdahong.com/Swift/index.html</loc>
     
     <lastmod>2018-07-06T01:36:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liangdahong.com/about/index.html</loc>
-    
-    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
   </url>
   
