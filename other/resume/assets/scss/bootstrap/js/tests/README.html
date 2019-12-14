@@ -1,0 +1,55 @@
+<h2 id="How-does-Bootstrap’s-test-suite-work"><a href="#How-does-Bootstrap’s-test-suite-work" class="headerlink" title="How does Bootstrap’s test suite work?"></a>How does Bootstrap’s test suite work?</h2><p>Bootstrap uses <a href="https://qunitjs.com/">QUnit</a> and <a href="http://sinonjs.org/">Sinon</a>. Each plugin has a file dedicated to its tests in <code>unit/&lt;plugin-name&gt;.js</code>.</p>
+<ul>
+<li><code>unit/</code> contains the unit test files for each Bootstrap plugin.</li>
+<li><code>vendor/</code> contains third-party testing-related code (QUnit, jQuery and Sinon).</li>
+<li><code>visual/</code> contains “visual” tests which are run interactively in real browsers and require manual verification by humans.</li>
+</ul>
+<p>To run the unit test suite via <a href="https://karma-runner.github.io/">Karma</a>, run <code>npm run js-test</code>.</p>
+<p>To run the unit test suite via a real web browser, open <code>index.html</code> in the browser.</p>
+<h2 id="How-do-I-add-a-new-unit-test"><a href="#How-do-I-add-a-new-unit-test" class="headerlink" title="How do I add a new unit test?"></a>How do I add a new unit test?</h2><ol>
+<li>Locate and open the file dedicated to the plugin which you need to add tests to (<code>unit/&lt;plugin-name&gt;.js</code>).</li>
+<li>Review the <a href="https://api.qunitjs.com/">QUnit API Documentation</a> and use the existing tests as references for how to structure your new tests.</li>
+<li>Write the necessary unit test(s) for the new or revised functionality.</li>
+<li>Run <code>npm run js-test</code> to see the results of your newly-added test(s).</li>
+</ol>
+<p><strong>Note:</strong> Your new unit tests should fail before your changes are applied to the plugin, and should pass after your changes are applied to the plugin.</p>
+<h2 id="What-should-a-unit-test-look-like"><a href="#What-should-a-unit-test-look-like" class="headerlink" title="What should a unit test look like?"></a>What should a unit test look like?</h2><ul>
+<li>Each test should have a unique name clearly stating what unit is being tested.</li>
+<li>Each test should test only one unit per test, although one test can include several assertions. Create multiple tests for multiple units of functionality.</li>
+<li>Each test should begin with <a href="https://api.qunitjs.com/assert/expect/"><code>assert.expect</code></a> to ensure that the expected assertions are run.</li>
+<li>Each test should follow the project’s <a href="https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#js">JavaScript Code Guidelines</a></li>
+</ul>
+<h2 id="Code-coverage"><a href="#Code-coverage" class="headerlink" title="Code coverage"></a>Code coverage</h2><p>Currently we’re aiming for at least 80% test coverage for our code. To ensure your changes meet or exceed this limit, run <code>npm run js-compile &amp;&amp; npm run js-test</code> and open the file in <code>js/coverage/lcov-report/index.html</code> to see the code coverage for each plugin. See more details when you select a plugin and ensure your change is fully covered by unit tests.</p>
+<h3 id="Example-tests"><a href="#Example-tests" class="headerlink" title="Example tests"></a>Example tests</h3><pre><code class="js"><span class="comment">// Synchronous test</span>
+QUnit.test(<span class="string">'should describe the unit being tested'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">assert</span>) </span>{
+  assert.expect(<span class="number">1</span>)
+  <span class="keyword">var</span> templateHTML = <span class="string">'&lt;div class="alert alert-danger fade show"&gt;'</span> +
+        <span class="string">'&lt;a class="close" href="#" data-dismiss="alert"&gt;×&lt;/a&gt;'</span> +
+        <span class="string">'&lt;p&gt;&lt;strong&gt;Template necessary for the test.&lt;/p&gt;'</span> +
+        <span class="string">'&lt;/div&gt;'</span>
+  <span class="keyword">var</span> $alert = $(templateHTML).appendTo(<span class="string">'#qunit-fixture'</span>).bootstrapAlert()
+
+  $alert.find(<span class="string">'.close'</span>).trigger(<span class="string">'click'</span>)
+
+  <span class="comment">// Make assertion</span>
+  assert.strictEqual($alert.hasClass(<span class="string">'show'</span>), <span class="literal">false</span>, <span class="string">'remove .show class on .close click'</span>)
+})
+
+<span class="comment">// Asynchronous test</span>
+QUnit.test(<span class="string">'should describe the unit being tested'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">assert</span>) </span>{
+  assert.expect(<span class="number">2</span>)
+  <span class="keyword">var</span> done = assert.async()
+
+  <span class="keyword">var</span> $tooltip = $(<span class="string">'&lt;div title="tooltip title"&gt;&lt;/div&gt;'</span>).bootstrapTooltip()
+  <span class="keyword">var</span> tooltipInstance = $tooltip.data(<span class="string">'bs.tooltip'</span>)
+  <span class="keyword">var</span> spyShow = sinon.spy(tooltipInstance, <span class="string">'show'</span>)
+
+  $tooltip.appendTo(<span class="string">'#qunit-fixture'</span>)
+    .on(<span class="string">'shown.bs.tooltip'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+      assert.ok(<span class="literal">true</span>, <span class="string">'"shown" event was fired after calling "show"'</span>)
+      assert.ok(spyShow.called, <span class="string">'show called'</span>)
+      done()
+    })
+    .bootstrapTooltip(<span class="string">'show'</span>)
+})
+</code></pre>
