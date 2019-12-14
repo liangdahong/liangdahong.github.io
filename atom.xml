@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://liangdahong.com/"/>
+  <link href="http://liangdahong.com/"/>
   <updated>2019-12-09T09:30:21.000Z</updated>
-  <id>https://liangdahong.com/</id>
+  <id>http://liangdahong.com/</id>
   
   <author>
     <name>梁大红</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Git</title>
-    <link href="https://liangdahong.com/2019/12/06/Git/"/>
-    <id>https://liangdahong.com/2019/12/06/Git/</id>
+    <link href="http://liangdahong.com/2019/12/06/Git/"/>
+    <id>http://liangdahong.com/2019/12/06/Git/</id>
     <published>2019-12-06T15:05:59.000Z</published>
     <updated>2019-12-09T09:30:21.000Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>vapor</title>
-    <link href="https://liangdahong.com/2019/12/02/vapor/"/>
-    <id>https://liangdahong.com/2019/12/02/vapor/</id>
+    <link href="http://liangdahong.com/2019/12/02/vapor/"/>
+    <id>http://liangdahong.com/2019/12/02/vapor/</id>
     <published>2019-12-02T13:03:24.000Z</published>
     <updated>2019-12-13T18:32:48.000Z</updated>
     
@@ -97,8 +97,8 @@
   
   <entry>
     <title>Swift Codable</title>
-    <link href="https://liangdahong.com/2019/11/08/00-%E6%8A%80%E6%9C%AF-iOS/Swift-Codable/"/>
-    <id>https://liangdahong.com/2019/11/08/00-技术-iOS/Swift-Codable/</id>
+    <link href="http://liangdahong.com/2019/11/08/00-%E6%8A%80%E6%9C%AF-iOS/Swift-Codable/"/>
+    <id>http://liangdahong.com/2019/11/08/00-技术-iOS/Swift-Codable/</id>
     <published>2019-11-08T02:34:18.000Z</published>
     <updated>2019-11-08T02:40:52.000Z</updated>
     
@@ -115,8 +115,8 @@
   
   <entry>
     <title>Swift学习笔记</title>
-    <link href="https://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://liangdahong.com/2019/10/22/00-技术-iOS/Swift学习笔记/</id>
+    <link href="http://liangdahong.com/2019/10/22/00-%E6%8A%80%E6%9C%AF-iOS/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://liangdahong.com/2019/10/22/00-技术-iOS/Swift学习笔记/</id>
     <published>2019-10-22T08:54:21.000Z</published>
     <updated>2019-11-10T08:53:42.000Z</updated>
     
@@ -128,17 +128,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="Swift" scheme="https://liangdahong.com/tags/Swift/"/>
+      <category term="Swift" scheme="http://liangdahong.com/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>pthread、NSThread、GCD、NSOperation、NSOperationQueue</title>
-    <link href="https://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/"/>
-    <id>https://liangdahong.com/2019/10/12/00-技术-iOS/pthread、NSThread、GCD、NSOperation、NSOperationQueue/</id>
+    <link href="http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/"/>
+    <id>http://liangdahong.com/2019/10/12/00-技术-iOS/pthread、NSThread、GCD、NSOperation、NSOperationQueue/</id>
     <published>2019-10-12T15:36:17.000Z</published>
     <updated>2019-10-18T23:11:33.000Z</updated>
     
@@ -159,17 +159,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="GCD" scheme="https://liangdahong.com/tags/GCD/"/>
+      <category term="GCD" scheme="http://liangdahong.com/tags/GCD/"/>
     
   </entry>
   
   <entry>
     <title>Jenkins 相关</title>
-    <link href="https://liangdahong.com/2019/10/11/00-%E6%8A%80%E6%9C%AF-iOS/Jenkins-%E7%9B%B8%E5%85%B3/"/>
-    <id>https://liangdahong.com/2019/10/11/00-技术-iOS/Jenkins-相关/</id>
+    <link href="http://liangdahong.com/2019/10/11/00-%E6%8A%80%E6%9C%AF-iOS/Jenkins-%E7%9B%B8%E5%85%B3/"/>
+    <id>http://liangdahong.com/2019/10/11/00-技术-iOS/Jenkins-相关/</id>
     <published>2019-10-11T14:17:13.000Z</published>
     <updated>2019-10-18T09:35:06.000Z</updated>
     
@@ -184,17 +184,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="Jenkins" scheme="https://liangdahong.com/tags/Jenkins/"/>
+      <category term="Jenkins" scheme="http://liangdahong.com/tags/Jenkins/"/>
     
   </entry>
   
   <entry>
     <title>React Native 相关</title>
-    <link href="https://liangdahong.com/2019/10/09/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/React-Native-%E7%9B%B8%E5%85%B3/"/>
-    <id>https://liangdahong.com/2019/10/09/02-技术-前端/React-Native-相关/</id>
+    <link href="http://liangdahong.com/2019/10/09/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/React-Native-%E7%9B%B8%E5%85%B3/"/>
+    <id>http://liangdahong.com/2019/10/09/02-技术-前端/React-Native-相关/</id>
     <published>2019-10-09T06:57:25.000Z</published>
     <updated>2019-11-15T02:29:31.000Z</updated>
     
@@ -209,17 +209,17 @@
     
     </summary>
     
-      <category term="02-技术-前端" scheme="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
+      <category term="02-技术-前端" scheme="http://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="React Native" scheme="https://liangdahong.com/tags/React-Native/"/>
+      <category term="React Native" scheme="http://liangdahong.com/tags/React-Native/"/>
     
   </entry>
   
   <entry>
     <title>(转)UIStackView的简单使用与理解</title>
-    <link href="https://liangdahong.com/2019/06/04/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-UIStackView%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%90%86%E8%A7%A3/"/>
-    <id>https://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/</id>
+    <link href="http://liangdahong.com/2019/06/04/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-UIStackView%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E7%90%86%E8%A7%A3/"/>
+    <id>http://liangdahong.com/2019/06/04/00-技术-iOS/转-UIStackView的简单使用与理解/</id>
     <published>2019-06-04T03:16:33.000Z</published>
     <updated>2019-10-18T23:11:33.000Z</updated>
     
@@ -236,17 +236,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS 运行时之消息转发机制</title>
-    <link href="https://liangdahong.com/2018/12/28/00-%E6%8A%80%E6%9C%AF-iOS/iOS-%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B9%8B%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
-    <id>https://liangdahong.com/2018/12/28/00-技术-iOS/iOS-运行时之消息转发机制/</id>
+    <link href="http://liangdahong.com/2018/12/28/00-%E6%8A%80%E6%9C%AF-iOS/iOS-%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B9%8B%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
+    <id>http://liangdahong.com/2018/12/28/00-技术-iOS/iOS-运行时之消息转发机制/</id>
     <published>2018-12-28T02:00:53.000Z</published>
     <updated>2019-10-18T23:11:22.000Z</updated>
     
@@ -260,17 +260,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>JSPatch简单分析1</title>
-    <link href="https://liangdahong.com/2018/10/19/00-%E6%8A%80%E6%9C%AF-iOS/JSPatch%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%901/"/>
-    <id>https://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/</id>
+    <link href="http://liangdahong.com/2018/10/19/00-%E6%8A%80%E6%9C%AF-iOS/JSPatch%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%901/"/>
+    <id>http://liangdahong.com/2018/10/19/00-技术-iOS/JSPatch简单分析1/</id>
     <published>2018-10-19T01:01:29.000Z</published>
     <updated>2019-10-18T23:09:53.000Z</updated>
     
@@ -287,17 +287,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>时光轴</title>
-    <link href="https://liangdahong.com/2018/10/18/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E6%97%B6%E5%85%89%E8%BD%B4/"/>
-    <id>https://liangdahong.com/2018/10/18/05-生活-感叹/时光轴/</id>
+    <link href="http://liangdahong.com/2018/10/18/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E6%97%B6%E5%85%89%E8%BD%B4/"/>
+    <id>http://liangdahong.com/2018/10/18/05-生活-感叹/时光轴/</id>
     <published>2018-10-18T09:03:26.000Z</published>
     <updated>2019-10-19T16:31:37.000Z</updated>
     
@@ -309,17 +309,17 @@
     
     </summary>
     
-      <category term="05-生活-感叹" scheme="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
+      <category term="05-生活-感叹" scheme="http://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
     
     
-      <category term="生活" scheme="https://liangdahong.com/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://liangdahong.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>正确高效使用 Google</title>
-    <link href="https://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/"/>
-    <id>https://liangdahong.com/2018/07/11/03-技术-计算机/正确高效使用-Google/</id>
+    <link href="http://liangdahong.com/2018/07/11/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/"/>
+    <id>http://liangdahong.com/2018/07/11/03-技术-计算机/正确高效使用-Google/</id>
     <published>2018-07-11T03:30:49.000Z</published>
     <updated>2019-10-18T23:11:33.000Z</updated>
     
@@ -331,17 +331,17 @@
     
     </summary>
     
-      <category term="03-技术-计算机" scheme="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="03-技术-计算机" scheme="http://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
-      <category term="计算机" scheme="https://liangdahong.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="计算机" scheme="http://liangdahong.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>转 - 中国教育问题的根源在于大学而不在高中</title>
-    <link href="https://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/"/>
-    <id>https://liangdahong.com/2018/06/25/05-生活-感叹/转-中国教育问题的根源在于大学而不在高中/</id>
+    <link href="http://liangdahong.com/2018/06/25/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/%E8%BD%AC-%E4%B8%AD%E5%9B%BD%E6%95%99%E8%82%B2%E9%97%AE%E9%A2%98%E7%9A%84%E6%A0%B9%E6%BA%90%E5%9C%A8%E4%BA%8E%E5%A4%A7%E5%AD%A6%E8%80%8C%E4%B8%8D%E5%9C%A8%E9%AB%98%E4%B8%AD/"/>
+    <id>http://liangdahong.com/2018/06/25/05-生活-感叹/转-中国教育问题的根源在于大学而不在高中/</id>
     <published>2018-06-25T09:17:40.000Z</published>
     <updated>2019-10-18T23:04:55.000Z</updated>
     
@@ -355,17 +355,17 @@
     
     </summary>
     
-      <category term="05-生活-感叹" scheme="https://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
+      <category term="05-生活-感叹" scheme="http://liangdahong.com/categories/05-%E7%94%9F%E6%B4%BB-%E6%84%9F%E5%8F%B9/"/>
     
     
-      <category term="生活" scheme="https://liangdahong.com/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://liangdahong.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序开发相关</title>
-    <link href="https://liangdahong.com/2018/06/13/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/"/>
-    <id>https://liangdahong.com/2018/06/13/01-技术-微信小程序/微信小程序开发相关/</id>
+    <link href="http://liangdahong.com/2018/06/13/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/"/>
+    <id>http://liangdahong.com/2018/06/13/01-技术-微信小程序/微信小程序开发相关/</id>
     <published>2018-06-13T09:08:17.000Z</published>
     <updated>2019-11-15T03:03:33.000Z</updated>
     
@@ -388,17 +388,17 @@
     
     </summary>
     
-      <category term="01-技术-微信小程序" scheme="https://liangdahong.com/categories/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="01-技术-微信小程序" scheme="http://liangdahong.com/categories/01-%E6%8A%80%E6%9C%AF-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-      <category term="微信小程序" scheme="https://liangdahong.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="http://liangdahong.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>浅谈 iOS 事件的传递和响应过程</title>
-    <link href="https://liangdahong.com/2018/06/08/00-%E6%8A%80%E6%9C%AF-iOS/%E6%B5%85%E8%B0%88-iOS-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B/"/>
-    <id>https://liangdahong.com/2018/06/08/00-技术-iOS/浅谈-iOS-事件的传递和响应过程/</id>
+    <link href="http://liangdahong.com/2018/06/08/00-%E6%8A%80%E6%9C%AF-iOS/%E6%B5%85%E8%B0%88-iOS-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E5%92%8C%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B/"/>
+    <id>http://liangdahong.com/2018/06/08/00-技术-iOS/浅谈-iOS-事件的传递和响应过程/</id>
     <published>2018-06-08T03:16:11.000Z</published>
     <updated>2019-10-18T23:09:53.000Z</updated>
     
@@ -420,17 +420,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>转 - 优化 iOS 程序性能的 24 个方法</title>
-    <link href="https://liangdahong.com/2018/05/23/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E4%BC%98%E5%8C%96-iOS-%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E7%9A%84-24-%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
-    <id>https://liangdahong.com/2018/05/23/00-技术-iOS/转-优化-iOS-程序性能的-24-个方法/</id>
+    <link href="http://liangdahong.com/2018/05/23/00-%E6%8A%80%E6%9C%AF-iOS/%E8%BD%AC-%E4%BC%98%E5%8C%96-iOS-%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E7%9A%84-24-%E4%B8%AA%E6%96%B9%E6%B3%95/"/>
+    <id>http://liangdahong.com/2018/05/23/00-技术-iOS/转-优化-iOS-程序性能的-24-个方法/</id>
     <published>2018-05-22T16:33:30.000Z</published>
     <updated>2019-10-18T23:09:53.000Z</updated>
     
@@ -444,17 +444,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>转 - 面试中的 10 大排序算法总结</title>
-    <link href="https://liangdahong.com/2018/05/22/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%BD%AC-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84-10-%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
-    <id>https://liangdahong.com/2018/05/22/03-技术-计算机/转-面试中的-10-大排序算法总结/</id>
+    <link href="http://liangdahong.com/2018/05/22/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%BD%AC-%E9%9D%A2%E8%AF%95%E4%B8%AD%E7%9A%84-10-%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://liangdahong.com/2018/05/22/03-技术-计算机/转-面试中的-10-大排序算法总结/</id>
     <published>2018-05-22T15:42:55.000Z</published>
     <updated>2019-10-18T23:11:33.000Z</updated>
     
@@ -469,17 +469,17 @@
     
     </summary>
     
-      <category term="03-技术-计算机" scheme="https://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="03-技术-计算机" scheme="http://liangdahong.com/categories/03-%E6%8A%80%E6%9C%AF-%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
-      <category term="计算机" scheme="https://liangdahong.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="计算机" scheme="http://liangdahong.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>Nots</title>
-    <link href="https://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/"/>
-    <id>https://liangdahong.com/2018/02/26/02-技术-前端/Nots/</id>
+    <link href="http://liangdahong.com/2018/02/26/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/Nots/"/>
+    <id>http://liangdahong.com/2018/02/26/02-技术-前端/Nots/</id>
     <published>2018-02-26T07:11:51.000Z</published>
     <updated>2019-11-06T16:27:57.000Z</updated>
     
@@ -491,17 +491,17 @@
     
     </summary>
     
-      <category term="02-技术-前端" scheme="https://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
+      <category term="02-技术-前端" scheme="http://liangdahong.com/categories/02-%E6%8A%80%E6%9C%AF-%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="https://liangdahong.com/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://liangdahong.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>iOS第三方库背后的原理和简单使用</title>
-    <link href="https://liangdahong.com/2017/11/27/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>https://liangdahong.com/2017/11/27/00-技术-iOS/iOS第三方库背后的原理和简单使用/</id>
+    <link href="http://liangdahong.com/2017/11/27/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://liangdahong.com/2017/11/27/00-技术-iOS/iOS第三方库背后的原理和简单使用/</id>
     <published>2017-11-27T13:48:03.000Z</published>
     <updated>2019-10-18T23:11:33.000Z</updated>
     
@@ -516,17 +516,17 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="iOS" scheme="https://liangdahong.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://liangdahong.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS面试题笔记</title>
-    <link href="https://liangdahong.com/2017/11/19/iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
-    <id>https://liangdahong.com/2017/11/19/iOS面试题笔记/</id>
+    <link href="http://liangdahong.com/2017/11/19/iOS%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
+    <id>http://liangdahong.com/2017/11/19/iOS面试题笔记/</id>
     <published>2017-11-19T01:44:37.000Z</published>
     <updated>2019-12-05T07:59:18.000Z</updated>
     
@@ -538,10 +538,10 @@
     
     </summary>
     
-      <category term="00-技术-iOS" scheme="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+      <category term="00-技术-iOS" scheme="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
     
     
-      <category term="面试" scheme="https://liangdahong.com/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="http://liangdahong.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
