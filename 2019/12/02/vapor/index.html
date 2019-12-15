@@ -94,7 +94,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="https://www.yuque.com/fcwys/linux/exgglu   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T05:11:47.000Z">
+<meta property="og:updated_time" content="2019-12-15T05:19:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vapor">
 <meta name="twitter:description" content="https://www.yuque.com/fcwys/linux/exgglu   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182">
@@ -531,7 +531,30 @@ location / {
     index  index.html index.htm;
 }
 </code></pre><p>}</p>
-<p>sudo scp /home/ubuntu/hexoBlog/other/Resources/resume.liangdahong.com/Nginx/1_resume.liangdahong.com_bundle.crt /etc/nginx/<br>sudo scp /home/ubuntu/hexoBlog/other/Resources/resume.liangdahong.com/Nginx/2_resume.liangdahong.com.key /etc/nginx/</p>
+<p>sudo scp /home/ubuntu/hexoBlog/other/Resources/resume.liangdahong.com/Nginx/1_resume.liangdahong.com_bundle.crt /etc/nginx/<br>sudo scp /home/ubuntu/hexoBlog/other/Resources/resume.liangdahong.com/Nginx/2_resume.liangdahong.com.key /etc/nginx/<br>server {</p>
+<pre><code>#SSL 访问端口号为 443
+listen 443; 
+#填写绑定证书的域名
+server_name resume.liangdahong.com; 
+#启用 SSL 功能
+ssl on;
+#证书文件名称
+ssl_certificate 1_resume.liangdahong.com_bundle.crt ; 
+#私钥文件名称
+ssl_certificate_key 2_resume.liangdahong.com.key ; 
+ssl_session_timeout 5m;
+#请按照以下协议配置
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+#请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
+ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
+ssl_prefer_server_ciphers on;
+location / {
+   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+    root /home/ubuntu/hexoBlog/other/resume; 
+    index  index.html index.htm;
+}
+</code></pre><p>}</p>
+<p>sss</p>
 
       
     </div>
