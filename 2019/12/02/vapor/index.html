@@ -94,7 +94,7 @@ history.back();
 <meta property="og:site_name" content="梁大红的技术Blog">
 <meta property="og:description" content="https://www.yuque.com/fcwys/linux/exgglu   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T05:19:30.000Z">
+<meta property="og:updated_time" content="2019-12-15T08:21:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vapor">
 <meta name="twitter:description" content="https://www.yuque.com/fcwys/linux/exgglu   12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182">
@@ -554,7 +554,8 @@ location / {
     index  index.html index.htm;
 }
 </code></pre><p>}</p>
-<p>sss</p>
+<p>vapor ssl</p>
+<p>server {<br>        server_name api.liangdahong.com;<br>        listen 80;<br>        try_files $uri @proxy;<br>        client_max_body_size 20m;<br>        location @proxy {<br>                proxy_pass <a href="http://127.0.0.1:8080" target="_blank" rel="noopener">http://127.0.0.1:8080</a>;<br>                proxy_pass_header Server;<br>                proxy_set_header Host $host;<br>                proxy_set_header X-Real-IP $remote_addr;<br>                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br>                proxy_pass_header Server;<br>                proxy_connect_timeout 3s;<br>                proxy_read_timeout 10s;<br>        }<br>}</p>
 
       
     </div>
