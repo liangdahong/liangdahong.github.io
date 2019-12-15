@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://liangdahong.com/2019/12/06/Git/</loc>
+    
+    <lastmod>2019-12-15T15:56:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://liangdahong.com/2019/12/02/vapor/</loc>
     
-    <lastmod>2019-12-15T08:53:49.000Z</lastmod>
+    <lastmod>2019-12-15T15:55:58.000Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://liangdahong.com/2016/08/06/00-%E6%8A%80%E6%9C%AF-iOS/Cocoapods-%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2019-12-10T23:42:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://liangdahong.com/2019/12/06/Git/</loc>
-    
-    <lastmod>2019-12-09T09:30:21.000Z</lastmod>
     
   </url>
   
