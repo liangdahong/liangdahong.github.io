@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
+    <lastmod>2019-12-21T06:33:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>pthread、NSThread、GCD、NSOperation、NSOperationQueue</title>
+        <pubTime>2019-10-12T15:36:17.000Z</pubTime>
+        
+        <tag>GCD</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liangdahong.com/2019/12/02/vapor/</loc>
-    <lastmod>2019-12-17T02:09:03.000Z</lastmod>
+    <lastmod>2019-12-17T02:52:07.000Z</lastmod>
     <data>
         <display>
         <title>vapor</title>
@@ -380,26 +400,6 @@
         <pubTime>2017-08-23T12:59:09.000Z</pubTime>
         
         <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="http://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>pthread、NSThread、GCD、NSOperation、NSOperationQueue</title>
-        <pubTime>2019-10-12T15:36:17.000Z</pubTime>
-        
-        <tag>GCD</tag>
          
          
            

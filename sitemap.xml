@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
+    
+    <lastmod>2019-12-21T06:33:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://liangdahong.com/2019/12/02/vapor/</loc>
     
-    <lastmod>2019-12-17T02:09:03.000Z</lastmod>
+    <lastmod>2019-12-17T02:52:07.000Z</lastmod>
     
   </url>
   
@@ -143,13 +150,6 @@
   
   <url>
     <loc>http://liangdahong.com/2017/08/23/00-%E6%8A%80%E6%9C%AF-iOS/iOS%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80%E4%B9%8BautoresizingMask%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-10-18T23:11:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
     
     <lastmod>2019-10-18T23:11:33.000Z</lastmod>
     
