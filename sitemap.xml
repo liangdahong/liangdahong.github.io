@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
+    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
     
-    <lastmod>2019-12-23T09:15:29.000Z</lastmod>
+    <lastmod>2019-12-24T11:10:24.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://liangdahong.com/2019/10/12/00-%E6%8A%80%E6%9C%AF-iOS/pthread%E3%80%81NSThread%E3%80%81GCD%E3%80%81NSOperation%E3%80%81NSOperationQueue/</loc>
+    <loc>http://liangdahong.com/2016/09/10/00-%E6%8A%80%E6%9C%AF-iOS/%E5%90%84%E7%A7%8D%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86%E5%8C%BA/</loc>
     
-    <lastmod>2019-12-21T06:33:49.000Z</lastmod>
+    <lastmod>2019-12-23T09:15:29.000Z</lastmod>
     
   </url>
   
@@ -345,6 +345,13 @@
   </url>
   
   <url>
+    <loc>http://liangdahong.com/album/index.html</loc>
+    
+    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://liangdahong.com/categories/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
@@ -360,13 +367,6 @@
   
   <url>
     <loc>http://liangdahong.com/tags/index.html</loc>
-    
-    <lastmod>2018-06-19T01:37:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://liangdahong.com/album/index.html</loc>
     
     <lastmod>2018-06-19T01:37:05.000Z</lastmod>
     
