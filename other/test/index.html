@@ -49,75 +49,46 @@
 
     <div class="title">QQ支付测试</div>
     <div class="test">
-        <a href="mqq://">mqq</a>
+        <a href="mqq://">mqq://</a>
     </div>
     <div class="test">
-        <a href="mqqapi://">mqqapi</a>
+        <a href="mqqapi://">mqqapi://</a>
     </div>
     <div class="test">
-        <a href="mqqwpa://">mqqwpa</a>
+        <a href="mqqwpa://">mqqwpa://</a>
     </div>
 
 
     <div class="title">微信唤醒测试</div>
 
     <div class="test">
-        <a href="weixin://">weixin</a>
+        <a href="weixin://">weixin://</a>
     </div>
     <div class="test">
-        <a href="wechat://">wechat</a>
+        <a href="wechat://">wechat://</a>
     </div>
-
 
     <div class="title">支付宝唤醒测试</div>
     <div class="test">
-        <a href="alipay://">alipay</a>
+        <a href="alipay://">alipay://</a>
     </div>
     <div class="test">
-        <a href="alipays://">alipays</a>
+        <a href="alipays://">alipays://</a>
     </div>
-
 
     <div class="title">下载企业应用</div>
     <div class="test">
         <a
-            href="itms-services://?action=download-manifest&url=https://h5oss.bluemoon.com.cn/package/prod/angel/moonAngel_4.10.5.plist">下载企业应用</a>
-    </div>
-
-
-    <div class="title">其他测试</div>
-    <div class="test">
-        <a href="javascript:alert('测试成功')">alert弹框提示</a>
-    </div>
-    <div class="test">
-        <a href="https://www.baidu.com/">站点测试</a>
+        href="itms-services://?action=download-manifest&url=https://h5oss.bluemoon.com.cn/package/prod/angel/moonAngel_4.10.5.plist">下载企业应用</a>
     </div>
 
     <div class="title">其他测试</div>
-
     <div class="test">
-        <button onclick="set()">set</button>
-        <button onclick="get()">get</button>
-        <button onclick="remove()">remove</button>
+        <a href="javascript:alert('测试成功')">alert</a>
     </div>
-
+    <div class="test">
+        <a href="https://www.baidu.com/">baidu.com</a>
+    </div>
 </body>
 
 </html>
-
-<script>
-    function set() {
-        window.localStorage.setItem("a", "梁大红");
-    }
-    function get() {
-        let s = window.localStorage.getItem("a");
-        if (s) {
-            alert(s)
-        } else {
-            alert("没有缓存")
-        }
-    }
-    function remove() {
-        let s = window.localStorage.removeItem("a");
-    }
-</script>
