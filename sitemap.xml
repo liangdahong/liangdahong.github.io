@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liangdahong.com/about/index.html</loc>
+    
+    <lastmod>2021-01-06T16:23:36.735Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liangdahong.com/2018/07/11/%E6%AD%A3%E7%A1%AE%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8-Google/</loc>
     
     <lastmod>2021-01-06T15:42:10.462Z</lastmod>
@@ -59,13 +66,6 @@
   
   <url>
     <loc>https://liangdahong.com/2016/04/08/%E4%BD%BF%E7%94%A8-Hexo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2020-09-17T08:58:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liangdahong.com/about/index.html</loc>
     
     <lastmod>2020-09-17T08:58:07.000Z</lastmod>
     
