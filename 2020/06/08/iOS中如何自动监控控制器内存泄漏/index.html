@@ -102,7 +102,8 @@ history.back();
 <meta property="og:image" content="https://user-images.githubusercontent.com/12118567/82641197-8b77a180-9c3e-11ea-8436-0cea58c96ba8.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/12118567/82641330-c4b01180-9c3e-11ea-8799-a7214738a910.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/12118567/82641484-fb862780-9c3e-11ea-98cd-07ed1c58046f.png">
-<meta property="og:updated_time" content="2020-09-17T08:58:07.000Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/12118567/105628096-dbfe6900-5e75-11eb-901c-58639c8a1a37.png">
+<meta property="og:updated_time" content="2021-01-24T16:07:30.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中如何自动监控控制器内存泄漏">
 <meta name="twitter:description" content="原理介绍所谓内存泄露，通俗讲就是 该释放 的时候一直 得不到释放。">
@@ -458,6 +459,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <li><code>UI</code> 实时统计出当前统计的控制器数据即可。</li>
 <li>其中用到了 <code>2</code> 个自定义类，其中 <code>AMMemoryLeakDeallocModel</code> 主要是为了监控控制器的释放，<code>AMMemoryLeakModel</code> 是为了统计数据。</li>
 </ul>
+<h2 id="AMLeaksFinder-原理图"><a href="#AMLeaksFinder-原理图" class="headerlink" title="AMLeaksFinder 原理图"></a>AMLeaksFinder 原理图</h2><p><img src="https://user-images.githubusercontent.com/12118567/105628096-dbfe6900-5e75-11eb-901c-58639c8a1a37.png" alt=""></p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><ul>
 <li><a href="https://github.com/liangdahong/AMLeaksFinder/blob/master/README.md#效果演示" target="_blank" rel="noopener">效果图</a></li>
 </ul>
@@ -768,7 +770,7 @@ showConfirmButton: true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理介绍"><span class="nav-number">1.</span> <span class="nav-text">原理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMLeaksFinder-的处理逻辑"><span class="nav-number">2.</span> <span class="nav-text">AMLeaksFinder 的处理逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">4.</span> <span class="nav-text">更多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理介绍"><span class="nav-number">1.</span> <span class="nav-text">原理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMLeaksFinder-的处理逻辑"><span class="nav-number">2.</span> <span class="nav-text">AMLeaksFinder 的处理逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AMLeaksFinder-原理图"><span class="nav-number">3.</span> <span class="nav-text">AMLeaksFinder 原理图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">4.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多"><span class="nav-number">5.</span> <span class="nav-text">更多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
