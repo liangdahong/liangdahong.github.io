@@ -373,16 +373,6 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/07/09/iOS开发中的一些第三方/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2016/07/09/iOS开发中的一些第三方/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -744,25 +734,8 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
 
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
 <!-- JS库 sweetalert 可修改路径 -->
-<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js">
-  // Auto Initialize Comments
-
-  let cmtBtns = document.getElementsByClassName('gitment-comments-init-btn');
-  let isClicked = false;
-
-  let timer = setInterval(() => {
-    Array.prototype.forEach.call(cmtBtns, item => {
-      item.click();
-      isClicked = true;
-      if(isClicked) {
-        clearInterval(timer);
-        console.log('Clear timer.')
-      }
-    })
-  }, 1000)
-</script>
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <p><span>温馨提示:</span><a>博客图片放在 GitHub ，若无法显示，科学上网就好了</a></p>
@@ -771,10 +744,7 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
 </div>
 
-
-
 <script>
-
 var clipboard = new Clipboard('.fa-clipboard');
 $(".fa-clipboard").click(function(){
 clipboard.on('success', function(){
@@ -855,13 +825,6 @@ showConfirmButton: true
 
 
           
-
-  
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
 
   
 
@@ -1223,43 +1186,6 @@ showConfirmButton: true
 
 
 
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'liangdahong',
-            repo: 'BlogComments',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '960ce6e8055cfd82f2005f9131559cf428c66110',
-            
-                client_id: 'ddb01d9917af0f58'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
