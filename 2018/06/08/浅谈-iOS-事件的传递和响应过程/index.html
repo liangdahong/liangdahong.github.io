@@ -579,8 +579,25 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 <div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
 
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <!-- JS库 sweetalert 可修改路径 -->
-<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js">
+  // Auto Initialize Comments
+
+  let cmtBtns = document.getElementsByClassName('gitment-comments-init-btn');
+  let isClicked = false;
+
+  let timer = setInterval(() => {
+    Array.prototype.forEach.call(cmtBtns, item => {
+      item.click();
+      isClicked = true;
+      if(isClicked) {
+        clearInterval(timer);
+        console.log('Clear timer.')
+      }
+    })
+  }, 1000)
+</script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <p><span>温馨提示:</span><a>博客图片放在 GitHub ，若无法显示，科学上网就好了</a></p>
@@ -589,7 +606,10 @@ labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any
 
 </div>
 
+
+
 <script>
+
 var clipboard = new Clipboard('.fa-clipboard');
 $(".fa-clipboard").click(function(){
 clipboard.on('success', function(){
