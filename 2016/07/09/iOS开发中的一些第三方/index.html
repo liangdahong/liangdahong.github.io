@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+(function(){
+if(''){
+if (prompt('请输入文章密码') !== ''){
+alert('密码错误！');
+history.back();
+}
+}
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+<link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+<meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="下面是本人在做 iOS 开发一段时间以来，总结的一些项目开发必备知识和关键点😊，我会一直更新下去。谢谢你支持！同时更要感谢提供相关库的大神😁。如果有认为非常好的希望M我哦。">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发中的一些第三方">
+<meta property="og:url" content="https://liangdahong.com/2016/07/09/iOS开发中的一些第三方/index.html">
+<meta property="og:site_name" content="梁大红的技术Blog">
+<meta property="og:description" content="下面是本人在做 iOS 开发一段时间以来，总结的一些项目开发必备知识和关键点😊，我会一直更新下去。谢谢你支持！同时更要感谢提供相关库的大神😁。如果有认为非常好的希望M我哦。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-17T08:58:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发中的一些第三方">
+<meta name="twitter:description" content="下面是本人在做 iOS 开发一段时间以来，总结的一些项目开发必备知识和关键点😊，我会一直更新下去。谢谢你支持！同时更要感谢提供相关库的大神😁。如果有认为非常好的希望M我哦。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+var NexT = window.NexT || {};
+var CONFIG = {
+root: '/',
+scheme: 'Pisces',
+version: '5.1.4',
+sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+fancybox: true,
+tabs: true,
+motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+duoshuo: {
+userId: '0',
+author: '博主'
+},
+algolia: {
+applicationID: '',
+apiKey: '',
+indexName: '',
+hits: {"per_page":10},
+labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+}
+};
+</script>
+
+
+
+<link rel="canonical" href="https://liangdahong.com/2016/07/09/iOS开发中的一些第三方/"/>
+
+
+
+
+
+
+  <title>iOS开发中的一些第三方 | 梁大红的技术Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?cfc3472238e91bbaf9532f7d54b9ff7c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/liangdahong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁大红的技术Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liangdahong.com/2016/07/09/iOS开发中的一些第三方/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁大红">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁大红的技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发中的一些第三方</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-09T21:50:53+08:00">
+                2016-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/00-技术-iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">00-技术-iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>下面是本人在做 iOS 开发一段时间以来，总结的一些项目开发必备知识和关键点😊，我会一直更新下去。谢谢你支持！同时更要感谢提供相关库的大神😁。<br>如果有认为非常好的希望M我哦。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective-C"></a>Objective-C</h1><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ol>
+<li>网络请求 <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a></li>
+<li>网络图片处理 <a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a></li>
+<li>猿题库对 AFN 的封装 <a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a></li>
+<li>微信跨平台网络框架 <a href="https://github.com/Tencent/mars" target="_blank" rel="noopener">mars</a></li>
+</ol>
+<h2 id="UI控件"><a href="#UI控件" class="headerlink" title="UI控件"></a>UI控件</h2><ol>
+<li>HUD <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a>、<a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a></li>
+<li>刷新控件 <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="noopener">MJRefresh</a></li>
+<li>广告轮播器 <a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="noopener">SDCycleScrollView</a></li>
+<li>侧滑菜单 <a href="https://github.com/mutualmobile/MMDrawerController" target="_blank" rel="noopener">MMDrawerController</a></li>
+<li>CoverFlow 效果 <a href="https://github.com/nicklockwood/iCarousel" target="_blank" rel="noopener">iCarousel</a></li>
+<li>模糊效果 <a href="https://github.com/nicklockwood/FXBlurView" target="_blank" rel="noopener">FXBlurView</a></li>
+<li>RDVTabBar <a href="https://github.com/robbdimitrov/RDVTabBarController" target="_blank" rel="noopener">RDVTabBar</a></li>
+<li>启动页 <a href="https://github.com/IFTTT/JazzHands" target="_blank" rel="noopener">JazzHand</a></li>
+<li>图片浏览 <a href="https://github.com/mwaterfall/MWPhotoBrowser" target="_blank" rel="noopener">MWPhotoBrowser</a>  </li>
+<li>照片选择 <a href="https://github.com/banchichen/TZImagePickerController" target="_blank" rel="noopener">TZImagePickerController</a>  </li>
+<li>侧滑 Cell <a href="https://github.com/MortimerGoro/MGSwipeTableCell" target="_blank" rel="noopener">MGSwipeTableCell</a></li>
+<li>Facebook 开源的异步渲染库 <a href="https://github.com/facebook/AsyncDisplayKit" target="_blank" rel="noopener">AsyncDisplayKit</a></li>
+<li>兼容 iOS7 Cell 侧滑多按钮功能 <a href="https://github.com/JazysYu/JZTableViewRowAction" target="_blank" rel="noopener">JZTableViewRowAction</a></li>
+<li>富文本 <a href="https://github.com/TTTAttributedLabel/TTTAttributedLabel" target="_blank" rel="noopener">TTTAttributedLabel</a></li>
+<li>富文本 <a href="https://github.com/ibireme/YYText" target="_blank" rel="noopener">YYText</a></li>
+<li>日历控件 <a href="https://github.com/WenchaoD/FSCalendar" target="_blank" rel="noopener">FSCalendar</a></li>
+<li>扁平风格的折线图 / 柱形图 <a href="https://github.com/kevinzhow/PNChart" target="_blank" rel="noopener">PNChart</a></li>
+<li>基于 Block 的 CA 动画 <a href="https://github.com/robb/RBBAnimation" target="_blank" rel="noopener">RBBAnimation</a></li>
+<li>对系统 API (AVFoundation)、ZXing、ZBar的封装<a href="https://github.com/MxABC/LBXScan" target="_blank" rel="noopener">LBXScan</a></li>
+<li>Xib 桥 <a href="https://github.com/sunnyxx/XXNibBridge" target="_blank" rel="noopener">XXNibBridge</a></li>
+<li>分页控制器 <a href="https://github.com/wangmchn/WMPageController" target="_blank" rel="noopener">WMPageController</a>、<a href="https://github.com/AugustRush/ARSegmentPager" target="_blank" rel="noopener">ARSegmentPager</a></li>
+<li>APP 内嵌 Safari <a href="https://github.com/TimOliver/TOWebViewController" target="_blank" rel="noopener">TOWebViewController</a></li>
+<li>APP 内嵌 Safari <a href="https://github.com/TransitApp/SVWebViewController" target="_blank" rel="noopener">SVWebViewController</a></li>
+<li>颜色选择器 <a href="https://github.com/hayashi311/Color-Picker-for-iOS" target="_blank" rel="noopener">Color-Picker-for-iOS</a></li>
+<li>空数据页 <a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="noopener">DZNEmptyDataSet</a></li>
+</ol>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ol>
+<li>键盘处理 <a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">IQKeyboardManager</a></li>
+<li>代码布局 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a></li>
+<li>数据解析 <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a></li>
+<li>Cell 的高度计算优化1 <a href="https://github.com/forkingdog/UITableView-FDTemplateLayoutCell" target="_blank" rel="noopener">FDTemplateLayoutCell
+</a></li>
+<li>Cell 的高度计算优化2 <a href="https://github.com/liangdahong/UITableView-BMTemplateLayoutCell" target="_blank" rel="noopener">BMTemplateLayoutCell</a></li>
+<li>网络状态监测 <a href="https://github.com/tonymillion/Reachability" target="_blank" rel="noopener">Reachability  </a></li>
+<li>第三方管理 <a href="https://github.com/CocoaPods/CocoaPods" target="_blank" rel="noopener">CocoaPods</a></li>
+<li>全屏侧滑返回 <a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="noopener">FDFullscreenPopGesture</a></li>
+<li>缓存，图片处理，数据解析等 <a href="https://github.com/ibireme/YYKit" target="_blank" rel="noopener">YYKit</a></li>
+<li>FMDB 数据库 <a href="https://github.com/ccgus/fmdb" target="_blank" rel="noopener">fmdb</a></li>
+<li>热修复 <a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a>、<a href="http://jspatch.com/" target="_blank" rel="noopener">JSPatch平台</a></li>
+<li>日志工具 <a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="noopener">CocoaLumberjack </a></li>
+<li>RAC <a href="https://github.com/ReactiveCocoa/ReactiveCocoa" target="_blank" rel="noopener">ReactiveCocoa</a></li>
+<li>Facebook 开源的动画框架 <a href="https://github.com/facebook/pop" target="_blank" rel="noopener">pop</a></li>
+<li>Socket <a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="noopener">CocoaAsyncSocket</a></li>
+<li>基于 GPU 的图片处理框架 <a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="noopener">GPUImage</a></li>
+<li>NYXImagesKit <a href="https://github.com/Nyx0uf/NYXImagesKit" target="_blank" rel="noopener">NYXImagesKit</a></li>
+<li>WebViewJavascriptBridge <a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a></li>
+<li>AFDownloadRequestOperation <a href="https://github.com/steipete/AFDownloadRequestOperation" target="_blank" rel="noopener">AFDownloadRequestOperation</a></li>
+<li>KVOController <a href="https://github.com/facebook/KVOController" target="_blank" rel="noopener">KVOController</a></li>
+<li>LTNavigationBar <a href="https://github.com/ltebean/LTNavigationBar" target="_blank" rel="noopener">LTNavigationBar</a></li>
+<li>FMDBMigrationManager <a href="https://github.com/layerhq/FMDBMigrationManager" target="_blank" rel="noopener">FMDBMigrationManager</a></li>
+<li>TGRDataSource <a href="https://github.com/gonzalezreal/TGRDataSource" target="_blank" rel="noopener">TGRDataSource</a></li>
+<li>高效的加载 PDF <a href="https://github.com/vfr/Reader" target="_blank" rel="noopener">Reader</a></li>
+<li>一款蓝牙操作库 <a href="https://github.com/coolnameismy/BabyBluetooth" target="_blank" rel="noopener">BabyBluetooth</a></li>
+<li>支付宝类似的拖拽重排 <a href="https://github.com/asiosldh/BMDragCellCollectionView" target="_blank" rel="noopener">BMDragCellCollectionView</a></li>
+<li>TableView的各种高度自适应及缓存  <a href="https://github.com/asiosldh/UITableView-BMTemplateLayoutCell" target="_blank" rel="noopener">https://github.com/asiosldh/UITableView-BMTemplateLayoutCell</a></li>
+</ol>
+<h2 id="工具包"><a href="#工具包" class="headerlink" title="工具包"></a>工具包</h2><ol>
+<li><a href="https://github.com/zwaldowski/BlocksKit" target="_blank" rel="noopener">BlocksKit</a>  </li>
+<li><a href="https://github.com/ibireme/YYKit" target="_blank" rel="noopener">YYKit</a>  </li>
+<li>[sstoolkit] (<a href="https://github.com/soffes/sstoolkit" target="_blank" rel="noopener">https://github.com/soffes/sstoolkit</a>)  </li>
+<li>[BFKit] (<a href="https://github.com/FabrizioBrancati/BFKit" target="_blank" rel="noopener">https://github.com/FabrizioBrancati/BFKit</a>)   </li>
+<li>[BFKit-Swift] (<a href="https://github.com/FabrizioBrancati/BFKit-Swift" target="_blank" rel="noopener">https://github.com/FabrizioBrancati/BFKit-Swift</a>)  </li>
+<li><a href="https://github.com/fastlane/fastlane" target="_blank" rel="noopener">不只是打包 Fastlane</a></li>
+</ol>
+<h1 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h1><ol>
+<li><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a></li>
+<li>Masonry 的 Swift 版本 <a href="https://github.com/SnapKit/SnapKit" target="_blank" rel="noopener">SnapKit</a></li>
+<li>SDWebImage 的 Swift 版本 <a href="https://github.com/Alamofire/AlamofireImage" target="_blank" rel="noopener">AlamofireImage</a></li>
+<li>喵神的网络图片处理库<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener"> Kingfisher</a></li>
+<li>IQKeyboardManager 的 Swift 版本 <a href="https://github.com/hackiftekhar/IQKeyboardManager/tree/master/IQKeyboardManagerSwift" target="_blank" rel="noopener">IQKeyboardManagerSwift</a></li>
+<li><a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="noopener">RxSwift</a></li>
+</ol>
+<h1 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h1><ol>
+<li>秒生 Model 代码 <a href="https://github.com/Ahmed-Ali/JSONExport" target="_blank" rel="noopener">JSONExport</a></li>
+<li><a href="https://github.com/liangdahong/BMExport" target="_blank" rel="noopener">https://github.com/liangdahong/BMExport</a></li>
+</ol>
+<h1 id="使用过的库"><a href="#使用过的库" class="headerlink" title="使用过的库"></a>使用过的库</h1><ol>
+<li>网络请求 <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a></li>
+<li>网络图片处理 <a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a></li>
+<li>猿题库对 AFN 的封装<a href="https://github.com/yuantiku/YTKNetwork" target="_blank" rel="noopener">YTKNetwork</a></li>
+<li>HUD <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a>、<a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a></li>
+<li>刷新控件 <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="noopener">MJRefresh</a></li>
+<li>广告轮播器 <a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="noopener">SDCycleScrollView</a></li>
+<li>侧滑菜单 <a href="https://github.com/mutualmobile/MMDrawerController" target="_blank" rel="noopener">MMDrawerController</a></li>
+<li>图片浏览 <a href="https://github.com/mwaterfall/MWPhotoBrowser" target="_blank" rel="noopener">MWPhotoBrowser</a>  </li>
+<li>照片选择 <a href="https://github.com/banchichen/TZImagePickerController" target="_blank" rel="noopener">TZImagePickerController</a>  </li>
+<li>兼容 iOS7 Cell 侧滑多按钮功能 <a href="https://github.com/JazysYu/JZTableViewRowAction" target="_blank" rel="noopener">JZTableViewRowAction</a></li>
+<li>日历控件 <a href="https://github.com/WenchaoD/FSCalendar" target="_blank" rel="noopener">FSCalendar</a></li>
+<li>键盘处理 <a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">IQKeyboardManager</a></li>
+<li>代码布局 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a></li>
+<li>数据解析 <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="noopener">MJExtension</a></li>
+<li>Cell 的高度计算优化 <a href="https://github.com/forkingdog/UITableView-FDTemplateLayoutCell" target="_blank" rel="noopener">FDTemplateLayoutCell
+</a></li>
+<li>网络状态监测 <a href="https://github.com/tonymillion/Reachability" target="_blank" rel="noopener">Reachability  </a></li>
+<li>第三方管理 <a href="https://github.com/CocoaPods/CocoaPods" target="_blank" rel="noopener">CocoaPods</a></li>
+<li>全屏侧滑返回 <a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="noopener">FDFullscreenPopGesture</a></li>
+<li>热修复 <a href="https://github.com/bang590/JSPatch" target="_blank" rel="noopener">JSPatch</a>、<a href="http://jspatch.com/" target="_blank" rel="noopener">JSPatch平台</a></li>
+<li>日志工具 <a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="noopener">CocoaLumberjack </a></li>
+<li>Facebook 开源的动画框架 <a href="https://github.com/facebook/pop" target="_blank" rel="noopener">pop</a></li>
+<li>基于 GPU 的图片处理框架 <a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="noopener">GPUImage</a></li>
+<li><a href="https://github.com/FabrizioBrancati/BFKit-Swift" target="_blank" rel="noopener">BFKit-Swift</a>    </li>
+<li><a href="https://github.com/zwaldowski/BlocksKit" target="_blank" rel="noopener">BlocksKit</a>  </li>
+<li>网络请求 AFN 的 Swift 版本 <a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a></li>
+<li>Masonry 的 Swift 版本 <a href="https://github.com/SnapKit/SnapKit" target="_blank" rel="noopener">SnapKit</a></li>
+<li>SDWebImage 的 Swift 版本 <a href="https://github.com/Alamofire/AlamofireImage" target="_blank" rel="noopener">AlamofireImage</a></li>
+<li>喵神的网络图片处理库 <a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">Kingfisher</a></li>
+<li>IQKeyboardManager 的 Swift 版本 <a href="https://github.com/hackiftekhar/IQKeyboardManager/tree/master/IQKeyboardManagerSwift" target="_blank" rel="noopener">IQKeyboardManagerSwift</a></li>
+<li>秒生 Model 代码 <a href="https://github.com/Ahmed-Ali/JSONExport" target="_blank" rel="noopener">JSONExport</a></li>
+<li>对系统 API (AVFoundation) 、 ZXing、ZBar 的封装 <a href="https://github.com/MxABC/LBXScan" target="_blank" rel="noopener">LBXScan</a></li>
+<li>Xib 桥 <a href="https://github.com/sunnyxx/XXNibBridge" target="_blank" rel="noopener">XXNibBridge</a></li>
+</ol>
+<h1 id="晋先森推荐"><a href="#晋先森推荐" class="headerlink" title="晋先森推荐"></a>晋先森推荐</h1><p>Swift Awesome</p>
+<ul>
+<li>iCloud <a href="https://theswiftdev.com/2018/05/17/how-to-use-icloud-drive-documents/" target="_blank" rel="noopener">https://theswiftdev.com/2018/05/17/how-to-use-icloud-drive-documents/</a></li>
+<li>iOS  静态库 <a href="https://github.com/leavez/cocoapods-binary" target="_blank" rel="noopener">https://github.com/leavez/cocoapods-binary</a></li>
+<li>gifcapture 录屏gif <a href="https://github.com/onmyway133/GifCapture" target="_blank" rel="noopener">https://github.com/onmyway133/GifCapture</a></li>
+<li>表格1 <a href="https://github.com/venmo/Static" target="_blank" rel="noopener">https://github.com/venmo/Static</a></li>
+<li><p>表格2 <a href="https://github.com/malcommac/ScrollStackController" target="_blank" rel="noopener">https://github.com/malcommac/ScrollStackController</a></p>
+</li>
+<li><p>上下左右滚动图表<br><a href="https://github.com/kishikawakatsumi/IBPCollectionViewCompositionalLayout" target="_blank" rel="noopener">https://github.com/kishikawakatsumi/IBPCollectionViewCompositionalLayout</a><br><a href="https://github.com/zjfjack/JZCalendarWeekView" target="_blank" rel="noopener">https://github.com/zjfjack/JZCalendarWeekView</a></p>
+</li>
+<li><p>HTML 网页<br><a href="https://github.com/JohnSundell/Publish" target="_blank" rel="noopener">https://github.com/JohnSundell/Publish</a><br><a href="https://github.com/JohnSundell/Plot" target="_blank" rel="noopener">https://github.com/JohnSundell/Plot</a></p>
+</li>
+<li><p>emoji 键盘 oc<br><a href="https://github.com/VernonVan/PPStickerKeyboard" target="_blank" rel="noopener">https://github.com/VernonVan/PPStickerKeyboard</a><br><a href="https://github.com/ayushgoel/AGEmojiKeyboard" target="_blank" rel="noopener">https://github.com/ayushgoel/AGEmojiKeyboard</a><br><a href="https://github.com/zhenlintie/STEmojiKeyboard" target="_blank" rel="noopener">https://github.com/zhenlintie/STEmojiKeyboard</a><br><a href="https://github.com/makemoji/MakemojiSDKCocoapod" target="_blank" rel="noopener">https://github.com/makemoji/MakemojiSDKCocoapod</a></p>
+</li>
+<li><p>Swift emoji<br><a href="https://github.com/isaced/ISEmojiView" target="_blank" rel="noopener">https://github.com/isaced/ISEmojiView</a></p>
+</li>
+<li><p>emoji Button 按钮 <a href="https://github.com/lojals/JOEmojiableBtn" target="_blank" rel="noopener">https://github.com/lojals/JOEmojiableBtn</a></p>
+</li>
+<li><p>Tag标签<br><a href="https://github.com/ElaWorkshop/TagListView" target="_blank" rel="noopener">https://github.com/ElaWorkshop/TagListView</a></p>
+</li>
+<li><p>阴影圆角<br><a href="https://github.com/WQiOS/WQRoundedCorner" target="_blank" rel="noopener">https://github.com/WQiOS/WQRoundedCorner</a></p>
+</li>
+<li><p>iPhone高清壁纸<br><a href="http://www.designbolts.com/category/hd-wallpapers/page/2/" target="_blank" rel="noopener">http://www.designbolts.com/category/hd-wallpapers/page/2/</a></p>
+</li>
+<li><p>图标网站<br><a href="https://www.flaticon.com" target="_blank" rel="noopener">https://www.flaticon.com</a><br><a href="https://thenounproject.com" target="_blank" rel="noopener">https://thenounproject.com</a></p>
+</li>
+</ul>
+<ul>
+<li><p>K线<br><a href="https://github.com/WillkYang/Y_KLine" target="_blank" rel="noopener">https://github.com/WillkYang/Y_KLine</a>  OC<br><a href="https://github.com/WillkYang/YYStock" target="_blank" rel="noopener">https://github.com/WillkYang/YYStock</a> OC第二版<br><a href="https://github.com/AbuIOSDeveloper/KLine" target="_blank" rel="noopener">https://github.com/AbuIOSDeveloper/KLine</a> OC<br><a href="https://github.com/zhiquan911/CHKLineChart" target="_blank" rel="noopener">https://github.com/zhiquan911/CHKLineChart</a>  Swift4.0<br><a href="https://github.com/chenyk0317/YKLineChartView" target="_blank" rel="noopener">https://github.com/chenyk0317/YKLineChartView</a> OC</p>
+</li>
+<li><p>柱状图<br><a href="https://github.com/misyobun/MSBBarChart" target="_blank" rel="noopener">https://github.com/misyobun/MSBBarChart</a></p>
+</li>
+</ul>
+<ul>
+<li>性能</li>
+</ul>
+<p><a href="https://github.com/wojteklu/Watchdog" target="_blank" rel="noopener">https://github.com/wojteklu/Watchdog</a>  主线程阻塞、卡顿</p>
+<p>•••动画•••</p>
+<p>有名的动画库<br><a href="https://github.com/vsouza/awesome-ios#animation" target="_blank" rel="noopener">https://github.com/vsouza/awesome-ios#animation</a></p>
+<p>collection 横纵布局切换/布局库<br><a href="https://github.com/Yalantis/DisplaySwitcher" target="_blank" rel="noopener">https://github.com/Yalantis/DisplaySwitcher</a><br><a href="https://github.com/airbnb/MagazineLayout" target="_blank" rel="noopener">https://github.com/airbnb/MagazineLayout</a></p>
+<p>有意思的布局库<br><a href="https://github.com/freshOS/Stevia" target="_blank" rel="noopener">https://github.com/freshOS/Stevia</a></p>
+<p>不错的卡片<br><a href="https://github.com/mac-gallagher/Shuffle" target="_blank" rel="noopener">https://github.com/mac-gallagher/Shuffle</a><br><a href="https://github.com/netguru/CarLensCollectionViewLayout" target="_blank" rel="noopener">https://github.com/netguru/CarLensCollectionViewLayout</a><br><a href="https://github.com/amirdew/CollectionViewPagingLayout" target="_blank" rel="noopener">https://github.com/amirdew/CollectionViewPagingLayout</a></p>
+<p>大卡片<br><a href="https://github.com/zhxnlai/ZLSwipeableViewSwift" target="_blank" rel="noopener">https://github.com/zhxnlai/ZLSwipeableViewSwift</a></p>
+<p>小卡片<br><a href="https://github.com/PaoloCuscela/Cards" target="_blank" rel="noopener">https://github.com/PaoloCuscela/Cards</a></p>
+<p>大卡片<br><a href="https://github.com/JoniVR/VerticalCardSwiper" target="_blank" rel="noopener">https://github.com/JoniVR/VerticalCardSwiper</a></p>
+<p>弹出层<br><a href="https://github.com/jobandtalent/CardStackController" target="_blank" rel="noopener">https://github.com/jobandtalent/CardStackController</a></p>
+<p>卡片弹出<br><a href="https://github.com/radianttap/CardPresentationController" target="_blank" rel="noopener">https://github.com/radianttap/CardPresentationController</a></p>
+<p>电影卡片<br><a href="https://github.com/Ramotion/cardslider" target="_blank" rel="noopener">https://github.com/Ramotion/cardslider</a></p>
+<p>仿iOS 13 弹出<br><a href="https://github.com/slackhq/PanModal#usage" target="_blank" rel="noopener">https://github.com/slackhq/PanModal#usage</a><br><a href="https://github.com/HeathWang/HWPanModal" target="_blank" rel="noopener">https://github.com/HeathWang/HWPanModal</a></p>
+<p>银行卡包<br><a href="https://github.com/MillmanY/MMCardView" target="_blank" rel="noopener">https://github.com/MillmanY/MMCardView</a></p>
+<p>流星飞线<br><a href="https://github.com/cruisediary/Comets" target="_blank" rel="noopener">https://github.com/cruisediary/Comets</a></p>
+<p>漂亮的弹出<br><a href="https://github.com/IvanVorobei/SPStorkController" target="_blank" rel="noopener">https://github.com/IvanVorobei/SPStorkController</a></p>
+<p>星星闪字体<br><a href="https://github.com/piemonte/Twinkle" target="_blank" rel="noopener">https://github.com/piemonte/Twinkle</a></p>
+<p>AlertController<br><a href="https://github.com/pmusolino/PMAlertController" target="_blank" rel="noopener">https://github.com/pmusolino/PMAlertController</a></p>
+<p>switch 开关<br><a href="https://github.com/TBXark/TKSwitcherCollection" target="_blank" rel="noopener">https://github.com/TBXark/TKSwitcherCollection</a><br><a href="https://github.com/Ramotion/paper-switch" target="_blank" rel="noopener">https://github.com/Ramotion/paper-switch</a></p>
+<p>加载旋转动画<br><a href="https://github.com/farshadjahanmanesh/loady" target="_blank" rel="noopener">https://github.com/farshadjahanmanesh/loady</a></p>
+<p>漂亮的圆形进度条<br><a href="https://github.com/NiravPatel-IOS/Progress" target="_blank" rel="noopener">https://github.com/NiravPatel-IOS/Progress</a></p>
+<p>空态图<br><a href="https://github.com/tigerAndBull/TABAnimated" target="_blank" rel="noopener">https://github.com/tigerAndBull/TABAnimated</a></p>
+<p>加载空态<br><a href="https://github.com/Juanpe/SkeletonView" target="_blank" rel="noopener">https://github.com/Juanpe/SkeletonView</a></p>
+<p><a href="https://github.com/linhay/EmptyPage" target="_blank" rel="noopener">https://github.com/linhay/EmptyPage</a><br><a href="https://github.com/alberdev/EmptyStateKit" target="_blank" rel="noopener">https://github.com/alberdev/EmptyStateKit</a><br>Swift 空态图<br><a href="https://github.com/Abedalkareem/AMShimmer" target="_blank" rel="noopener">https://github.com/Abedalkareem/AMShimmer</a><br><a href="https://github.com/Xiaoye220/EmptyDataSet-Swift" target="_blank" rel="noopener">https://github.com/Xiaoye220/EmptyDataSet-Swift</a></p>
+<p>OC<br><a href="https://github.com/dev-liyang/LYEmptyView" target="_blank" rel="noopener">https://github.com/dev-liyang/LYEmptyView</a></p>
+<p>•••HUD•••</p>
+<p>Swift Message<br><a href="https://github.com/SwiftKickMobile/SwiftMessages" target="_blank" rel="noopener">https://github.com/SwiftKickMobile/SwiftMessages</a></p>
+<p>Swift hud 提示<br><a href="https://github.com/scalessec/Toast-Swift" target="_blank" rel="noopener">https://github.com/scalessec/Toast-Swift</a></p>
+<p>Swift hud 頂部提示<br><a href="https://github.com/Daltron/NotificationBanner" target="_blank" rel="noopener">https://github.com/Daltron/NotificationBanner</a></p>
+<p>展示列表<br><a href="https://github.com/slackhq/PanModal" target="_blank" rel="noopener">https://github.com/slackhq/PanModal</a></p>
+<p><a href="https://github.com/kevin0571/STPopup" target="_blank" rel="noopener">https://github.com/kevin0571/STPopup</a></p>
+<p><a href="https://github.com/Ramotion/garland-view" target="_blank" rel="noopener">https://github.com/Ramotion/garland-view</a></p>
+<p>•••弹出层•••</p>
+<p>•••网站•••</p>
+<p>新颖的布局库<br><a href="https://github.com/freshOS/Stevia" target="_blank" rel="noopener">https://github.com/freshOS/Stevia</a></p>
+<p>腾讯出品 UI QMUI_iOS<br><a href="https://github.com/QMUI/QMUI_iOS" target="_blank" rel="noopener">https://github.com/QMUI/QMUI_iOS</a></p>
+<p>图片美化<br><a href="https://github.com/muukii/Pixel" target="_blank" rel="noopener">https://github.com/muukii/Pixel</a></p>
+<p>Swift 换肤夜间模式<br><a href="https://github.com/jiecao-fm/SwiftTheme" target="_blank" rel="noopener">https://github.com/jiecao-fm/SwiftTheme</a><br>夜间模式<br><a href="https://github.com/draveness/NightNight" target="_blank" rel="noopener">https://github.com/draveness/NightNight</a></p>
+<p>RxTheme<br><a href="https://github.com/RxSwiftCommunity/RxTheme" target="_blank" rel="noopener">https://github.com/RxSwiftCommunity/RxTheme</a></p>
+<p>// 皮肤<br><a href="https://github.com/guidosabatini/G8" target="_blank" rel="noopener">https://github.com/guidosabatini/G8</a></p>
+<p>Swift 夜间主题<br><a href="https://github.com/regexident/Gestalt" target="_blank" rel="noopener">https://github.com/regexident/Gestalt</a></p>
+<p>年月日选择<br><a href="https://github.com/di2pra/D2PDatePicker" target="_blank" rel="noopener">https://github.com/di2pra/D2PDatePicker</a></p>
+<p>Swift 动画 menu 弹出5个菜单圆<br><a href="https://github.com/exyte/Macaw-Examples" target="_blank" rel="noopener">https://github.com/exyte/Macaw-Examples</a></p>
+<p>Picker 弹框合集<br>pod ‘RLBAlertsPickers’, :git =&gt; ‘<a href="https://github.com/loicgriffie/Alerts-Pickers.git&#39;" target="_blank" rel="noopener">https://github.com/loicgriffie/Alerts-Pickers.git&#39;</a>, :branch =&gt; ‘master’</p>
+<p>动画集<br><a href="https://github.com/app-developers/top" target="_blank" rel="noopener">https://github.com/app-developers/top</a></p>
+<p>Swift 混淆<br>简单的 生成垃圾 Swift Class<br><a href="https://github.com/ashen-zhao/createSwift" target="_blank" rel="noopener">https://github.com/ashen-zhao/createSwift</a></p>
+<p>看起来可以试试的混淆方式<br><a href="https://www.jianshu.com/p/be751f780d94" target="_blank" rel="noopener">https://www.jianshu.com/p/be751f780d94</a></p>
+<p>带姿势混淆<br><a href="https://github.com/rockbruno/swiftshield" target="_blank" rel="noopener">https://github.com/rockbruno/swiftshield</a><br><a href="https://github.com/Polidea/SiriusObfuscator" target="_blank" rel="noopener">https://github.com/Polidea/SiriusObfuscator</a></p>
+<p>国际化<br><a href="https://github.com/marmelroy/Localize-Swift" target="_blank" rel="noopener">https://github.com/marmelroy/Localize-Swift</a></p>
+<p>酷炫科技动画<br><a href="https://github.com/axclogo/AxcDrawPath_Tool" target="_blank" rel="noopener">https://github.com/axclogo/AxcDrawPath_Tool</a></p>
+<p>Collection弹性滑动效果<br><a href="https://github.com/roberthein/BouncyLayout" target="_blank" rel="noopener">https://github.com/roberthein/BouncyLayout</a></p>
+<p>Collection View 花式转盘布局<br><a href="https://github.com/ParsifalC/CPCollectionViewKit" target="_blank" rel="noopener">https://github.com/ParsifalC/CPCollectionViewKit</a></p>
+<p>仿浏览器布局<br><a href="https://github.com/gringoireDM/LNZCollectionLayouts" target="_blank" rel="noopener">https://github.com/gringoireDM/LNZCollectionLayouts</a></p>
+<p>底部弹出框<br><a href="https://github.com/tungvoduc/DTOverlayController" target="_blank" rel="noopener">https://github.com/tungvoduc/DTOverlayController</a></p>
+<p>Swift 下载库<br><a href="https://github.com/Danie1s/Tiercel" target="_blank" rel="noopener">https://github.com/Danie1s/Tiercel</a></p>
+<p>系统分享扩展<br><a href="https://github.com/naturaln0va/VisualActivityViewController" target="_blank" rel="noopener">https://github.com/naturaln0va/VisualActivityViewController</a></p>
+<p>分页Tab<br><a href="https://github.com/xmartlabs/XLPagerTabStrip" target="_blank" rel="noopener">https://github.com/xmartlabs/XLPagerTabStrip</a></p>
+<p>网易新闻分页 page 菜单<br><a href="https://github.com/rechsteiner/Parchment" target="_blank" rel="noopener">https://github.com/rechsteiner/Parchment</a><br><a href="https://github.com/Danie1s/DNSPageView" target="_blank" rel="noopener">https://github.com/Danie1s/DNSPageView</a></p>
+<p>酷炫弹框 上中下大弹框<br><a href="https://github.com/huri000/SwiftEntryKit" target="_blank" rel="noopener">https://github.com/huri000/SwiftEntryKit</a></p>
+<p>左右 QQ菜单<br><a href="https://github.com/jonkykong/SideMenu" target="_blank" rel="noopener">https://github.com/jonkykong/SideMenu</a></p>
+<p>左滑菜单<br><a href="https://github.com/kukushi/SideMenu" target="_blank" rel="noopener">https://github.com/kukushi/SideMenu</a></p>
+<p>酷炫左侧菜单<br><a href="https://github.com/yannickl/FlowingMenu" target="_blank" rel="noopener">https://github.com/yannickl/FlowingMenu</a></p>
+<p>下弹菜单<br><a href="https://github.com/Yalantis/GuillotineMenu" target="_blank" rel="noopener">https://github.com/Yalantis/GuillotineMenu</a></p>
+<p>日历<br><a href="https://github.com/WenchaoD/FSCalendar" target="_blank" rel="noopener">https://github.com/WenchaoD/FSCalendar</a><br><a href="https://github.com/patchthecode/JTAppleCalendar" target="_blank" rel="noopener">https://github.com/patchthecode/JTAppleCalendar</a></p>
+<p>轮播图<br><a href="https://github.com/WenchaoD/FSPagerView" target="_blank" rel="noopener">https://github.com/WenchaoD/FSPagerView</a></p>
+<p>带钟表的日历<br><a href="https://github.com/weilsonwonder/WWCalendarTimeSelector" target="_blank" rel="noopener">https://github.com/weilsonwonder/WWCalendarTimeSelector</a></p>
+<p><a href="https://github.com/CVCalendar/CVCalendar" target="_blank" rel="noopener">https://github.com/CVCalendar/CVCalendar</a></p>
+<p>placeholder 输入提示<br><a href="https://github.com/Skyscanner/SkyFloatingLabelTextField" target="_blank" rel="noopener">https://github.com/Skyscanner/SkyFloatingLabelTextField</a><br><a href="https://github.com/hanton/HTYTextField" target="_blank" rel="noopener">https://github.com/hanton/HTYTextField</a></p>
+<p>批量 cell 下载动画<br><a href="https://github.com/antoniocasero/ACPDownload" target="_blank" rel="noopener">https://github.com/antoniocasero/ACPDownload</a></p>
+<p>数据库<br><a href="https://github.com/FahimF/SQLiteDB" target="_blank" rel="noopener">https://github.com/FahimF/SQLiteDB</a><br><a href="https://github.com/arturdev/Unrealm" target="_blank" rel="noopener">https://github.com/arturdev/Unrealm</a></p>
+<p>首次登录引导小弹框<br><a href="https://github.com/teodorpatras/EasyTipView" target="_blank" rel="noopener">https://github.com/teodorpatras/EasyTipView</a></p>
+<p>头部滚动<br><a href="https://github.com/kingsic/SGPagingView" target="_blank" rel="noopener">https://github.com/kingsic/SGPagingView</a></p>
+<p>loading Button<br><a href="https://github.com/simformsolutions/SSSpinnerButton" target="_blank" rel="noopener">https://github.com/simformsolutions/SSSpinnerButton</a><br><a href="https://github.com/farshadjahanmanesh/loady" target="_blank" rel="noopener">https://github.com/farshadjahanmanesh/loady</a><br>漂亮的 按钮<br><a href="https://github.com/hirokimu/EMTNeumorphicView" target="_blank" rel="noopener">https://github.com/hirokimu/EMTNeumorphicView</a></p>
+<p>酷炫loading<br><a href="https://github.com/roytornado/RSLoadingView" target="_blank" rel="noopener">https://github.com/roytornado/RSLoadingView</a></p>
+<p>状态栏随背景变色<br><a href="https://github.com/MaximKotliar/Bartinter" target="_blank" rel="noopener">https://github.com/MaximKotliar/Bartinter</a></p>
+<p>地图搜索弹框<br><a href="https://github.com/JaroVoltix/JKBottomSearchViewExample" target="_blank" rel="noopener">https://github.com/JaroVoltix/JKBottomSearchViewExample</a></p>
+<p>图片浏览<br><a href="https://github.com/altayer-digital/ATGMediaBrowser" target="_blank" rel="noopener">https://github.com/altayer-digital/ATGMediaBrowser</a><br><a href="https://github.com/indulgeIn/YBImageBrowser" target="_blank" rel="noopener">https://github.com/indulgeIn/YBImageBrowser</a></p>
+<p>图片选择<br><a href="https://github.com/hyperoslo/Gallery" target="_blank" rel="noopener">https://github.com/hyperoslo/Gallery</a><br><a href="https://github.com/AnyImageProject/AnyImageKit/blob/master/README_CN.md" target="_blank" rel="noopener">https://github.com/AnyImageProject/AnyImageKit/blob/master/README_CN.md</a></p>
+<p>欢迎页动画<br><a href="https://github.com/Ramotion/paper-onboarding" target="_blank" rel="noopener">https://github.com/Ramotion/paper-onboarding</a><br><a href="https://github.com/Cuberto/liquid-swipe" target="_blank" rel="noopener">https://github.com/Cuberto/liquid-swipe</a><br><a href="https://github.com/SvenTiigi/WhatsNewKit" target="_blank" rel="noopener">https://github.com/SvenTiigi/WhatsNewKit</a></p>
+<p>文件查看<br><a href="https://github.com/Augustyniak/FileExplorer" target="_blank" rel="noopener">https://github.com/Augustyniak/FileExplorer</a><br><a href="https://github.com/marmelroy/FileBrowser" target="_blank" rel="noopener">https://github.com/marmelroy/FileBrowser</a></p>
+<p>文件目录创建<br><a href="https://github.com/nvzqz/FileKit" target="_blank" rel="noopener">https://github.com/nvzqz/FileKit</a></p>
+<p>压缩<br>zip<br><a href="https://github.com/marmelroy/Zip" target="_blank" rel="noopener">https://github.com/marmelroy/Zip</a><br><a href="https://github.com/ZipArchive/ZipArchive" target="_blank" rel="noopener">https://github.com/ZipArchive/ZipArchive</a><br><a href="https://github.com/weichsel/ZIPFoundation" target="_blank" rel="noopener">https://github.com/weichsel/ZIPFoundation</a></p>
+<p>rar<br><a href="https://github.com/abbeycode/UnrarKit" target="_blank" rel="noopener">https://github.com/abbeycode/UnrarKit</a></p>
+<p>7z<br><a href="https://github.com/OlehKulykov/LzmaSDKObjC" target="_blank" rel="noopener">https://github.com/OlehKulykov/LzmaSDKObjC</a></p>
+<p>golang 版<br><a href="https://github.com/mholt/archiver" target="_blank" rel="noopener">https://github.com/mholt/archiver</a><br><a href="https://github.com/gen2brain/go-unarr" target="_blank" rel="noopener">https://github.com/gen2brain/go-unarr</a></p>
+<p>键盘号码分割<br><a href="https://github.com/marmelroy/PhoneNumberKit" target="_blank" rel="noopener">https://github.com/marmelroy/PhoneNumberKit</a></p>
+<p>跳动键盘<br><a href="https://github.com/danielsaidi/KeyboardKit" target="_blank" rel="noopener">https://github.com/danielsaidi/KeyboardKit</a></p>
+<p><a href="https://github.com/matmartinez/MMNumberKeyboard" target="_blank" rel="noopener">https://github.com/matmartinez/MMNumberKeyboard</a></p>
+<p>渐变色<br><a href="https://github.com/cruisediary/Gradients" target="_blank" rel="noopener">https://github.com/cruisediary/Gradients</a><br>渐变按钮<br><a href="https://github.com/gabrieloc/roundrect" target="_blank" rel="noopener">https://github.com/gabrieloc/roundrect</a><br>渐变色Button<br><a href="https://github.com/tungvoduc/DTGradientButton" target="_blank" rel="noopener">https://github.com/tungvoduc/DTGradientButton</a></p>
+<p>裁图(选角度)<br><a href="https://github.com/d-dotsenko/DDPerspectiveTransform" target="_blank" rel="noopener">https://github.com/d-dotsenko/DDPerspectiveTransform</a></p>
+<p>多功能 cell 右滑菜单<br><a href="https://github.com/SwipeCellKit/SwipeCellKit" target="_blank" rel="noopener">https://github.com/SwipeCellKit/SwipeCellKit</a></p>
+<p>系统分享扩展 ： 图片、描述<br><a href="https://github.com/naturaln0va/VisualActivityViewController" target="_blank" rel="noopener">https://github.com/naturaln0va/VisualActivityViewController</a></p>
+<p> 阴影 UI<br><a href="https://github.com/folio-sec/Folio-UI-Collection" target="_blank" rel="noopener">https://github.com/folio-sec/Folio-UI-Collection</a></p>
+<p>新版更新 New 说明<br><a href="https://github.com/SvenTiigi/WhatsNewKit" target="_blank" rel="noopener">https://github.com/SvenTiigi/WhatsNewKit</a></p>
+<p>九宫格密码<br><a href="https://github.com/Ryasnoy/AppLocker" target="_blank" rel="noopener">https://github.com/Ryasnoy/AppLocker</a></p>
+<p>Excel 表格<br><a href="https://github.com/kishikawakatsumi/SpreadsheetView" target="_blank" rel="noopener">https://github.com/kishikawakatsumi/SpreadsheetView</a><br><a href="https://github.com/stuffrabbit/SwiftSpreadsheet" target="_blank" rel="noopener">https://github.com/stuffrabbit/SwiftSpreadsheet</a></p>
+<p>读取 excel<br><a href="https://github.com/libxls/libxls" target="_blank" rel="noopener">https://github.com/libxls/libxls</a></p>
+<p>获取最少的数据，得到 URL图像 的类型及大小。<br><a href="https://github.com/malcommac/ImageSizeFetcher" target="_blank" rel="noopener">https://github.com/malcommac/ImageSizeFetcher</a></p>
+<p>SceneKit 相关教程<br><a href="https://juejin.im/post/5a3232285188251c1140a406" target="_blank" rel="noopener">https://juejin.im/post/5a3232285188251c1140a406</a><br><a href="https://github.com/XanderXu/ARStack" target="_blank" rel="noopener">https://github.com/XanderXu/ARStack</a></p>
+<p>图片选择<br><a href="https://github.com/Yummypets/YPImagePicker" target="_blank" rel="noopener">https://github.com/Yummypets/YPImagePicker</a></p>
+<p>导航栏<br><a href="https://github.com/Pircate/EachNavigationBar" target="_blank" rel="noopener">https://github.com/Pircate/EachNavigationBar</a><br><a href="https://github.com/rickytan/RTRootNavigationController" target="_blank" rel="noopener">https://github.com/rickytan/RTRootNavigationController</a><br><a href="https://github.com/pchernovolenko/StylableNavigationBar" target="_blank" rel="noopener">https://github.com/pchernovolenko/StylableNavigationBar</a></p>
+<p>macOS 自定义右键菜单<br><a href="https://github.com/Mortennn/FiScript" target="_blank" rel="noopener">https://github.com/Mortennn/FiScript</a></p>
+<p>OC 天气动画<br><a href="https://github.com/whbalzac/WHWeatherAnimation" target="_blank" rel="noopener">https://github.com/whbalzac/WHWeatherAnimation</a></p>
+<p>扫描图文翻译库<br><a href="https://github.com/WeTransfer/WeScan" target="_blank" rel="noopener">https://github.com/WeTransfer/WeScan</a><br>扫描文稿编辑形状<br><a href="https://github.com/Srinija/SwiftCamScanner" target="_blank" rel="noopener">https://github.com/Srinija/SwiftCamScanner</a></p>
+<p>admob<br><a href="https://github.com/crashoverride777/swifty-ad" target="_blank" rel="noopener">https://github.com/crashoverride777/swifty-ad</a></p>
+<p><a href="https://github.com/mahmudahsan/GAdsManager" target="_blank" rel="noopener">https://github.com/mahmudahsan/GAdsManager</a><br><a href="https://github.com/ShockUtility/SmartAdForSwift" target="_blank" rel="noopener">https://github.com/ShockUtility/SmartAdForSwift</a></p>
+<p>3DTouch<br><a href="https://github.com/itsmeichigo/PeekView" target="_blank" rel="noopener">https://github.com/itsmeichigo/PeekView</a></p>
+<p>图片剪切<br><a href="https://github.com/radekhubner/AKImageCropperView" target="_blank" rel="noopener">https://github.com/radekhubner/AKImageCropperView</a><br><a href="https://github.com/radekhubner/AKImageCropperView/releases/tag/v2.0.1" target="_blank" rel="noopener">https://github.com/radekhubner/AKImageCropperView/releases/tag/v2.0.1</a><br><a href="https://github.com/pikachu987/CropPickerController" target="_blank" rel="noopener">https://github.com/pikachu987/CropPickerController</a></p>
+<p>图片角度校准<br><a href="https://github.com/iMhdi/MBDocCapture" target="_blank" rel="noopener">https://github.com/iMhdi/MBDocCapture</a></p>
+<p>国际化语言<br><a href="https://github.com/marmelroy/Localize-Swift" target="_blank" rel="noopener">https://github.com/marmelroy/Localize-Swift</a><br> 待研究：</p>
+<p>Java酷炫动画按钮<br><a href="https://github.com/Nightonke/BoomMenu" target="_blank" rel="noopener">https://github.com/Nightonke/BoomMenu</a></p>
+<p>mac 版播放器<br><a href="https://github.com/shibiao/SBPlayerClient" target="_blank" rel="noopener">https://github.com/shibiao/SBPlayerClient</a><br><a href="https://shibiao.github.io" target="_blank" rel="noopener">https://shibiao.github.io</a><br><a href="https://github.com/Maru-zhang/MRVLCPlayer" target="_blank" rel="noopener">https://github.com/Maru-zhang/MRVLCPlayer</a></p>
+<p>扩散波纹动画<br><a href="https://github.com/Mervin1024/LearnAnimation" target="_blank" rel="noopener">https://github.com/Mervin1024/LearnAnimation</a></p>
+<p>Mac 窗口移动扩大<br><a href="https://github.com/dgurkaynak/Penc" target="_blank" rel="noopener">https://github.com/dgurkaynak/Penc</a></p>
+<p>进入二级动画<br><a href="https://github.com/Ramotion/garland-view" target="_blank" rel="noopener">https://github.com/Ramotion/garland-view</a></p>
+<p>cell 展开折叠<br><a href="https://github.com/Ramotion/folding-cell" target="_blank" rel="noopener">https://github.com/Ramotion/folding-cell</a></p>
+<p>tabbar 动画<br><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="noopener">https://github.com/Ramotion/animated-tab-bar</a><br><a href="https://github.com/hussc/PTCardTabBar" target="_blank" rel="noopener">https://github.com/hussc/PTCardTabBar</a><br><a href="https://github.com/Ahmadalsofi/SOTabBar" target="_blank" rel="noopener">https://github.com/Ahmadalsofi/SOTabBar</a></p>
+<p><a href="https://github.com/Cuberto/bubble-icon-tabbar" target="_blank" rel="noopener">https://github.com/Cuberto/bubble-icon-tabbar</a></p>
+<p>tabbar 自定义<br><a href="https://github.com/axclogo/AxcAE_TabBar" target="_blank" rel="noopener">https://github.com/axclogo/AxcAE_TabBar</a></p>
+<p>弹出圆环菜单 （待）<br><a href="https://github.com/Ramotion/circle-menu" target="_blank" rel="noopener">https://github.com/Ramotion/circle-menu</a><br><a href="https://github.com/exyte/fan-menu" target="_blank" rel="noopener">https://github.com/exyte/fan-menu</a></p>
+<p>搜索动画<br><a href="https://github.com/Ramotion/reel-search" target="_blank" rel="noopener">https://github.com/Ramotion/reel-search</a></p>
+<p>取色板拾色器<br><a href="https://github.com/louisdh/huekit" target="_blank" rel="noopener">https://github.com/louisdh/huekit</a></p>
+<p><a href="https://github.com/Zws-China/WSColorPicker" target="_blank" rel="noopener">https://github.com/Zws-China/WSColorPicker</a><br><a href="https://github.com/fonglaaaam/ColorPicker-" target="_blank" rel="noopener">https://github.com/fonglaaaam/ColorPicker-</a></p>
+<p>拾色<br><a href="https://github.com/ApesTalk/YLSipColor" target="_blank" rel="noopener">https://github.com/ApesTalk/YLSipColor</a></p>
+<p>待选<br><a href="https://github.com/hayashi311/Color-Picker-for-iOS" target="_blank" rel="noopener">https://github.com/hayashi311/Color-Picker-for-iOS</a><br><a href="https://github.com/kartech/colorpicker" target="_blank" rel="noopener">https://github.com/kartech/colorpicker</a></p>
+<p>SSH 框架<br><a href="https://github.com/Frugghi/SwiftSH" target="_blank" rel="noopener">https://github.com/Frugghi/SwiftSH</a></p>
+<p>网络状态监测检测<br><a href="https://github.com/rwbutler/Connectivity#usage" target="_blank" rel="noopener">https://github.com/rwbutler/Connectivity#usage</a></p>
+<p>富文本编辑<br><a href="https://github.com/GitHawkApp/MessageViewController" target="_blank" rel="noopener">https://github.com/GitHawkApp/MessageViewController</a></p>
+<p>iOS Markdown 解析<br><a href="https://github.com/JohnSundell/Ink" target="_blank" rel="noopener">https://github.com/JohnSundell/Ink</a><br><a href="https://github.com/SimonFairbairn/SwiftyMarkdown" target="_blank" rel="noopener">https://github.com/SimonFairbairn/SwiftyMarkdown</a><br><a href="https://github.com/bmoliveira/MarkdownKit" target="_blank" rel="noopener">https://github.com/bmoliveira/MarkdownKit</a>  # 字太小</p>
+<p>Pin 密码<br><a href="https://github.com/MacKaSL/MCKPinController" target="_blank" rel="noopener">https://github.com/MacKaSL/MCKPinController</a></p>
+<p>mapView 360旋转<br><a href="https://github.com/SvenTiigi/FlyoverKit" target="_blank" rel="noopener">https://github.com/SvenTiigi/FlyoverKit</a></p>
+<p>音频波线图<br><a href="https://github.com/fulldecent/FDWaveformView" target="_blank" rel="noopener">https://github.com/fulldecent/FDWaveformView</a><br><a href="https://github.com/AnswerXu/SoundsRecording" target="_blank" rel="noopener">https://github.com/AnswerXu/SoundsRecording</a><br>录音及动画<br><a href="https://github.com/alexruperez/SpeechRecognizerButton" target="_blank" rel="noopener">https://github.com/alexruperez/SpeechRecognizerButton</a></p>
+<p>拖拽 tableView<br><a href="https://github.com/KyoheiG3/TableViewDragger" target="_blank" rel="noopener">https://github.com/KyoheiG3/TableViewDragger</a></p>
+<p>Swift 脚本<br><a href="https://github.com/Juanpe/Swift-VIPER-Module/blob/master/install.swift" target="_blank" rel="noopener">https://github.com/Juanpe/Swift-VIPER-Module/blob/master/install.swift</a><br>Swift 写脚本工具<br><a href="https://github.com/kylef/Commander" target="_blank" rel="noopener">https://github.com/kylef/Commander</a></p>
+<h1 id="Mac-应用"><a href="#Mac-应用" class="headerlink" title="Mac 应用"></a>Mac 应用</h1><h2 id="gif-录制"><a href="#gif-录制" class="headerlink" title="gif 录制"></a>gif 录制</h2><ul>
+<li>LICEcap <a href="https://licecap.en.softonic.com/" target="_blank" rel="noopener">https://licecap.en.softonic.com/</a></li>
+<li>kap 比较清晰，占内存大。</li>
+<li>Gifox 比较推荐，占内存小。</li>
+</ul>
+<h2 id="截屏软件"><a href="#截屏软件" class="headerlink" title="截屏软件"></a>截屏软件</h2><ul>
+<li>QQ 自带功能</li>
+<li>腾讯 snip</li>
+<li>SwordSoft Screenink</li>
+<li>GrabIt </li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>[参考资料] (<a href="http://www.jianshu.com/p/b7c4a787a597?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note&amp;utm_source=qq" target="_blank" rel="noopener">http://www.jianshu.com/p/b7c4a787a597?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note&amp;utm_source=qq</a>)</li>
+<li><a href="http://www.jianshu.com/p/823941042d8f" target="_blank" rel="noopener">参考资料</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+
+<div>
+
+<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">- END -</div>
+
+</div>
+
+
+</div>
+
+<div>
+
+
+
+<img align="center" src="https://user-images.githubusercontent.com/12118567/86536677-15907680-bf1c-11ea-9c3b-eb7db14f44f6.png" width="25%" style="border-radius:5px; box-shadow: 5px 5px 5px #999999"></img>
+<div align="center" style="color: #aaaaaa">⌾</div>
+<div align="center">扫一扫上面的二维码图案，加我微信</div>
+
+<div class="my_post_copyright" style="border-radius:5px; box-shadow: 5px 5px 5px #999999">
+
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<!-- JS库 sweetalert 可修改路径 -->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<p><span>温馨提示:</span><a>博客图片放在 GitHub ，若无法显示，科学上网就好了</a></p>
+<p><span>特别声明:</span><a href="https://liangdahong.com/about/" title="A">若无特殊声明均为原创，转载请注明，侵权请联系</a></p>
+<p><span>版权声明:</span><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a></p>
+
+</div>
+
+<script>
+var clipboard = new Clipboard('.fa-clipboard');
+$(".fa-clipboard").click(function(){
+clipboard.on('success', function(){
+swal({
+title: "",
+text: '拷贝成功!',
+icon: "success",
+showConfirmButton: true
+});
+});
+});
+</script>
+
+
+
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"> <i class="fa fa-tag"></i> iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/27/iOS单元测试入门/" rel="next" title="iOS单元测试入门">
+                <i class="fa fa-chevron-left"></i> iOS单元测试入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/Cocoapods-的简单使用/" rel="prev" title="Cocoapods 的简单使用">
+                Cocoapods 的简单使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="梁大红" />
+            
+              <p class="site-author-name" itemprop="name">梁大红</p>
+              <p class="site-description motion-element" itemprop="description">千里之行始于足下</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liangdahong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/liangdahong" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/liangdahong" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/dahong.liang" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:hi@liangdahong.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://nshipster.com" title="Mattt" target="_blank">Mattt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.ibireme.com" title="ibireme" target="_blank">ibireme</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://onevcat.com" title="onevcat" target="_blank">onevcat</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.cnbang.net/archives" title="bang" target="_blank">bang</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sunnyxx.com" title="sunnyxx" target="_blank">sunnyxx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.awhisper.net/" title="折腾范儿の味精" target="_blank">折腾范儿の味精</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://jinxiansen.com/" title="晋先森" target="_blank">晋先森</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haodachuang.cn/" title="乡长" target="_blank">乡长</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Objective-C"><span class="nav-number">1.</span> <span class="nav-text">Objective-C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">1.1.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI控件"><span class="nav-number">1.2.</span> <span class="nav-text">UI控件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架"><span class="nav-number">1.3.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具包"><span class="nav-number">1.4.</span> <span class="nav-text">工具包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift"><span class="nav-number">2.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac"><span class="nav-number">3.</span> <span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用过的库"><span class="nav-number">4.</span> <span class="nav-text">使用过的库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#晋先森推荐"><span class="nav-number">5.</span> <span class="nav-text">晋先森推荐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-应用"><span class="nav-number">6.</span> <span class="nav-text">Mac 应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gif-录制"><span class="nav-number">6.1.</span> <span class="nav-text">gif 录制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截屏软件"><span class="nav-number">6.2.</span> <span class="nav-text">截屏软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+<a itemprop="copyrightHolder" href="/"  rel="noopener noreferrer">梁大红</a>
+
+<br/>
+
+<a itemprop="copyrightYear" href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">粤ICP备19155647号-1</a>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
