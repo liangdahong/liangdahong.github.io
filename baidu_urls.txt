@@ -1,6 +1,6 @@
 https://liangdahong.com/2020/06/08/iOS中如何自动监控控制器内存泄漏/
 https://liangdahong.com/2018/07/11/正确高效使用-Google/
 https://liangdahong.com/2018/06/08/浅谈-iOS-事件的传递和响应过程/
-https://liangdahong.com/2016/10/28/111简单说说-MJExtension-实现原理/
+https://liangdahong.com/2016/10/28/简单说说-MJExtension-实现原理/
 https://liangdahong.com/2016/05/27/iOS单元测试入门/
 https://liangdahong.com/2016/04/08/使用-Hexo-搭建个人博客/
