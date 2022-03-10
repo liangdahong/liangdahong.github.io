@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>https://liangdahong.com/2016/10/28/%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4-MJExtension-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
+    <loc>https://liangdahong.com/2016/10/28/----%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4-MJExtension-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2022-01-04T16:16:01.311Z</lastmod>
     <data>
         <display>
@@ -25,26 +25,6 @@
         <display>
         <title>iOS中如何自动监控控制器内存泄漏</title>
         <pubTime>2020-06-08T14:41:53.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://liangdahong.com/2016/05/27/iOS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2021-01-24T16:08:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>iOS单元测试入门</title>
-        <pubTime>2016-05-27T15:23:43.000Z</pubTime>
         
         <tag>iOS</tag>
          
@@ -105,6 +85,26 @@
         <display>
         <title>浅谈 iOS 事件的传递和响应过程</title>
         <pubTime>2018-06-08T03:16:11.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="00-技术-iOS" url="https://liangdahong.com/categories/00-%E6%8A%80%E6%9C%AF-iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://liangdahong.com/2016/05/27/---iOS%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2021-01-24T16:08:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS单元测试入门</title>
+        <pubTime>2016-05-27T15:23:43.000Z</pubTime>
         
         <tag>iOS</tag>
          
